@@ -48,7 +48,7 @@ public class HibernateStuff {
     public SessionFactory getSessionFactory() {
         return this.sessionFactory;
     }
-    
+    //lul
     public static HibernateStuff getInstance() {
         return HibernateStuffHolder.INSTANCE;
     }
