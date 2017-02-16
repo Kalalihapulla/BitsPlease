@@ -38,4 +38,33 @@ function validate() {
         }
     }
 }
+function remove(caller) {
+    caller.parent("div").css('visibility', 'hidden');
+    caller.parent("div").html("");
+
+
+}
+$(document).ready(function () {
+    $("button[name='noteButton']").click(function () {
+        var domElement = $("<div id='draggable' class='col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
+                        <span class='glyphicon glyphicon-remove' id='close' onclick='remove($(this))'; return false;'></span>\n\
+                        <textarea class='form-control ui-widget-header' rows='10' id='noteText' placeholder='Insert stuff here'>\n\
+                        </textarea></div>");
+
+        $('#notes').prepend(domElement);
+        $("#draggable").draggable();
+        $("#draggable").resizable({
+            animate: true,
+            maxHeight: 600,
+            minHeight: 170,
+            maxWidth: 458,
+            minWidth: 130,
+            aspectRatio: true
+        });
+    });
+});
+
+
+//  End -->
+
 //  End -->
