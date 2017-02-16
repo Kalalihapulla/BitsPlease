@@ -23,7 +23,7 @@ public class StartupListener implements javax.servlet.ServletContextListener {
         session.beginTransaction();
     
 //  Note note1 = new Note("kerk", Urgency.HIGH);
-//        session.saveOrUpdate(new UserAccount("jebu@lul.com", "kala"));
+       //session.saveOrUpdate(new UserAccount("jebuulululu@lul.com", "kala"));
 //        session.saveOrUpdate(new UserAccount("lulli@lul.com", "rr"));
 // 
 //        session.saveOrUpdate(new AdminAccount("lulu@ulu.com", "password"));

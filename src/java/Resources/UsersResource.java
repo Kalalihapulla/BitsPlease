@@ -6,6 +6,7 @@
 package Resources;
 
 import Util.HibernateStuff;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -17,6 +18,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import javax.json.*;
 import model.UserAccount;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -101,4 +103,17 @@ public class UsersResource {
     //    @Consumes(MediaType.APPLICATION_XML)
     //    public void putXml(String content) {
     //    }
+    @Path("/createuser")
+    @POST
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String createUser(String lul) {
+       
+        JsonObject body = Json.createReader(new StringReader(lul)).readObject();
+        
+
+    return "";
+        //return body.getString("firstName");
+    }
+    
 }
