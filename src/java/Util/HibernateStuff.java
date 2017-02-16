@@ -53,7 +53,7 @@ public class HibernateStuff {
         return HibernateStuffHolder.INSTANCE;
     }
     //Ulu
-    //PogChamp
+    //PogChampaaaaaaaaaaaaaaaaasdasdasdasd
     
     private static class HibernateStuffHolder {
         private static final HibernateStuff INSTANCE = new HibernateStuff();
