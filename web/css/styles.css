@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 13, 2017, 2:33:39 PM
+    Author     : samuelja
+*/
+
+.container {
+    background-image: url("back.jpg");
+    background-repeat: no-repeat;
+    padding-top:150px !important;
+
+
+}
+
+.note-input{
+    margin-top:0px !important;
+    padding-top: 0px !important;
+}
+
+a {
+    font-family: 'Dosis';
+    font-size:1.5em;
+    color: whitesmoke;
+}
+
+h1 {
+    alignment-adjust: 50%;
+    font-size: 8em;
+    color: PapayaWhip;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-family: 'Aldrich';
+    font-weight: bold;
+}
+h3 {
+    color: papayawhip;
+}
+h4 {
+    color: papayawhip;
+}
+#loggedIn {
+    font-family: 'Dosis';
+    font-size:1.5em;
+    color: whitesmoke;
+    float: left;
+    padding-right: 1em;
+}
+#login {
+    padding-top: 1em;
+    width: 50%;
+}
+
+
+
+
+
