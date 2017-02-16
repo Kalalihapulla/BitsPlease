@@ -52,6 +52,7 @@ public class HibernateStuff {
     public static HibernateStuff getInstance() {
         return HibernateStuffHolder.INSTANCE;
     }
+    //Ulu
     
     private static class HibernateStuffHolder {
         private static final HibernateStuff INSTANCE = new HibernateStuff();
