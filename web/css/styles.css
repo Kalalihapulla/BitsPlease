@@ -6,25 +6,15 @@ and open the template in the editor.
 /* 
     Created on : Feb 13, 2017, 2:33:39 PM
     Author     : samuelja
-*/
-
-.container {
-    background-image: url("back.jpg");
-    background-repeat: no-repeat;
-    padding-top:150px !important;
-
-
-}
-
-.note-input{
+*/.note-input{
     margin-top:0px !important;
     padding-top: 0px !important;
 }
 
 a {
-    font-family: 'Dosis';
-    font-size:1.5em;
-    color: whitesmoke;
+    font-family: 'Aldrich';
+    font-size:1em;
+    color: papayawhip;
 }
 
 h1 {
@@ -37,12 +27,29 @@ h1 {
 }
 h3 {
     color: papayawhip;
+    font-family: 'Raleway';
 }
 h4 {
     color: papayawhip;
 }
+li {
+    color: papayawhip;
+}
+p {
+    color: papayawhip;
+}
+
+body {
+    font-family: 'Raleway';
+    background-image: url("back.jpg");
+    background-repeat: repeat;
+    color: papayawhip;
+}
+#about {
+    background-color: transparent;
+}
 #loggedIn {
-    font-family: 'Dosis';
+    font-family: 'Aldrich';
     font-size:1.5em;
     color: whitesmoke;
     float: left;
@@ -51,6 +58,104 @@ h4 {
 #login {
     padding-top: 1em;
     width: 50%;
+}
+#main {
+
+    margin: auto;
+    background-size: cover !important;
+    background-position: center;
+    padding-top:80px;
+}
+
+#addNote {position: absolute; width: 30px; height: 30px; padding-top: 7em; padding-left: 2em;}
+
+#noteText { background-color:transparent !important; border:none !important; margin-top: 18%; word-wrap: break-word; width: 100%; height: 75%; resize: none;}
+
+#dashboard {
+    alignment-adjust: 50%;
+    font-size: 4em;
+    color: PapayaWhip;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-family: 'Aldrich';
+    font-weight: bold;
+}
+#close {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+}
+
+#close:hover {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+    color:#fff;
+    cursor: pointer;
+}
+
+#notes {
+    margin: auto;
+    width: 50%;
+}
+
+footer {
+    position:absolute;
+    text-align:center;
+    bottom:0;
+    width:100%;
+    font-size:0.7em;
+    height:18px;
+    cursor:default;
+    color:#fff;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent;}
+.ui-draggable-helper { border: 1px dotted gray; }
+
+#remember {
+    color: papayawhip;
+}
+#accordion {
+    font-family: 'Raleway';
+    color: papayawhip;
+    border-radius: 50px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 

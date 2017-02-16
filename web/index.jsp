@@ -59,7 +59,7 @@
                         </form>
                     </c:if>
                     <c:if test="${empty loggedInUser}">
-                        <form class='navbar-form navbar-right' method='post' onSubmit='return validatePass()' action='login' >
+                        <form class='navbar-form navbar-right' method='post' action='login' >
                             <div class='form-group'>
                                 <input class='form-control note-input' placeholder='Email' type='email' name='email' />
                             </div>
