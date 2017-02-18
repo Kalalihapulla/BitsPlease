@@ -7,6 +7,7 @@ package model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -14,6 +15,7 @@ import javax.persistence.Entity;
  */
 @Entity  
 @DiscriminatorValue("adminuser")  
+@XmlRootElement
 public class AdminAccount extends UserAccount {
 
     public AdminAccount() {

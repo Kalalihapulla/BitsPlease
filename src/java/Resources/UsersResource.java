@@ -104,8 +104,8 @@ public class UsersResource {
     //    public void putXml(String content) {
     //    }
     @Path("/createuser")
-    @POST
-    @Consumes(MediaType.TEXT_PLAIN)
+    @GET
+   // @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
     public String createUser(String lul) {
        

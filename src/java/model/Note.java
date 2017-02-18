@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -21,6 +22,7 @@ import javax.xml.bind.annotation.XmlElement;
  */
 @Entity
 //@Table(name = "notebase")
+@XmlRootElement
 public class Note implements Serializable, Comparable<Note> {
 
     private Long id;
