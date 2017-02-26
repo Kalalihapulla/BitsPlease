@@ -49,6 +49,7 @@
                         <li><a href='about.jsp'>About</a></li>
                         <li><a href='signup.jsp'>Sign Up!</a></li>
                         <li><a href='dashboard.jsp'>Dashboard</a></li>
+                        <li><a href='userDash.jsp'>User dashboard</a></li>
                     </ul><c:if test="${not empty loggedInUser}">
                         <form class='navbar-form navbar-right' method='post' action='login' >
                             <p id='loggedIn'>Welcome ${loggedInUser}</p>
