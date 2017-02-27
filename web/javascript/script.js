@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+
+
 $(document).ready(resize);
 $(window).resize(resize);
 function resize() {
@@ -44,7 +46,16 @@ function remove(caller) {
 
 
 }
+
+
+
+
+
 $(document).ready(function () {
+
+
+
+
     $("button[name='noteButton']").click(function () {
         var domElement = $("<div id='draggable' class='col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
                         <span class='glyphicon glyphicon-remove' id='close' onclick='remove($(this))'; return false;'></span>\n\
@@ -62,7 +73,53 @@ $(document).ready(function () {
             aspectRatio: true
         });
     });
+
+
+
+    $("#sortable1").sortable({
+        //    items: "li:not(.ui-state-disabled)" 
+        connectWith: "#sortable2"
+
+    });
+
+    $("#sortable2").sortable({
+        // cancel: ".ui-state-disabled"
+        connectWith: "#sortable1"
+    });
+
+    $("#sortable1, #sortable2").disableSelection();
+
+
+
+
+
+    $("#addTask").click(function () {
+
+
+        $("#sortable1").append('<div class="ui-state-default task"> ADD TEST <img id="taskInfo" src="questionmark.png"></div>');
+        
+
+    });
+
+
+    $("#taskInfo").click(function () {
+
+        $("infoBox").show(1000);
+        $("infoBox").append('TEST TEST TEST');
+        alert("aasdasd");
+
+    });
+
+    $(document).load(function () {
+        $("infoBox").hide();
+    });
+
+
+
 });
+
+
+
 
 
 //  End -->
