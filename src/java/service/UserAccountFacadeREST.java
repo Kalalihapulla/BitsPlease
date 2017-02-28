@@ -60,7 +60,7 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
+    @Produces({MediaType.APPLICATION_XML})
     public UserAccount find(@PathParam("id") Long id) {
         SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
@@ -69,7 +69,7 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         UserAccount userAccount
                 = (UserAccount) session.get(UserAccount.class, id);
         UserAccount us = new UserAccount("fffhhh", "fff");
-        return us;
+        return userAccount;
     }
 
     @GET

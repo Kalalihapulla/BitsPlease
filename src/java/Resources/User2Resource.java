@@ -5,6 +5,7 @@
  */
 package Resources;
 
+import Util.HibernateStuff;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -14,6 +15,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import model.UserAccount;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * REST Web Service
@@ -38,10 +41,21 @@ public class User2Resource {
      * @return an instance of java.lang.String
      */
     @GET
+    
     @Produces(MediaType.APPLICATION_XML)
     public UserAccount getXml() {
+         SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+
+        Long id = 1L;
+
+        UserAccount userAccount
+                = (UserAccount) session.get(UserAccount.class, id);
+
+        return userAccount;
         //TODO return proper representation object
-        return new UserAccount("dd", "dd");
+        //return new UserAccount("dd", "dd");
     }
 
     /**
