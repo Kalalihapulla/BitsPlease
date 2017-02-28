@@ -86,7 +86,7 @@ public class UserAccount implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-     @XmlElement
+     @XmlElement(name = "note")
     @OneToMany(targetEntity = Note.class,
             cascade = CascadeType.ALL)
     public List<Note> getNotes() {

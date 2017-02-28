@@ -16,6 +16,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import service.UserAccountFacadeREST;
 
 /**
  *
@@ -25,6 +26,47 @@ public class Test {
 
     public static void main(String[] args) {
 
+//        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
+//        accountFacadeREST.findAll();
+
+//        Criteria criteria = session.createCriteria(UserAccount.class);
+//        criteria.setMaxResults(5);
+//        List users = criteria.list();
+//
+//        users.forEach((user1) -> {
+//            UserAccount user1 = (UserAccount) user1;
+//            System.out.println(user1.getEmail());
+//        });
+//        String lul = "2";
+//        Long ulu = Long.parseLong(lul);
+//        updateUser(ulu, "lonhlhh");
+//        UsersResource resource = new UsersResource();
+//        System.out.println(resource.getOneUser());
+    }
+
+    public static void updatePassword(Long UserAccountID, String password) {
+        SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            UserAccount userAccount
+                    = (UserAccount) session.get(UserAccount.class, UserAccountID);
+            userAccount.setPassword(password);
+            session.update(userAccount);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
+    public static void populate() {
         Note note1 = new Note();
         Note note2 = new Note("lil", Urgency.HIGH);
         Note note3 = new Note();
@@ -60,42 +102,6 @@ public class Test {
         session.saveOrUpdate(user);
         session.saveOrUpdate(aduser);
         session.getTransaction().commit();
-
-//        Criteria criteria = session.createCriteria(UserAccount.class);
-//        criteria.setMaxResults(5);
-//        List users = criteria.list();
-//
-//        users.forEach((user1) -> {
-//            UserAccount user1 = (UserAccount) user1;
-//            System.out.println(user1.getEmail());
-//        });
-//        String lul = "2";
-//        Long ulu = Long.parseLong(lul);
-//        updateUser(ulu, "lonhlhh");
-//        UsersResource resource = new UsersResource();
-//        System.out.println(resource.getOneUser());
-    }
-
-    public static void updateUser(Long UserAccountID, String password) {
-        SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
-        Session session
-                = sessionFactory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            UserAccount userAccount
-                    = (UserAccount) session.get(UserAccount.class, UserAccountID);
-            userAccount.setPassword(password);
-            session.update(userAccount);
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-
-        }
     }
 
 }

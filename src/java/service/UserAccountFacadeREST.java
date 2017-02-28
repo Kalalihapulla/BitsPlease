@@ -6,6 +6,7 @@
 package service;
 
 import Util.HibernateStuff;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.UserAccount;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -30,6 +32,8 @@ import org.hibernate.SessionFactory;
 @Stateless
 @Path("model.useraccount")
 public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
+
+    private SessionFactory sessionFactory;
 
     @PersistenceContext(unitName = "ProjectTestUDPU")
     private EntityManager em;
@@ -42,7 +46,12 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(UserAccount entity) {
-        super.create(entity);
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(entity);
+        session.getTransaction().commit();
     }
 
     @PUT
@@ -62,13 +71,13 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML})
     public UserAccount find(@PathParam("id") Long id) {
-        SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
 
         UserAccount userAccount
                 = (UserAccount) session.get(UserAccount.class, id);
-        UserAccount us = new UserAccount("fffhhh", "fff");
+
         return userAccount;
     }
 
@@ -76,7 +85,22 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<UserAccount> findAll() {
-        return super.findAll();
+
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Criteria criteria = session.createCriteria(UserAccount.class);
+        criteria.setMaxResults(7);
+        List users = criteria.list();
+        List<UserAccount> allusers = new ArrayList();
+        users.forEach((user) -> {
+            UserAccount user1 = (UserAccount) user;
+            allusers.add(user1);
+
+        });
+        System.out.println(allusers);
+        return allusers;
+
     }
 
     @GET
