@@ -85,7 +85,6 @@ public class Note implements Serializable, Comparable<Note> {
         this.timeCreated = timeCreated;
     }
 
-    @XmlElement
 
     public Urgency searchUrgency() {
         return urgency;
