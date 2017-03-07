@@ -11,10 +11,10 @@ and open the template in the editor.
     padding-top: 0px !important;
 }
 
-a {
-    font-family: 'Aldrich';
-    font-size:1em;
-    color: papayawhip;
+body {
+  background-image: url("back.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -22,7 +22,6 @@ h1 {
     font-size: 8em;
     color: PapayaWhip;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-family: 'Aldrich';
     font-weight: bold;
 }
 
@@ -31,34 +30,13 @@ h2 {
     font-size: 2.5em;
     color: PapayaWhip;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-family: 'Aldrich';
     font-weight: bold;
 }
-h3 {
-    color: papayawhip;
-    font-family: 'Raleway';
-}
-h4 {
-    color: papayawhip;
-}
-li {
-    color: papayawhip;
-}
-p {
-    color: papayawhip;
-}
 
-body {
-    font-family: 'Raleway';
-    background-image: url("back.jpg");
-    background-repeat: repeat;
-    color: papayawhip;
-}
 #about {
     background-color: transparent;
 }
 #loggedIn {
-    font-family: 'Aldrich';
     font-size:1.5em;
     color: whitesmoke;
     float: left;
@@ -69,7 +47,7 @@ body {
     width: 50%;
 }
 #main {
-
+    
     margin: auto;
     background-size: cover !important;
     background-position: center;
@@ -83,9 +61,7 @@ body {
 #dashboard {
     alignment-adjust: 50%;
     font-size: 4em;
-    color: PapayaWhip;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-family: 'Aldrich';
     font-weight: bold;
 }
 #close {
@@ -161,7 +137,6 @@ footer {
     color: papayawhip;
 }
 #accordion {
-    font-family: 'Raleway';
     color: papayawhip;
     border-radius: 50px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
@@ -178,7 +153,8 @@ footer {
     min-width:0x; 
     width: 48%; 
     min-height:0x; 
-    height: 100%; 
+    height: 100%;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -223,6 +199,19 @@ footer {
     height: 50%; 
 }
 
+.placeholder {
+    border: 1px solid green;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 10px #888;
+    -moz-box-shadow: 0px 0px 10px #888;
+    box-shadow: 0px 0px 10px #888;
+}
+.tile {
+    height: 100px;
+}
+.grid {
+    margin-top: 1em;
+}
 
 
 

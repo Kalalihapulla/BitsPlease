@@ -14,6 +14,10 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+                <script src="vendor/jquery/jquery.js"></script>
+
+        <!-- Theme JavaScript -->
+        <script src="js/grayscale.min.js"></script>
 
         <link rel="stylesheet"
               href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
@@ -31,6 +35,14 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="jquery-3.1.1.min.js"></script>
         <script src="javascript/script.js"></script>
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+        <!-- Theme CSS -->
+        <link href="css/grayscale.min.css" rel="stylesheet">
+        
+        
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <script>
             $(function () {
@@ -40,36 +52,37 @@
 
 
     </head>
-    <body data-spy='scroll' data-target='.navbar-collapse'>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 
-        <div class='navbar navbar-default navbar-fixed-top navbar-inverse bg-inverse'>
-            <div class='container-fluid'>
-                <div class='navbar-header'>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a href='index.jsp' class='navbar-brand'>Bits Please</a>
+                    <a class="navbar-brand page-scroll" href="index.jsp">
+                        <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
+                    </a>
                 </div>
-                <div class='collapse navbar-collapse'>
-                    <ul class='nav navbar-nav'>
-                        <li><a href='about.jsp'>About</a></li>
-                            <c:if test="${empty loggedInUser}">
-                            <li><a href='signup.jsp'>Sign Up!</a></li>
-                            </c:if>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <c:if test="${empty loggedInUser}">
+                            <li><a href='signup.jsp'>Sign Up</a></li>
+                        </c:if>
                         <li><a href='dashboard.jsp'>Dashboard</a></li>
                         <li><a href='userDash.jsp'>User dashboard</a></li>
-                    </ul><c:if test="${not empty loggedInUser}">
+                    </ul>
+                    <c:if test="${not empty loggedInUser}">
                         <form class='navbar-form navbar-right' method='post' action='login' >
                             <p id='loggedIn'>Welcome ${loggedInUser}</p>
                             <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
                         </form>
                     </c:if>
                     <c:if test="${empty loggedInUser}">
-                        <form class='navbar-form navbar-right' method='post' action='login' >
+                        <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
                             <div class='form-group'>
                                 <input class='form-control note-input' placeholder='Email' type='email' name='email' />
                             </div>
@@ -79,10 +92,10 @@
                             <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
                         </form>
                     </c:if>
-
                 </div>
-            </div>
-        </div>
+                <!-- /.navbar-collapse -->
+            <!-- /.container -->
+        </nav>
 
         <div class='container' id='main'>
             <div class='row index-row' id='info'>
@@ -102,12 +115,10 @@
             </div>
 
 
-
-
             <div>
 
 
-                <div id="sortable1" class="taskBox">
+                <div id="sortable1" class="taskBox row grid span8">
 
                     <div class="ui-state-default ui-state-disabled task">
                         Go and fill some shelves you fool! <img id="taskInfo" src="questionmark.png">
@@ -122,7 +133,7 @@
 
 
 
-                <div id="sortable2" class="taskBox">>
+                <div id="sortable2" class="taskBox row grid span8">>
 
                     <div class="ui-state-default task">
                         TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST <img id="taskInfo" src="questionmark.png">           
@@ -137,14 +148,11 @@
 
             </div>
             
-            
-            <div id="infoBox">
-            </div>
+
             
             </div>
 
 
-        <footer class='text-center'>©  Bits Please</footer>
 
 
 
