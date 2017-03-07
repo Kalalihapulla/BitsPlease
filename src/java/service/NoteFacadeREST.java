@@ -7,6 +7,7 @@ package service;
 
 import Util.HibernateStuff;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -85,7 +86,7 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
             allnotes.add(note1);
 
         });
- 
+        Collections.sort(allnotes);
         return allnotes;
     }
 

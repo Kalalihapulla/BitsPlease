@@ -47,7 +47,7 @@ function remove(caller) {
 
 }
 function add(caller) {
-    
+
 }
 
 
@@ -61,6 +61,15 @@ $(document).ready(function () {
 
     $("#noteButton").click(function () {
         var domElement = $("<div id='draggable' class='col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
+                         <form><div style= 'padding:1px; margin-left: 1.2em; border:1px solid red;float:left; border-radius: 50px'>\n\
+                         <input type='radio' name='optradio'>\n\
+                         </div>\n\
+                         <div style='padding:1px;border:1px solid blue;float:left; border-radius: 50px'>\n\
+                         <input type='radio' name='optradio'>\n\
+                         </div>\n\
+                         <div style='padding:1px;border:1px solid green;float:left; border-radius: 50px'>\n\
+                         <input type='radio' name='optradio'>\n\
+                         </div></form>\n\
                         <span class='glyphicon glyphicon-remove' id='close' onclick='remove($(this))'; return false;'></span>\n\
                         <span class='glyphicon glyphicon-ok' id='taskaddd' onclick='add($(this))'; return false;'></span>\n\
                         <textarea class='form-control ui-widget-header' rows='10' id='noteText' placeholder='Insert stuff here'>\n\
@@ -99,9 +108,35 @@ $(document).ready(function () {
 
     $("#addTask").click(function () {
 
+        jQuery.ajax({
+            url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
+            type: "GET",
+            contentType: 'application/xml; charset=utf-8',
+            success: function (resultData) {
+                var x = resultData.getElementsByTagName("description");
+                txt = "";
+                value = "";
+                for (i = 0; i < x.length; i++) {
+                    value = x[i].childNodes[0].nodeValue;
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                     $("#sortable1").append('<div class="ui-state-default task"> '+value+' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
+                }
+                alert(txt);
+                document.getElementById("infoBox").innerHTML = txt;
+               
 
-        $("#sortable1").append('<div class="ui-state-default task"> ADD TEST <img id="taskInfo" src="questionmark.png"></div>');
-        
+                //here is your json.
+                // process it
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("ll");
+            },
+            timeout: 120000
+        });
+
+
+       
 
     });
 

@@ -28,7 +28,7 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-                <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
 
@@ -36,47 +36,47 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                        Menu <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="index.jsp">
-                        <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
-                    </a>
-                </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.jsp">
+                    <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
+                </a>
+            </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
-                    <ul class="nav navbar-nav">
-                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                        <c:if test="${empty loggedInUser}">
-                            <li><a href='signup.jsp'>Sign Up</a></li>
-                        </c:if>
-                        <li><a href='dashboard.jsp'>Dashboard</a></li>
-                        <li><a href='userDash.jsp'>User dashboard</a></li>
-                    </ul>
-                    <c:if test="${not empty loggedInUser}">
-                        <form class='navbar-form navbar-right' method='post' action='login' >
-                            <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
-                        </form>
-                        <form class='navbar-form navbar-right' method='post' action='profile.jsp' >
-                            <button class='form-control btn btn-info note-input' onClick="location.href = 'profile.jsp';" name='profile'>Profile</button>
-                        </form>
-                        
-                    </c:if>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <c:if test="${empty loggedInUser}">
-                        <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
-                            <div class='form-group'>
-                                <input class='form-control note-input' placeholder='Email' type='email' name='email' />
-                            </div>
-                            <div class='form-group'>
-                                <input class='form-control note-input' placeholder='Password' type='password' name='pass' />
-                            </div>
-                            <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
-                        </form>
-                    </c:if>
-                </div>
-                <!-- /.navbar-collapse -->
+                        <li><a href='signup.jsp'>Sign Up</a></li>
+                        </c:if>
+                    <li><a href='dashboard.jsp'>Dashboard</a></li>
+                    <li><a href='userDash.jsp'>User dashboard</a></li>
+                </ul>
+                <c:if test="${not empty loggedInUser}">
+                    <form class='navbar-form navbar-right' method='post' action='login' >
+                        <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
+                    </form>
+                    <form class='navbar-form navbar-right' method='post' action='profile.jsp' >
+                        <button class='form-control btn btn-info note-input' onClick="location.href = 'profile.jsp';" name='profile'>Profile</button>
+                    </form>
+
+                </c:if>
+                <c:if test="${empty loggedInUser}">
+                    <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
+                        <div class='form-group'>
+                            <input class='form-control note-input' placeholder='Email' type='email' name='email' />
+                        </div>
+                        <div class='form-group'>
+                            <input class='form-control note-input' placeholder='Password' type='password' name='pass' />
+                        </div>
+                        <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
+                    </form>
+                </c:if>
+            </div>
+            <!-- /.navbar-collapse -->
             <!-- /.container -->
         </nav>
 
@@ -99,33 +99,35 @@
 
         <!-- About Section -->
         <section id="about" class="container content-section text-center">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div>
-                <h3>Bits</h3>
-                <div id='about'>
-                    <p>
-                        Bits Please is a school project trying to provide small companies efficient methods of managing tasks and instant messaging. Please sign up!
-                    </p>
-                </div>
-                <h3>Technical Details</h3>
-                <div id='about'>
-                    <p>
-                        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                        suscipit faucibus urna.
-                    </p>
-                </div>
-                <h3>Developers</h3>
-                <div id='about'>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div>
+                    <h3>Bits</h3>
+                    <div id='about'>
+                        <p>
+                            Bits Please is a school project trying to provide small companies efficient methods of managing tasks and instant messaging. Please sign up!
+                        </p>
+                    </div>
+                    <h3>Technical Details</h3>
+                    <div id='about'>
+                        <p>
+                            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+                            purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+                            velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+                            suscipit faucibus urna.
+                        </p>
+                    </div>
+                    <h3>Developers</h3>
+                    
+                    <div id='about'>
                         <p>Samuel Jaantila
                         <p>Jere Raassina
                         <p>Joachim Grönberg
                         <p>Himel Rahman
+                    </div>
                 </div>
-                </div>
-            </div>
+            </div> 
         </section>
+        
 
         <!-- Download Section -->
         <section id="download" class="content-section text-center">

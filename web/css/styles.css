@@ -40,7 +40,7 @@ body {
 
 #addNote {position: absolute; width: 30px; height: 30px; padding-top: 7em; padding-left: 2em;}
 
-#noteText { background-color:transparent !important; border:none !important; margin-top: 18%; word-wrap: break-word; width: 100%; height: 75%; resize: none;}
+#noteText { background-color:transparent !important; border:none !important; margin-top: 12%; word-wrap: break-word; width: 100%; height: 75%; resize: none;}
 
 #dashboard {
     alignment-adjust: 50%;
@@ -198,6 +198,10 @@ footer {
     width: 60%; 
     min-height:0x; 
     height: 50%; 
+}
+
+#prio {
+    float:top;
 }
 
 .placeholder {
