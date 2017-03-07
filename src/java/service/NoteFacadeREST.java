@@ -5,6 +5,8 @@
  */
 package service;
 
+import Util.HibernateStuff;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,6 +21,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Note;
+import model.UserAccount;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -27,6 +33,7 @@ import model.Note;
 @Stateless
 @Path("model.note")
 public class NoteFacadeREST extends AbstractFacade<Note> {
+        private SessionFactory sessionFactory;
 
     @PersistenceContext(unitName = "ProjectTestUDPU")
     private EntityManager em;
@@ -66,7 +73,20 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Note> findAll() {
-        return super.findAll();
+    
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Criteria criteria = session.createCriteria(Note.class);
+        List notes = criteria.list();
+        List<Note> allnotes = new ArrayList();
+        notes.forEach((note) -> {
+            Note note1 = (Note) note;
+            allnotes.add(note1);
+
+        });
+ 
+        return allnotes;
     }
 
     @GET

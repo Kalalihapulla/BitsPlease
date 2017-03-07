@@ -27,7 +27,7 @@ public class Note implements Serializable, Comparable<Note> {
 
     private Long id;
     private String description;
-    private String status;
+    private Status status;
     private String timeCreated;
     private Urgency urgency;
 
@@ -39,7 +39,7 @@ public class Note implements Serializable, Comparable<Note> {
         this.timeCreated = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date());
         this.urgency = urgency;
         this.id = 0L;
-        this.status = Status.STATUS_APPROVED.toString();
+        this.status = Status.STATUS_APPROVED;
         this.description = description;
 
     }
@@ -67,11 +67,11 @@ public class Note implements Serializable, Comparable<Note> {
 
     @XmlElement
     @Basic
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -85,8 +85,9 @@ public class Note implements Serializable, Comparable<Note> {
         this.timeCreated = timeCreated;
     }
 
-
-    public Urgency searchUrgency() {
+    @XmlElement
+    @Basic
+    public Urgency getUrgency() {
         return urgency;
     }
 
@@ -96,9 +97,9 @@ public class Note implements Serializable, Comparable<Note> {
 
     @Override
     public int compareTo(Note t) {
-        if (this.urgency.returnValue() == t.searchUrgency().returnValue()) {
+        if (this.urgency.returnValue() == t.getUrgency().returnValue()) {
             return 0;
-        } else if (this.urgency.returnValue() > t.searchUrgency().returnValue()) {
+        } else if (this.urgency.returnValue() > t.getUrgency().returnValue()) {
             return 1;
         } else {
             return -1;
