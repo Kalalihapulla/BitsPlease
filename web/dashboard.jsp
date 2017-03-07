@@ -95,6 +95,7 @@
 
         <div id='addNote'>
         <button type="button" class="btn btn-primary btn-lg" id='noteButton' name='noteButton'>+</button>
+        <button type="button" class="btn btn-primary btn-lg" id='createButton' name='createButton'>+</button>
         </div>
 
 
