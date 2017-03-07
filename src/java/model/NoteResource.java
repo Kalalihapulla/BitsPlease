@@ -39,7 +39,7 @@ public class NoteResource {
     @Produces(MediaType.APPLICATION_XML)
     public Note getText() {
         //TODO return proper representation object
-        return new Note("lul", Urgency.HIGH);
+        return new Note("lul",0);
     }
 
     /**

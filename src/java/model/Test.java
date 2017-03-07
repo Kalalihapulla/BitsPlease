@@ -70,9 +70,9 @@ public class Test {
 
     public static void populate() {
         Note note1 = new Note();
-        Note note2 = new Note("lil", Urgency.HIGH);
+        Note note2 = new Note("lil", 2);
         Note note3 = new Note();
-        Note note4 = new Note("hello", Urgency.MEDIUM);
+        Note note4 = new Note("hello", 1);
 
         ArrayList<Note> notes = new ArrayList<>();
         ArrayList<Note> notes2 = new ArrayList<>();
@@ -91,13 +91,13 @@ public class Test {
         Session session
                 = sessionFactory.openSession();
         session.beginTransaction();
-        Note note12 = new Note("kerk", Urgency.HIGH);
+        Note note12 = new Note("kerk", 1);
         notes2.add(note12);
         user.setNotes(notes);
         aduser.setNotes(notes2);
         session.saveOrUpdate(note12);
         session.saveOrUpdate(note1);
-        session.saveOrUpdate(new Note("left", Urgency.MEDIUM));
+        session.saveOrUpdate(new Note("left", 2));
         session.saveOrUpdate(note2);
         session.saveOrUpdate(note3);
 

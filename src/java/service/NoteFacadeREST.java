@@ -22,10 +22,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Note;
+import model.Status;
 import model.UserAccount;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -34,7 +37,8 @@ import org.hibernate.SessionFactory;
 @Stateless
 @Path("model.note")
 public class NoteFacadeREST extends AbstractFacade<Note> {
-        private SessionFactory sessionFactory;
+
+    private SessionFactory sessionFactory;
 
     @PersistenceContext(unitName = "ProjectTestUDPU")
     private EntityManager em;
@@ -47,14 +51,41 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(Note entity) {
-        super.create(entity);
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        session.beginTransaction();
+
+        session.saveOrUpdate(entity);
+        session.getTransaction().commit();
+
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Note entity) {
-        super.edit(entity);
+    @Consumes({MediaType.TEXT_PLAIN})
+    public void editStatus(@PathParam("id") Long id, String status) {
+        SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Note note
+                    = (Note) session.get(Note.class, id);
+
+            note.setStatus(strtost(status));
+            session.update(note);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+
+        }
+
     }
 
     @DELETE
@@ -74,7 +105,7 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Note> findAll() {
-    
+
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
@@ -108,5 +139,23 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+
+    public static Status strtost(String status) {
+        if (status.equals("STATUS_APPROVED")) {
+            return Status.STATUS_APPROVED;
+
+        }
+        if (status.equals("STATUS_PROCESSING")) {
+            return Status.STATUS_PROCESSING;
+
+        }
+        if (status.equals("STATUS_DONE")) {
+            return Status.STATUS_DONE;
+
+        }
+
+        return null;
+
+    }
+
 }
