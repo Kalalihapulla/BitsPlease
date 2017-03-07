@@ -17,22 +17,6 @@ body {
   background-attachment: fixed;
 }
 
-h1 {
-    alignment-adjust: 50%;
-    font-size: 8em;
-    color: PapayaWhip;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-weight: bold;
-}
-
-h2 {
-    alignment-adjust: 50%;
-    font-size: 2.5em;
-    color: PapayaWhip;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-weight: bold;
-}
-
 #about {
     background-color: transparent;
 }
@@ -144,12 +128,13 @@ footer {
 
 .taskBox {
     
-    background-color: papayawhip;
+    background-color: white;
     float: left;
     margin: 1% 1% 1% 1%;
     padding: 1em 1em 1em 1em;
     border-radius: 5px;
     border: 1px solid;
+    border-color: black;
     min-width:0x; 
     width: 48%; 
     min-height:0x; 

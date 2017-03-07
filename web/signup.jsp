@@ -30,6 +30,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <script src="jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="javascript/script.js"></script>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
