@@ -110,7 +110,7 @@
 
 
             <div id="addTask">
-                CLICK ME
+                REFRESH
             </div>
 
 

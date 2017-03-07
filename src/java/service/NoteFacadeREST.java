@@ -65,7 +65,7 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     @Path("{id}")
     @Consumes({MediaType.TEXT_PLAIN})
     public void editStatus(@PathParam("id") Long id, String status) {
-        SessionFactory sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
         Transaction tx = null;
@@ -91,14 +91,29 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
-        super.remove(super.find(id));
+       this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Transaction tx = null;
+
+        tx = session.beginTransaction();
+        session.delete(find(id));
+      
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Note find(@PathParam("id") Long id) {
-        return super.find(id);
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Transaction tx = null;
+
+        tx = session.beginTransaction();
+        Note note
+                = (Note) session.get(Note.class, id);
+        return note;
     }
 
     @GET

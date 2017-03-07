@@ -50,13 +50,59 @@ function add(caller) {
 
 }
 
+function noteset() {
+    $(".task").remove();
+    jQuery.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
+        type: "GET",
+        contentType: 'application/xml; charset=utf-8',
+        success: function (resultData) {
+            var desc = resultData.getElementsByTagName("description");
+            var urgency = resultData.getElementsByTagName("urgency");
+            var time = resultData.getElementsByTagName("timeCreated");
 
+            descT = "";
+            urgencyT = "";
+            timeT = "";
+
+            for (i = 0; i < desc.length; i++) {
+                descT = "Task: " + desc[i].childNodes[0].nodeValue;
+                urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
+                timeT = "Created: " + time[i].childNodes[0].nodeValue;
+                //txt += x[i].childNodes[0].nodeValue + "<br>";
+                if (urgency[i].childNodes[0].nodeValue === "0") {
+                    $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
+
+                }
+                if (urgency[i].childNodes[0].nodeValue === "1") {
+                    $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
+
+                }
+                if (urgency[i].childNodes[0].nodeValue === "2") {
+                    $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
+
+
+ 
+               }
+
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+        },
+        timeout: 120000
+    });
+}
 
 
 
 $(document).ready(function () {
 
-
+    noteset();
+    $("#addTask").click(function () {
+        noteset();
+    });
 
 
     $("#noteButton").click(function () {
@@ -106,39 +152,13 @@ $(document).ready(function () {
 
 
 
-    $("#addTask").click(function () {
-
-        jQuery.ajax({
-            url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
-            type: "GET",
-            contentType: 'application/xml; charset=utf-8',
-            success: function (resultData) {
-                var x = resultData.getElementsByTagName("description");
-                txt = "";
-                value = "";
-                for (i = 0; i < x.length; i++) {
-                    value = x[i].childNodes[0].nodeValue;
-                    txt += x[i].childNodes[0].nodeValue + "<br>";
-                     $("#sortable1").append('<div class="ui-state-default task"> '+value+' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
-                }
-                alert(txt);
-                document.getElementById("infoBox").innerHTML = txt;
-               
-
-                //here is your json.
-                // process it
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("ll");
-            },
-            timeout: 120000
-        });
 
 
-       
 
-    });
+
+
+
+
 
 
     $("#taskInfo").click(function () {
