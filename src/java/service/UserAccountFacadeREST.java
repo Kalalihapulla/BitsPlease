@@ -43,7 +43,7 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     }
 
     @POST
-    @Override
+    @Override           
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(UserAccount entity) {
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();

@@ -25,6 +25,8 @@ import service.UserAccountFacadeREST;
 public class Test {
 
     public static void main(String[] args) {
+        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
+        accountFacadeREST.create(new UserAccount());
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
