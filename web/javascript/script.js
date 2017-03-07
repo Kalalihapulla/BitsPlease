@@ -46,9 +46,11 @@ function remove(caller) {
 
 
 }
+
 function add(caller) {
 
 }
+
 
 function noteset() {
     $(".task").remove();
@@ -73,17 +75,21 @@ function noteset() {
                 if (urgency[i].childNodes[0].nodeValue === "0") {
                     $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
 
+
+
                 }
                 if (urgency[i].childNodes[0].nodeValue === "1") {
                     $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
+
+
 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "2") {
                     $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
 
 
- 
-               }
+
+                }
 
             }
 
@@ -94,6 +100,26 @@ function noteset() {
         timeout: 120000
     });
 }
+function createNote() {
+
+ 
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
+        data: "<note><description>jejejeje</description><urgency>2</urgency></note>",
+        type: 'POST',
+        contentType: "application/xml",
+        dataType: "application/xml",
+        
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+        }
+    });
+
+
+
+
+}
 
 
 
@@ -101,7 +127,9 @@ $(document).ready(function () {
 
     noteset();
     $("#addTask").click(function () {
+        createNote();
         noteset();
+
     });
 
 
