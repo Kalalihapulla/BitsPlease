@@ -57,9 +57,12 @@
                     </ul>
                     <c:if test="${not empty loggedInUser}">
                         <form class='navbar-form navbar-right' method='post' action='login' >
-                            <p id='loggedIn'>Welcome ${loggedInUser}</p>
                             <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
                         </form>
+                        <form class='navbar-form navbar-right' method='post' action='profile.jsp' >
+                            <button class='form-control btn btn-info note-input' onClick="location.href = 'profile.jsp';" name='profile'>Profile</button>
+                        </form>
+                        
                     </c:if>
                     <c:if test="${empty loggedInUser}">
                         <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >

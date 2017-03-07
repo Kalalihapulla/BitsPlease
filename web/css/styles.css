@@ -49,10 +49,26 @@ body {
     font-weight: bold;
 }
 #close {
+    float: right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+}
+
+#taskaddd {
+    float: right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+}
+
+#taskaddd:hover {
     float:right;
     display:inline-block;
     padding:2px 5px;
     background:#ccc;
+    color:#fff;
+    cursor: pointer;
 }
 
 #close:hover {

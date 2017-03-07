@@ -46,6 +46,9 @@ function remove(caller) {
 
 
 }
+function add(caller) {
+    
+}
 
 
 
@@ -59,6 +62,7 @@ $(document).ready(function () {
     $("#noteButton").click(function () {
         var domElement = $("<div id='draggable' class='col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
                         <span class='glyphicon glyphicon-remove' id='close' onclick='remove($(this))'; return false;'></span>\n\
+                        <span class='glyphicon glyphicon-ok' id='taskaddd' onclick='add($(this))'; return false;'></span>\n\
                         <textarea class='form-control ui-widget-header' rows='10' id='noteText' placeholder='Insert stuff here'>\n\
                         </textarea></div>");
 
