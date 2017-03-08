@@ -53,10 +53,12 @@
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
+                    <c:if test="${not empty loggedInUser}">
                     <li><a href='userDash.jsp'>User dashboard</a></li>
+                    </c:if>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
-                    <form class='navbar-form navbar-right' method='post' action='login' >
+                    <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
                         <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
                     </form>
                     <form class='navbar-form navbar-right' method='post' action='profile.jsp' >

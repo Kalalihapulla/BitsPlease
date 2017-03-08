@@ -97,8 +97,7 @@ function noteset() {
 function createNote(caller) {
   
     var text = caller.siblings('#noteText').val();
-    var prio = ("input:radio[name=optradio]:checked").val();
-    alert(prio);
+    var prio = $("input:radio[name=optradio]:checked").val();
     var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
    
     $.ajax({
