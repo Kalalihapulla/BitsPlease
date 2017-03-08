@@ -31,7 +31,7 @@ public class RestHelper {
             }
 
         }
-        return null;
+        return new UserAccount();
 
     }
 

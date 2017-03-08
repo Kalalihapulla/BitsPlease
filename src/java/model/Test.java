@@ -16,6 +16,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import service.MessageFacadeREST;
 import service.UserAccountFacadeREST;
 
 /**
@@ -27,7 +28,8 @@ public class Test {
     public static void main(String[] args) {
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.create(new UserAccount());
-        populate();
+        MessageFacadeREST eST = new MessageFacadeREST();
+        eST.create(new Message("test", "admint", "helllo"));
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
