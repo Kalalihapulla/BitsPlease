@@ -92,20 +92,20 @@
                 <!-- /.navbar-collapse -->
             <!-- /.container -->
         </nav>
-
+        <c:if test="${not empty loggedInUser}">
         <div id='addNote'>
         <button type="button" class="btn btn-primary btn-lg" id='noteButton' name='noteButton'>+</button>
-        <button type="button" class="btn btn-primary btn-lg" id='createButton' name='createButton'>+</button>
         </div>
+        </c:if>
 
 
         <div class='container' id='main'>
             <div class='row index-row' id='info'>
                 <h1 id='dashboard' class='text-center'>Dashboard</h1>
-
+                    <c:if test="${not empty loggedInUser}">
                     <h3 class='text-center'>Welcome "${loggedInUser}"</h3>
                     <div class='row' id='notes'></div>
- 
+                    </c:if>
                     <c:if test="${empty loggedInUser}">
                         <h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>
                     </c:if>

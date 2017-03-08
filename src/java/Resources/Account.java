@@ -19,7 +19,7 @@ public class Account {
     public static void createUser(String email, String pass) throws ClassNotFoundException, SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project?" + "user=root&password=starbucks");
+            Connection con = DriverManager.getConnection("jdbc:mysql://bits.cqsscjueysvj.eu-west-1.rds.amazonaws.com:3306/project?" + "user=root&password=starbucks");
             PreparedStatement pst = con.prepareStatement("INSERT INTO login " + 
                 "VALUES (?,?)");
             pst.setString(1, email);

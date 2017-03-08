@@ -21,7 +21,7 @@ public class Validate {
             Class.forName("com.mysql.jdbc.Driver");
 
             //creating connection with the database 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project?" + "user=root&password=starbucks");
+            Connection con = DriverManager.getConnection("jdbc:mysql://bits.cqsscjueysvj.eu-west-1.rds.amazonaws.com:3306/project?" + "user=root&password=starbucks");
             PreparedStatement pst = con.prepareStatement("Select email,pass from login where email=? and pass=?");
             pst.setString(1, email);
             pst.setString(2, pass);
