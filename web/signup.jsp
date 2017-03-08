@@ -99,11 +99,6 @@
                                 <input type="password" name='pass' id="pass" class="form-control" placeholder="Password" required="">
                                 <label for="repeat" class="sr-only">Password</label>
                                 <input type="password" name='repeat' id="repeat" class="form-control" placeholder="Repeat password" required="">
-                                <div class="checkbox">
-                                    <label id='remember'>
-                                        <input type="checkbox" value="remember-me">Remember me
-                                    </label>
-                                </div>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
                             </form>
                         </div>
