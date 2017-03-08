@@ -43,12 +43,6 @@ function validate() {
 function remove(caller) {
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
-
-
-}
-
-function add(caller) {
-
 }
 
 
@@ -100,11 +94,12 @@ function noteset() {
         timeout: 120000
     });
 }
-function createNote() {
+function createNote(caller) {
   
-    var text = "lullilii";
-    var xml = "<note><description>" + text + "</description><urgency>0</urgency></note>";
-   
+    var text = caller.siblings('#noteText').val();
+    var prio = ("input:radio[name=optradio]:checked").val();
+    alert(prio);
+    var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
    
     $.ajax({
 
@@ -124,11 +119,12 @@ function createNote() {
             console.log(xhr.status);
             console.log(thrownError);
         }
+    
     });
-
-
-
-
+    caller.parent("div").css('visibility', 'hidden');
+    caller.parent("div").html("");
+    
+    
 }
 
 
@@ -149,17 +145,17 @@ $(document).ready(function () {
 
     $("#noteButton").click(function () {
         var domElement = $("<div id='draggable' class='col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
-                         <form><div style= 'padding:1px; margin-left: 1.2em; border:1px solid red;float:left; border-radius: 50px'>\n\
-                         <input type='radio' name='optradio'>\n\
+                        <form id='radioForm'><div style= 'padding:1px; margin-left: 1.2em; border:1px solid red;float:left; border-radius: 50px'>\n\
+                        <input type='radio' value=2 name='optradio'>\n\
                          </div>\n\
                          <div style='padding:1px;border:1px solid blue;float:left; border-radius: 50px'>\n\
-                         <input type='radio' name='optradio'>\n\
+                         <input type='radio' value=1 name='optradio'>\n\
                          </div>\n\
                          <div style='padding:1px;border:1px solid green;float:left; border-radius: 50px'>\n\
-                         <input type='radio' name='optradio'>\n\
+                         <input type='radio' value=0 name='optradio'>\n\
                          </div></form>\n\
                         <span class='glyphicon glyphicon-remove' id='close' onclick='remove($(this))'; return false;'></span>\n\
-                        <span class='glyphicon glyphicon-ok' id='taskaddd' onclick='add($(this))'; return false;'></span>\n\
+                        <span class='glyphicon glyphicon-ok' id='taskaddd' onclick='createNote($(this))'; return false;'></span>\n\
                         <textarea class='form-control ui-widget-header' rows='10' id='noteText' placeholder='Insert stuff here'>\n\
                         </textarea></div>");
 
