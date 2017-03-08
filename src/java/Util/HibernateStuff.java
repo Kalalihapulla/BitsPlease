@@ -15,6 +15,7 @@ public class HibernateStuff {
     
     public HibernateStuff() {
       Configuration config = new Configuration();
+    config.addAnnotatedClass(model.Message.class);
      config.addAnnotatedClass(model.Note.class);
      config.addAnnotatedClass(model.UserAccount.class);
      config.addAnnotatedClass(model.AdminAccount.class);
@@ -23,7 +24,7 @@ public class HibernateStuff {
 
         config = config.configure();
         
-    //new SchemaExport(config).create(true, true);
+  // new SchemaExport(config).create(true, true);
         
         StandardServiceRegistryBuilder serviceRegistryBuilder = 
                 new StandardServiceRegistryBuilder();

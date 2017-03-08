@@ -6,7 +6,6 @@
 package service;
 
 import Util.HibernateStuff;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,8 +19,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Message;
 import model.UserAccount;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -30,35 +29,43 @@ import org.hibernate.SessionFactory;
  * @author Izymi
  */
 @Stateless
-@Path("model.useraccount")
-public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
+@Path("model.message")
+public class MessageFacadeREST extends AbstractFacade<Message> {
 
-    private SessionFactory sessionFactory;
-    private RestHelper restHelper;
     @PersistenceContext(unitName = "ProjectTestUDPU")
     private EntityManager em;
+    private RestHelper restHelper;
+    private SessionFactory sessionFactory;
 
-    public UserAccountFacadeREST() {
-        super(UserAccount.class);
-        this.restHelper = new RestHelper();
+    public MessageFacadeREST() {
+        super(Message.class);
     }
 
     @POST
+    @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
+//    public void createM(Message entity,String sender, String receiver) {
+//        UserAccount user1 = restHelper.getUserByEmail(sender);
+//        UserAccount user2 = restHelper.getUserByEmail(receiver);
+//            this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+//        Session session
+//                = sessionFactory.openSession();
+//        session.beginTransaction();
+//        session.saveOrUpdate(entity);
+//        session.getTransaction().commit();
+//        
+//       
+//    }
+
     @Override
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(UserAccount entity) {
-        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
-        Session session
-                = sessionFactory.openSession();
-        session.beginTransaction();
-        session.saveOrUpdate(entity);
-        session.getTransaction().commit();
+    public void create(Message entity) {
+        super.create(entity); //To change body of generated methods, choose Tools | Templates.
     }
+    
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, UserAccount entity) {
+    public void edit(@PathParam("id") Long id, Message entity) {
         super.edit(entity);
     }
 
@@ -70,29 +77,22 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML})
-    public UserAccount find(@PathParam("id") Long id) {
-        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
-        Session session
-                = sessionFactory.openSession();
-
-        UserAccount userAccount
-                = (UserAccount) session.get(UserAccount.class, id);
-
-        return userAccount;
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Message find(@PathParam("id") Long id) {
+        return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<UserAccount> findAll() {
-        return this.restHelper.findAll();
+    public List<Message> findAll() {
+        return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<UserAccount> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Message> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
@@ -107,5 +107,5 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    
 }

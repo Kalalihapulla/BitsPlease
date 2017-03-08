@@ -34,6 +34,7 @@ public class ApplicationConfig extends Application {
         resources.add(Resources.UsersResource.class);
         resources.add(model.NoteResource.class);
         resources.add(service.AdminAccountFacadeREST.class);
+        resources.add(service.MessageFacadeREST.class);
         resources.add(service.NoteFacadeREST.class);
         resources.add(service.UserAccountFacadeREST.class);
     }

@@ -19,10 +19,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.ManyToAny;
 
 /**
  *
@@ -40,13 +42,13 @@ public class UserAccount implements Serializable {
     private String email;
     private String password;
     private List notes;
+    private List messages;
     private boolean isAdmin;
 
     public UserAccount() {
         this("unknown", "unknown");
         this.isAdmin = false;
     }
-    
 
     public UserAccount(String email, String password) {
         this.isAdmin = false;
@@ -54,6 +56,7 @@ public class UserAccount implements Serializable {
         this.id = 0L;
         this.email = email;
         this.password = password;
+        this.messages = new ArrayList<>();
     }
 
     @XmlElement
@@ -86,7 +89,8 @@ public class UserAccount implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-     @XmlElement(name = "note")
+
+    @XmlElement(name = "note")
     @OneToMany(targetEntity = Note.class,
             cascade = CascadeType.ALL)
     public List<Note> getNotes() {
@@ -97,10 +101,26 @@ public class UserAccount implements Serializable {
         this.notes = notes;
     }
 
+    @XmlElement(name = "message")
+    @ManyToMany(targetEntity = Message.class,
+            cascade = CascadeType.ALL)
+    public List<Message> getMessages() {
+        return this.messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
     public void addNote(Note note) {
         notes.add(note);
 
     }
+
+    public void addMessage(Message message) {
+        messages.add(message);
+    }
+
     @XmlElement
     @Basic
     public boolean getIsAdmin() {
@@ -113,7 +133,7 @@ public class UserAccount implements Serializable {
 
     @Override
     public String toString() {
-        return this.email + this.password;
+        return this.email;
     }
 
 }
