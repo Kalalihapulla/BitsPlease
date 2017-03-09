@@ -29,12 +29,45 @@ function createUser() {
         timeout: 1200000
     });
 }
+function updateProfile(email) {
+    var user = "rebelhaze@gmail.com";
+    alert(email);
+   
+    
+
+
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
+        data: user,
+        type: 'POST',
+        contentType: "text",
+        dataType: "application/xml",
+ 
+        success: function (data) {
+            alert("works");
+            var email = data.getElementsByTagName("email");
+            var fname = data.getElementsByTagName("firstName");
+            alert(fname);
+            //location.reload();
+        } ,
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert("fail");
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 1200000
+    });
+
+
+}
 $(document).ready(function () {
-    $("#cUser").click(function (){
+    updateProfile();
+
+    $("#cUser").click(function () {
         createUser();
-        
-        
-        
+
+
+
     });
 
 

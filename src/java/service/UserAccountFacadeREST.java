@@ -106,6 +106,15 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     public String countREST() {
         return String.valueOf(super.count());
     }
+    @POST
+    @Path("userByEmail")
+    @Consumes({MediaType.TEXT_PLAIN})
+    @Produces(MediaType.APPLICATION_XML)
+    public UserAccount getUser(String email) {
+        
+        
+        return this.restHelper.getUserByEmail(email);
+    }
 
     @Override
     protected EntityManager getEntityManager() {

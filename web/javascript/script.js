@@ -147,6 +147,7 @@ function createNote(caller) {
     var text = caller.siblings('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
     var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
+    
 
     $.ajax({
 
@@ -155,6 +156,7 @@ function createNote(caller) {
         type: 'POST',
         contentType: "application/xml",
         dataType: "application/xml",
+        //processData: false,
         success: function () {
 
 

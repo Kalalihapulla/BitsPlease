@@ -37,6 +37,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <script src="javascript/script.js"></script>
+        <script src="javascript/script2.js"></script>
         <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
 
@@ -93,73 +94,73 @@
             <!-- /.container -->
         </nav>
 
-         <div class='container' id='main'>
-                <h1 class="page-header">Edit Profile</h1>
-                <div class="row">
-                    <!-- left column -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="text-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Upload a different photo...</h6>
-                            <input type="file" class="text-center center-block well well-sm">
-                        </div>
-                    </div>
-                    <!-- edit form column -->
-                    <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="padding-right: 2em;">
-                        <div class="alert alert-info alert-dismissable">
-                            <a class="panel-close close" data-dismiss="alert">×</a> 
-                            <i class="fa fa-coffee"></i>
-                            This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                        </div>
-                        <h3>Personal info</h3>
-                        <form class="form-horizontal center-block" role="form">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">First name:</label>
-                                <div class="col-lg-8">
-                                    <input class="form-control" value="Donald" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Last name:</label>
-                                <div class="col-lg-8">
-                                    <input class="form-control" value="Trump" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Position:</label>
-                                <div class="col-lg-8">
-                                    <input class="form-control" value="Presirdent" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Email:</label>
-                                <div class="col-lg-8">
-                                    <input class="form-control" value="trumpsta69@gov.com" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Password:</label>
-                                <div class="col-md-8">
-                                    <input class="form-control" value="11111122333" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Confirm password:</label>
-                                <div class="col-md-8">
-                                    <input class="form-control" value="11111122333" type="password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label"></label>
-                                <div class="col-md-8">
-                                    <input class="btn btn-primary" value="Save Changes" type="button">
-                                    <span></span>
-                                    <input class="btn btn-default" value="Cancel" type="reset">
-                                </div>
-                            </div>
-                        </form>
+        <div class='container' id='main'>
+            <h1 class="page-header">Edit Profile</h1>
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" class="text-center center-block well well-sm">
                     </div>
                 </div>
+                <!-- edit form column -->
+                <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="padding-right: 2em;">
+                    <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a> 
+                        <i class="fa fa-coffee"></i>
+                        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                    </div>
+                    <h3>Personal info</h3>
+                    <form class="form-horizontal center-block" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">First name:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" value="Donald" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Last name:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" value="Trump" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Position:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" value="Presirdent" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" value="trumpsta69@gov.com" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" value="11111122333" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Confirm password:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" value="11111122333" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button">
+                                <span></span>
+                                <input class="btn btn-default" value="Cancel" type="reset">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
 
 
@@ -169,9 +170,35 @@
 
 
 
-
+        <div id="testlul">ddddddddddddddddddddddddddddd
+        </div>
 
 
 
     </body>
+    <script>
+        $(document).ready(function () {
+
+
+
+        });
+//        function sending() {
+//
+//            alert(userId);
+//            updateProfile(userId);
+//
+//
+//
+//        }
+        $("#testlul").click(function () {
+            alert("ulu");
+            var userId = '${loggedInUser}';
+            updateProfile(userId);
+
+
+
+
+        });
+
+    </script>
 </html>
