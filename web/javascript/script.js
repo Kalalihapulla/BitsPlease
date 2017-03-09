@@ -40,10 +40,7 @@ function validate() {
         }
     }
 }
-function remove(caller) {
-    caller.parent("div").css('visibility', 'hidden');
-    caller.parent("div").html("");
-}
+
 
 function sentMessage(){
     var sender ="admint";
@@ -122,7 +119,6 @@ function noteset() {
     });
 }
 function createNote(caller) {
-  
     var text = caller.siblings('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
     var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
@@ -151,6 +147,24 @@ function createNote(caller) {
     caller.parent("div").html("");
     
     
+    
+}
+
+function remove(caller) {
+    $.ajax({
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+        }
+    
+    });
+    caller.parent("div").css('visibility', 'hidden');
+    caller.parent("div").html("");
+}
+
+function removal(caller) {
+    caller.parent("div").css('visibility', 'hidden');
+    caller.parent("div").html("");
 }
 
 
@@ -180,7 +194,7 @@ $(document).ready(function () {
                          <div style='padding:1px;border:1px solid green;float:left; border-radius: 50px'>\n\
                          <input type='radio' value=0 name='optradio'>\n\
                          </div></form>\n\
-                        <span class='glyphicon glyphicon-remove' id='close' onclick='remove($(this))'; return false;'></span>\n\
+                        <span class='glyphicon glyphicon-remove' id='close' onclick='removal($(this))'; return false;'></span>\n\
                         <span class='glyphicon glyphicon-ok' id='taskaddd' onclick='createNote($(this))'; return false;'></span>\n\
                         <textarea class='form-control ui-widget-header' rows='10' id='noteText' placeholder='Insert stuff here'>\n\
                         </textarea></div>");
