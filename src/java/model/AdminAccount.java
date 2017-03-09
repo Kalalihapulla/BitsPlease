@@ -21,8 +21,8 @@ public class AdminAccount extends UserAccount {
     public AdminAccount() {
     }
 
-    public AdminAccount(String email, String password) {
-        super(email, password);
+    public AdminAccount(String email, String password,String description) {
+        super(email, password,description);
         super.setIsAdmin(true);
     }
     public void createNote(){

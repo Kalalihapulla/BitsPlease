@@ -42,32 +42,38 @@ function validate() {
 }
 
 
-function sentMessage(){
-    var sender ="admint";
-    var receiver = "test";
-    var body="Test123";
-     var xml = "<message><body>"+body+"</body><receiver>"+receiver+"</receiver><sender>"+sender+"</sender></message>";
-       $.ajax({
-           
+function sentMessage() {
+    var sender = $("#from").val();
+    var receiver = $("#to").val();
+    var body = $("#message").val();
+alert(receiver);
+
+    var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
+    alert(xml);
+    $.ajax({
+
         url: "http://localhost:8080/ProjectTestUD/webresources/model.message",
         data: xml,
         type: 'POST',
         contentType: "application/xml",
         dataType: "application/xml",
         success: function () {
-
+            //location.reload();
+             
 
 
 
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
+          
             console.log(xhr.status);
             console.log(thrownError);
-        }
-    
+        },
+          timeout: 1200000
+
     });
-    
+
 }
 
 function noteset() {
@@ -122,7 +128,7 @@ function createNote(caller) {
     var text = caller.siblings('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
     var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
-   
+
     $.ajax({
 
         url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
@@ -141,7 +147,7 @@ function createNote(caller) {
             console.log(xhr.status);
             console.log(thrownError);
         }
-    
+
     });
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
@@ -177,9 +183,13 @@ $(document).ready(function () {
         noteset();
 
     });
-    $("#createButton").click(function(){
-       createNote(); 
-        
+    $("#createButton").click(function () {
+        createNote();
+
+    });
+    $("#send").click(function () {
+
+        sentMessage();
     });
 
 

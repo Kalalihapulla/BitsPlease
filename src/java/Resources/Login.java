@@ -15,6 +15,11 @@ import javax.servlet.http.*;
 import java.sql.*;
 
 public class Login extends HttpServlet {
+    private Validate validate;
+
+    public Login() {
+        this.validate = new Validate();
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -25,7 +30,7 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         if (session == null || session.getAttribute("loggedInUser") == null) {
-            if (Validate.checkUser(email, pass)) {
+            if (validate.checkUser(email, pass)) {
                 request.getSession().setAttribute("loggedInUser", email);
                 RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
                 rs.forward(request, response);

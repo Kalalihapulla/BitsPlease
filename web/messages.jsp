@@ -59,6 +59,7 @@
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
                         <c:if test="${not empty loggedInUser}">
                         <li><a href='userDash.jsp'>User dashboard</a></li>
+                        <li><a href='messages.jsp'>Messages</a></li>
                         </c:if>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
@@ -94,6 +95,7 @@
                 <div class='row index-row'>
                     <div class='col-md-6 col-md-offset-3' >
                         <div class='container-fluid' id='login'>
+<!--                            <div id =testlul>lul<div>-->
                             <form style="color: black;" class="form-horizontal">
                                 To:<br>
                                 <input id = "to" type="text" name="sender"><br>
@@ -105,7 +107,7 @@
                                 <input type="reset" value="Reset">
                             </form>
 
-                        </div>
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
