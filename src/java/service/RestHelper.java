@@ -53,4 +53,15 @@ public class RestHelper {
         return allusers;
 
     }
+
+    public boolean checkEmail(UserAccount ua) {
+        List<UserAccount> users = findAll();
+        for (UserAccount user : users) {
+            if (user.getEmail().equals(ua.getEmail())) {
+                return false;
+
+            }
+        }
+        return true;
+    }
 }

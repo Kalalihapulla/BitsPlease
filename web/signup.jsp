@@ -33,6 +33,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="javascript/script.js"></script>
+        <script src="javascript/script2.js"></script>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
@@ -105,7 +106,7 @@
                                 <input type="password" name='pass' id="pass" class="form-control" placeholder="Password" required="">
                                 <label for="repeat" class="sr-only">Password</label>
                                 <input type="password" name='repeat' id="repeat" class="form-control" placeholder="Repeat password" required="">
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+                                <button class="btn btn-lg btn-primary btn-block" id="cUser" type="submit">Sign Up</button>
                             </form>
                         </div>
                     </div>

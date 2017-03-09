@@ -50,9 +50,13 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
-        session.beginTransaction();
-        session.saveOrUpdate(entity);
-        session.getTransaction().commit();
+        if (this.restHelper.checkEmail(entity)) {
+            session.beginTransaction();
+            session.saveOrUpdate(entity);
+            session.getTransaction().commit();
+
+        }
+
     }
 
     @PUT
