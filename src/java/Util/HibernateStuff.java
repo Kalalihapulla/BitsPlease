@@ -24,7 +24,7 @@ public class HibernateStuff {
 
         config = config.configure();
         
-  //new SchemaExport(config).create(true, true);
+ //new SchemaExport(config).create(true, true);
         
         StandardServiceRegistryBuilder serviceRegistryBuilder = 
                 new StandardServiceRegistryBuilder();

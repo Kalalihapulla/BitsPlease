@@ -30,7 +30,7 @@ public class Test {
 //        accountFacadeREST.create(new UserAccount());
 //        MessageFacadeREST eST = new MessageFacadeREST();
 //        eST.create(new Message("test", "admint", "helllo"));
-populate();
+        populate();
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
@@ -85,19 +85,19 @@ populate();
         notes.add(note2);
         notes.add(note3);
         notes.add(note4);
-        UserAccount user = new UserAccount("test@ulu", "kapap","JANITOR");
-        AdminAccount aduser = new AdminAccount("admint@koppa", "admin", "MANAGEMENT");
+        UserAccount user = new UserAccount("test@ulu", "kapap", "JANITOR", "Kappa", "Keepo");
+        AdminAccount aduser = new AdminAccount("admint@koppa", "admin", "MANAGEMENT", "Kala", "Kukko");
         Message message1 = new Message("lul@ulu", "Gret@bo", "Hello");
         Message message2 = new Message("gebbo", "ttt", "elelll");
         Message message3 = new Message("gobbos", "way", "auuu");
         m1.add(message3);
-         m1.add(message2);
+        m1.add(message2);
         m2.add(message2);
-        
+
         user.setMessages(m2);
-      
+
         aduser.setMessages(m1);
-        
+
 //        Collections.sort(notes);
 //       notes.forEach((note) -> {
 //           System.out.println(note.searchUrgency());

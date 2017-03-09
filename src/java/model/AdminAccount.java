@@ -13,23 +13,25 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author himelr
  */
-@Entity  
-@DiscriminatorValue("adminuser")  
+@Entity
+@DiscriminatorValue("adminuser")
 @XmlRootElement
 public class AdminAccount extends UserAccount {
 
     public AdminAccount() {
     }
 
-    public AdminAccount(String email, String password,String description) {
-        super(email, password,description);
+    public AdminAccount(String email, String password, String description, String firstName, String lastName) {
+        super(email, password, description, firstName, lastName);
         super.setIsAdmin(true);
     }
-    public void createNote(){
-        
+
+    public void createNote() {
+
     }
-    public void deleteNote(){
-        
+
+    public void deleteNote() {
+
     }
-    
+
 }

@@ -44,20 +44,24 @@ public class UserAccount implements Serializable {
     private List notes;
     private List messages;
     private String jobDescription;
+    private String firstName;
+    private String lastName;
     private boolean isAdmin;
 
     public UserAccount() {
-        this("unknown", "unknown", "Cashier");
+        this("unknown", "unknown", "unknown","unknown","unknown");
         this.isAdmin = false;
     }
 
-    public UserAccount(String email, String password, String description) {
+    public UserAccount(String email, String password, String description, String firstName, String lastName) {
         this.isAdmin = false;
         this.notes = new ArrayList<>();
         this.id = 0L;
         this.email = email;
         this.password = password;
         this.jobDescription = description;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.messages = new ArrayList<>();
     }
 
@@ -141,6 +145,26 @@ public class UserAccount implements Serializable {
 
     public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
+    }
+
+    @XmlElement
+    @Basic
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @XmlElement
+    @Basic
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
