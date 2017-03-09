@@ -68,7 +68,7 @@ function sentMessage() {
     alert(receiver);
 
     var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
-    alert(xml);
+ 
     $.ajax({
 
         url: "http://localhost:8080/ProjectTestUD/webresources/model.message",

@@ -5,7 +5,7 @@
  */
 package model;
 
-import Resources.UsersResource;
+
 import Util.HibernateStuff;
 import java.util.ArrayList;
 import java.util.Collection;

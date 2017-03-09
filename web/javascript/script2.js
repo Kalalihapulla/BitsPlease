@@ -32,8 +32,8 @@ function createUser() {
 function updateProfile(email) {
     var user = "rebelhaze@gmail.com";
     alert(email);
-   
-    
+
+
 
 
     $.ajax({
@@ -42,14 +42,14 @@ function updateProfile(email) {
         type: 'POST',
         contentType: "text",
         dataType: "application/xml",
- 
+
         success: function (data) {
             alert("works");
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             alert(fname);
             //location.reload();
-        } ,
+        },
         error: function (xhr, ajaxOptions, thrownError) {
             alert("fail");
             console.log(xhr.status);
@@ -60,10 +60,40 @@ function updateProfile(email) {
 
 
 }
+function setMessages() {
+    jQuery.ajax({
+      
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
+        type: "GET",
+    
+      
+        success: function (resultData) {
+            var text="";
+            var message = resultData.getElementsByTagName("body");
+            for (i = 0; i < message.length; i++) {
+               text += message[i].childNodes[0].nodeValue;
+                
+                
+                
+            }
+            alert(text);
+
+        }, error: function (xhr, ajaxOptions, thrownError) {
+            alert("fail");
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 120000
+    });
+
+
+
+}
 $(document).ready(function () {
-    updateProfile();
+
 
     $("#cUser").click(function () {
+        setMessages();
         createUser();
 
 
