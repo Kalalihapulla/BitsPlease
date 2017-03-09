@@ -94,6 +94,7 @@
                 <div class='row index-row'>
                     <div class='col-md-6 col-md-offset-3' >
                         <div class='container-fluid' id='login'>
+<!--                            <div id =testlul>lul<div>-->
                             <form style="color: black;" class="form-horizontal">
                                 To:<br>
                                 <input id = "to" type="text" name="sender"><br>
@@ -105,7 +106,7 @@
                                 <input type="reset" value="Reset">
                             </form>
 
-                        </div>
+<!--                        </div>-->
                     </div>
                 </div>
             </div>

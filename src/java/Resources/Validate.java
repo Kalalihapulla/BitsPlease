@@ -10,29 +10,35 @@ package Resources;
  * @author samuelja
  */
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import model.UserAccount;
+import service.RestHelper;
 
 public class Validate {
 
-    public static boolean checkUser(String email, String pass) {
-        boolean st = false;
+    private RestHelper helper;
+
+    public Validate() {
+        this.helper = new RestHelper();
+    }
+
+    public boolean checkUser(String email, String pass) {
+       
+        List<UserAccount> users = this.helper.findAll();
+
         try {
-
-            //loading drivers for mysql
-            Class.forName("com.mysql.jdbc.Driver");
-
-            //creating connection with the database 
-            Connection con = DriverManager.getConnection("jdbc:mysql://bits.cqsscjueysvj.eu-west-1.rds.amazonaws.com:3306/project?" + "user=root&password=starbucks");
-            PreparedStatement pst = con.prepareStatement("Select email,pass from login where email=? and pass=?");
-            pst.setString(1, email);
-            pst.setString(2, pass);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                st = true;
+            for (UserAccount user : users) {
+                if (user.getEmail().equals(email)) {
+                    if (user.getPassword().equals(pass)) {
+                        return true;
+                    }
+                }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return st;
+        return false;
     }
 }

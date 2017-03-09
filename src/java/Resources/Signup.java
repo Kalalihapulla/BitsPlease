@@ -14,6 +14,11 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class Signup extends HttpServlet {
+   private Validate validate;
+
+    public Signup() {
+        this.validate = new Validate();
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,7 +28,7 @@ public class Signup extends HttpServlet {
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
 
-        if (!Validate.checkUser(email, pass)) {
+        if (!validate.checkUser(email, pass)) {
             try {
                 Account.createUser(email, pass);
                 RequestDispatcher rs = request.getRequestDispatcher("index.jsp");

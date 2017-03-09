@@ -45,32 +45,38 @@ function remove(caller) {
     caller.parent("div").html("");
 }
 
-function sentMessage(){
-    var sender ="admint";
-    var receiver = "test";
-    var body="Test123";
-     var xml = "<message><body>"+body+"</body><receiver>"+receiver+"</receiver><sender>"+sender+"</sender></message>";
-       $.ajax({
-           
+function sentMessage() {
+    var sender = $("#from").val();
+    var receiver = $("#to").val();
+    var body = $("#message").val();
+alert(receiver);
+
+    var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
+    alert(xml);
+    $.ajax({
+
         url: "http://localhost:8080/ProjectTestUD/webresources/model.message",
         data: xml,
         type: 'POST',
         contentType: "application/xml",
         dataType: "application/xml",
         success: function () {
-
+            //location.reload();
+             
 
 
 
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
+          
             console.log(xhr.status);
             console.log(thrownError);
-        }
-    
+        },
+          timeout: 1200000
+
     });
-    
+
 }
 
 function noteset() {
@@ -122,11 +128,11 @@ function noteset() {
     });
 }
 function createNote(caller) {
-  
+
     var text = caller.siblings('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
     var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
-   
+
     $.ajax({
 
         url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
@@ -145,12 +151,12 @@ function createNote(caller) {
             console.log(xhr.status);
             console.log(thrownError);
         }
-    
+
     });
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
-    
-    
+
+
 }
 
 
@@ -163,9 +169,13 @@ $(document).ready(function () {
         noteset();
 
     });
-    $("#createButton").click(function(){
-       createNote(); 
-        
+    $("#createButton").click(function () {
+        createNote();
+
+    });
+    $("#send").click(function () {
+
+        sentMessage();
     });
 
 
@@ -250,26 +260,25 @@ $(function () {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     var panels = $('.user-infos');
     var panelsButton = $('.dropdown-user');
     panels.hide();
 
     //Click dropdown
-    panelsButton.click(function() {
+    panelsButton.click(function () {
         //get data-for attribute
         var dataFor = $(this).attr('data-for');
         var idFor = $(dataFor);
 
         //current button
         var currentButton = $(this);
-        idFor.slideToggle(400, function() {
+        idFor.slideToggle(400, function () {
             //Completed slidetoggle
-            if(idFor.is(':visible'))
+            if (idFor.is(':visible'))
             {
                 currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-            }
-            else
+            } else
             {
                 currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
             }
@@ -279,7 +288,7 @@ $(document).ready(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('button').click(function(e) {
+    $('button').click(function (e) {
         e.preventDefault();
         alert("This is a demo.\n :-)");
     });
