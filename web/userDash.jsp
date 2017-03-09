@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="taskheader">
-                    Your tasks
+                   In progress
                 </div>
 
                 <div class="taskheader">
