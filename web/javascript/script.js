@@ -44,6 +44,7 @@ function remove(caller) {
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
 }
+
 function sentMessage(){
     var sender ="admint";
     var receiver = "test";
