@@ -1,3 +1,7 @@
+
+
+
+
 <%-- 
     Document   : userDash
     Created on : Feb 26, 2017, 5:14:20 PM
@@ -14,7 +18,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-                <script src="vendor/jquery/jquery.js"></script>
+        <script src="vendor/jquery/jquery.js"></script>
 
         <!-- Theme JavaScript -->
         <script src="js/grayscale.min.js"></script>
@@ -39,36 +43,35 @@
         <script src="javascript/script.js"></script>
         <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
-        
-        
+
+
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 
-         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                        Menu <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="index.jsp">
-                        <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
-                    </a>
-                </div>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.jsp">
+                    <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
+                </a>
+            </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
-                    <ul class="nav navbar-nav">
-                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                        <c:if test="${empty loggedInUser}">
-                            <li><a href='signup.jsp'>Sign Up</a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <c:if test="${empty loggedInUser}">
+                        <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
-                        <li><a href='dashboard.jsp'>Dashboard</a></li>
-                        <li><a href='userDash.jsp'>User dashboard</a></li>
-                        <li><a href='messages.jsp'>Messages</a></li>
-                    </ul>
-                   <c:if test="${not empty loggedInUser}">
+                    <li><a href='dashboard.jsp'>Dashboard</a></li>
+                    <li><a href='userDash.jsp'>User dashboard</a></li>
+                </ul>
+                <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
                         <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
                     </form>
@@ -77,19 +80,19 @@
                     </form>
 
                 </c:if>
-                    <c:if test="${empty loggedInUser}">
-                        <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
-                            <div class='form-group'>
-                                <input class='form-control note-input' placeholder='Email' type='email' name='email' />
-                            </div>
-                            <div class='form-group'>
-                                <input class='form-control note-input' placeholder='Password' type='password' name='pass' />
-                            </div>
-                            <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
-                        </form>
-                    </c:if>
-                </div>
-                <!-- /.navbar-collapse -->
+                <c:if test="${empty loggedInUser}">
+                    <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
+                        <div class='form-group'>
+                            <input class='form-control note-input' placeholder='Email' type='email' name='email' />
+                        </div>
+                        <div class='form-group'>
+                            <input class='form-control note-input' placeholder='Password' type='password' name='pass' />
+                        </div>
+                        <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
+                    </form>
+                </c:if>
+            </div>
+            <!-- /.navbar-collapse -->
             <!-- /.container -->
         </nav>
 
@@ -106,54 +109,43 @@
             </div>
 
 
-            <div id="addTask">
-                REFRESH
-            </div>
 
 
-            <div>
+            <div id="taskboxbackground">
+                <div class="taskheader">
+                    Available tasks
+                </div>
+
+                <div class="taskheader">
+                    Your tasks
+                </div>
+
+                <div class="taskheader">
+                    Completed tasks
+                </div> 
 
 
                 <div id="sortable1" class="taskBox row grid span8">
 
-                    <div class="ui-state-default ui-state-disabled task">
-                        Go and fill some shelves you fool! <img id="taskInfo" src="questionmark.png">
-                    </div>
+                </div>
 
-                    <div class="ui-state-default task">
-                        Huomio! Pullonpalautuspisteellä tarvitaan henkilökuntaa... <img id="taskInfo" src="questionmark.png">                       
-                    </div>    
-
+                <div id="sortable2" class="taskBox row grid span8">
 
                 </div>
 
-
-
-                <div id="sortable2" class="taskBox row grid span8">>
-
-                    <div class="ui-state-default task">
-                        TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST <img id="taskInfo" src="questionmark.png">           
-                    </div>   
-
-                    <div class="ui-state-default task">
-                        4 <img id="taskInfo" src="questionmark.png">
-                    </div>   
+                <div id="sortable3" class="taskBox row grid span8">
 
                 </div>
 
-
-            </div>
-            
-
-            
-            </div>
+            </div>          
 
 
-
-
-
+        </div>
 
 
 
     </body>
 </html>
+
+
+

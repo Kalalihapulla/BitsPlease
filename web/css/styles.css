@@ -1,3 +1,6 @@
+
+
+
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -12,9 +15,9 @@ and open the template in the editor.
 }
 
 body {
-  background-image: url("back.jpg");
-  background-size: cover;
-  background-attachment: fixed;
+    background-image: url("back.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #about {
@@ -31,7 +34,7 @@ body {
     width: 50%;
 }
 #main {
-    
+
     margin: auto;
     background-size: cover !important;
     background-position: center;
@@ -145,28 +148,51 @@ footer {
 }
 
 .taskBox {
-    
+
     background-color: white;
     float: left;
     margin: 1% 1% 1% 1%;
-    padding: 1em 1em 1em 1em;
+    padding: 1% 1% 1% 1%;
     border-radius: 5px;
-    border: 1px solid;
     border-color: black;
-    min-width:0x; 
-    width: 48%; 
-    min-height:0x; 
-    height: 100%;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    min-width:0%; 
+    width: 31%; 
+    min-height:0%; 
+    height: fit-content;
+    box-shadow: 5px 5px 2.5px rgba(0, 0, 0, 0.5);
+}
+
+.taskheader {
+
+    background-color: whitesmoke;
+    float: left;
+    margin: 1% 1% 0% 1%;
+    padding: 0.3em 0.5em 1em 0.5em;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    min-width:0%; 
+    width: 31%; 
+    height: 2em;
+    min-height:0%; 
+    box-shadow: 5px 5px 2.5px rgba(0, 0, 0, 0.5);
+    font-size: 2em; 
+    color: black;
+    text-align: center; 
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
 
-
-
 .task { 
-    margin: 3px 3px 3px 0;
+    margin: 3px 3px 3px 3px;
     padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 5px;
     float: left; 
     font-size: 1.5em; 
     color: whitesmoke;
@@ -177,14 +203,8 @@ footer {
     height: 50%; 
 }
 
-#addTask {
-    width: 100px;
-    height: 30px;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    background-color: grey;
-    text-align: center; 
-    
-}
+
+
 
 #taskInfo {
     float: right;
@@ -196,10 +216,27 @@ footer {
     padding: 1em 1em 1em 1em;
     border-radius: 5px;
     border: 1px solid;
-    min-width:0x; 
+    min-width:0%; 
     width: 60%; 
-    min-height:0x; 
+    min-height:0%; 
     height: 50%; 
+}
+
+#taskboxbackground {
+    background-color: papayawhip;
+    float: left;
+    margin: 1% 1% 1% 1%;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    border-radius: 5px;
+    border-color: black;
+    min-width:0x; 
+    width: 98%; 
+    min-height:0x; 
+    height: 200%;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    height: fit-content;
+
 }
 
 #prio {
@@ -214,53 +251,12 @@ footer {
     box-shadow: 0px 0px 10px #888;
 }
 .tile {
-    height: 100px;
+    height: 8.4em;
+    width:  27.2em;
 }
 .grid {
-    margin-top: 1em;
+
 }
-
-.user-row {
-    margin-bottom: 14px;
-}
-
-.user-row:last-child {
-    margin-bottom: 0;
-}
-
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
-    height: 100%;
-}
-
-.dropdown-user:hover {
-    cursor: pointer;
-}
-
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
-}
-
-.table-user-information > tbody > tr:first-child {
-    border-top: 0;
-}
-
-
-.table-user-information > tbody > tr > td {
-    border-top: 0;
-}
-.toppad
-{margin-top:20px;
-}
-
-div.polaroid {
-  width: 250px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-}
-
-
 
 
 

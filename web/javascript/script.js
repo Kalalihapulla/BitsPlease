@@ -24,7 +24,7 @@ function validate() {
                             <i class='fa fa-coffee'></i>\n\
                            Please enter your password twice.\n\
                            </div>");
-            $("#myForm").after(domElement);
+        $("#myForm").after(domElement);
         return false;
     }
 // check for minimum length
@@ -34,7 +34,7 @@ function validate() {
                             <i class='fa fa-coffee'></i>\n\
                           Your password must be at least 4 characters long. Try again.\n\
                            </div>");
-            $("#myForm").after(domElement);
+        $("#myForm").after(domElement);
         return false;
     }
 // check for spaces
@@ -44,7 +44,7 @@ function validate() {
                             <i class='fa fa-coffee'></i>\n\
                            Sorry, spaces are not allowed.\n\
                            </div>");
-            $("#myForm").after(domElement);
+        $("#myForm").after(domElement);
         return false;
     } else {
         if (pw1 != pw2) {
@@ -65,7 +65,7 @@ function sentMessage() {
     var sender = $("#from").val();
     var receiver = $("#to").val();
     var body = $("#message").val();
-alert(receiver);
+    alert(receiver);
 
     var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
     alert(xml);
@@ -78,18 +78,18 @@ alert(receiver);
         dataType: "application/xml",
         success: function () {
             //location.reload();
-             
+
 
 
 
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
-          
+
             console.log(xhr.status);
             console.log(thrownError);
         },
-          timeout: 1200000
+        timeout: 1200000
 
     });
 
@@ -170,9 +170,9 @@ function createNote(caller) {
     });
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
-    
-    
-    
+
+
+
 }
 
 function remove(caller) {
@@ -181,7 +181,7 @@ function remove(caller) {
             console.log(xhr.status);
             console.log(thrownError);
         }
-    
+
     });
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
@@ -238,32 +238,12 @@ $(document).ready(function () {
         });
     });
 
-
-
-    $("#sortable1").sortable({
-        //    items: "li:not(.ui-state-disabled)" 
-        connectWith: "#sortable2"
+    $("#sortable1, #sortable2, #sortable3").sortable({
+        //    items: "li:not(.ui-state-disabled)"    
+        connectWith: "#sortable1, #sortable2, #sortable3"
 
     });
-
-    $("#sortable2").sortable({
-        // cancel: ".ui-state-disabled"
-        connectWith: "#sortable1"
-    });
-
-    $("#sortable1, #sortable2").disableSelection();
-
-
-
-
-
-
-
-
-
-
-
-
+    $("#sortable1, #sortable2, #sortable3").disableSelection();
 
 
     $("#taskInfo").click(function () {
@@ -292,25 +272,14 @@ $(function () {
 });
 
 
-  $( function() {
-    $( "#droppable" ).droppable({
-      drop: function( event, ui ) {
-        createNote(ui.draggable);
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
-  }
+$(function () {
+    $("#droppable").droppable({
+        drop: function (event, ui) {
+            createNote(ui.draggable);
+            $(this)
+                    .addClass("ui-state-highlight")
+                    .find("p")
+                    .html("Dropped!");
+        }
     });
-  } );
-
-
-
-
-
-
-
-
-//  End -->
-
-//  End -->
+});
