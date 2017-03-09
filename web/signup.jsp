@@ -95,6 +95,10 @@
                     <div class='col-md-6 col-md-offset-3' >
                         <div class='container-fluid' id='login'>
                             <form class="form-signin" method='post' onSubmit="return validate()" action='signup' id='myForm' name='myForm'>
+                                <label for="fName" class="sr-only">First name</label>
+                                <input type="text" name='fName' id="fName" class="form-control" placeholder="First name" required="" autofocus="">
+                                <label for="lName" class="sr-only">First name</label>
+                                <input type="text" name='lName' id="lName" class="form-control" placeholder="Last name" required="" autofocus="">
                                 <label for="email" class="sr-only">Email address</label>
                                 <input type="email" name='email' id="email" class="form-control" placeholder="Email address" required="" autofocus="">
                                 <label for="pass" class="sr-only">Password</label>

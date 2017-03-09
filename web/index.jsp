@@ -85,11 +85,11 @@
         <!-- Intro Header -->
         <header class="intro">
             <div class="intro-body">
-                <div class="container">
+                <div class="container polaroid">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <h1 class="brand-heading">Bits Please</h1>
-                            <p class="intro-text">A solution for task management.</p>
+                            <img src="css/stockmann.png" class="img-responsive center-block" style="width:90%;height:90%;">
+                            <img src="css/deli.png" class="img-responsive center-block" style="width:25%;height:25%;">
                             <a href="#about" class="btn btn-circle page-scroll">
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
