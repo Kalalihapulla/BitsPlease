@@ -105,19 +105,17 @@
         <section id="about" class="container content-section text-center">
             <div class="col-lg-8 col-lg-offset-2">
                 <div>
-                    <h3>Bits</h3>
+                    <h3>NootPad</h3>
                     <div id='about'>
                         <p>
-                            Bits Please is a school project trying to provide small companies efficient methods of managing tasks and instant messaging. Please sign up!
+                            NootPad is a school project made in an effort to provide Stockmann Deli with an amazing user experience. NootPad provides the administration with a management tool that can be used to assign work for the users in a dynamic environment.  
+                            
                         </p>
                     </div>
                     <h3>Technical Details</h3>
                     <div id='about'>
                         <p>
-                            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                            purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                            velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                            suscipit faucibus urna.
+                            NootPad uses modern web development tools, and runs from a remote web server using Amazon Web Service. 
                         </p>
                     </div>
                     <h3>Developers</h3>
@@ -138,8 +136,8 @@
             <div class="download-section">
                 <div class="container">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h2>Try Bits!</h2>
-                        <p>Sign up for Bits!</p>
+                        <h2>Try NootPad!</h2>
+                        <p>Sign up for NootPad!</p>
                         <a href="signup.jsp" class="btn btn-default btn-lg">Sign Up</a>
                     </div>
                 </div>
