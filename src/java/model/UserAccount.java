@@ -43,19 +43,21 @@ public class UserAccount implements Serializable {
     private String password;
     private List notes;
     private List messages;
+    private String jobDescription;
     private boolean isAdmin;
 
     public UserAccount() {
-        this("unknown", "unknown");
+        this("unknown", "unknown", "Cashier");
         this.isAdmin = false;
     }
 
-    public UserAccount(String email, String password) {
+    public UserAccount(String email, String password, String description) {
         this.isAdmin = false;
         this.notes = new ArrayList<>();
         this.id = 0L;
         this.email = email;
         this.password = password;
+        this.jobDescription = description;
         this.messages = new ArrayList<>();
     }
 
@@ -129,6 +131,16 @@ public class UserAccount implements Serializable {
 
     public void setIsAdmin(boolean state) {
         this.isAdmin = state;
+    }
+
+    @XmlElement
+    @Basic
+    public String getJobDescription() {
+        return this.jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
     }
 
     @Override

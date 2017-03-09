@@ -28,8 +28,9 @@ public class Test {
     public static void main(String[] args) {
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.create(new UserAccount());
-        MessageFacadeREST eST = new MessageFacadeREST();
-        eST.create(new Message("test", "admint", "helllo"));
+//        MessageFacadeREST eST = new MessageFacadeREST();
+//        eST.create(new Message("test", "admint", "helllo"));
+populate();
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
@@ -84,8 +85,8 @@ public class Test {
         notes.add(note2);
         notes.add(note3);
         notes.add(note4);
-        UserAccount user = new UserAccount("test", "kapap");
-        AdminAccount aduser = new AdminAccount("admint", "admin");
+        UserAccount user = new UserAccount("test@ulu", "kapap","JANITOR");
+        AdminAccount aduser = new AdminAccount("admint@koppa", "admin", "MANAGEMENT");
         Message message1 = new Message("lul@ulu", "Gret@bo", "Hello");
         Message message2 = new Message("gebbo", "ttt", "elelll");
         Message message3 = new Message("gobbos", "way", "auuu");
