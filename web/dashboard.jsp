@@ -75,10 +75,13 @@
                         </c:if>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
-                    <form class='navbar-form navbar-right' method='post' action='login' >
-                        <p id='loggedIn'>Welcome ${loggedInUser}</p>
+                    <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
                         <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
                     </form>
+                    <form class='navbar-form navbar-right' method='post' action='profile.jsp' >
+                        <button class='form-control btn btn-info note-input' onClick="location.href = 'profile.jsp';" name='profile'>Profile</button>
+                    </form>
+
                 </c:if>
                 <c:if test="${empty loggedInUser}">
                     <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
@@ -103,15 +106,19 @@
 
 
         <div class='container' id='main'>
+            
             <div class='row index-row' id='info'>
                 <h1 id='dashboard' class='text-center'>Dashboard</h1>
+                
                 <c:if test="${not empty loggedInUser}">
+                    
+                    <h3 class='text-center'>Welcome "${loggedInUser}"</h3>
                     <div id="droppable" class="ui-widget-header">
                         <p>Drop here</p>
                     </div>
-                    <h3 class='text-center'>Welcome "${loggedInUser}"</h3>
                     <div class='row' id='notes'></div>
                 </c:if>
+                    
                 <c:if test="${empty loggedInUser}">
                     <h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>
                 </c:if>
