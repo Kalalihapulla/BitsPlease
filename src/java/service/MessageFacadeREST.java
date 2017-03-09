@@ -6,7 +6,6 @@
 package service;
 
 import Util.HibernateStuff;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,92 +19,117 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Message;
 import model.UserAccount;
-import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
  * @author Izymi
  */
 @Stateless
-@Path("model.useraccount")
-public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
-
-    private SessionFactory sessionFactory;
-    private RestHelper restHelper;
+@Path("model.message")
+public class MessageFacadeREST extends AbstractFacade<Message> {
+    
     @PersistenceContext(unitName = "ProjectTestUDPU")
     private EntityManager em;
-
-    public UserAccountFacadeREST() {
-        super(UserAccount.class);
+    private RestHelper restHelper;
+    private SessionFactory sessionFactory;
+    
+    public MessageFacadeREST() {
+        super(Message.class);
         this.restHelper = new RestHelper();
     }
-
+    
     @POST
+    @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Override
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(UserAccount entity) {
+    public void create(Message message) {
+        UserAccount user1 = restHelper.getUserByEmail(message.getSender());
+        UserAccount user2 = restHelper.getUserByEmail(message.getReceiver());
+ 
+        
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
-        session.beginTransaction();
-        session.saveOrUpdate(entity);
-        session.getTransaction().commit();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            UserAccount userAccount1
+                    = (UserAccount) session.get(UserAccount.class, user1.getId());
+            UserAccount userAccount2
+                    = (UserAccount) session.get(UserAccount.class, user2.getId());
+            userAccount1.addMessage(message);
+            userAccount2.addMessage(message);
+            session.saveOrUpdate(message);
+            session.update(userAccount1);
+            session.update(userAccount2);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            
+        }
+        
     }
-
+    
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, UserAccount entity) {
+    public void edit(@PathParam("id") Long id, Message entity) {
         super.edit(entity);
     }
-
+    
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-
+    
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML})
-    public UserAccount find(@PathParam("id") Long id) {
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Message find(@PathParam("id") Long id) {
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
-
-        UserAccount userAccount
-                = (UserAccount) session.get(UserAccount.class, id);
-
-        return userAccount;
+        
+        Message message
+                = (Message) session.get(Message.class, id);
+        
+        return message;
     }
-
+    
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<UserAccount> findAll() {
-        return this.restHelper.findAll();
+    public List<Message> findAll() {
+        return super.findAll();
     }
-
+    
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<UserAccount> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Message> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
-
+    
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    
 }

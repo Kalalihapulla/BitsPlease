@@ -45,6 +45,33 @@ function remove(caller) {
     caller.parent("div").html("");
 }
 
+function sentMessage(){
+    var sender ="admint";
+    var receiver = "test";
+    var body="Test123";
+     var xml = "<message><body>"+body+"</body><receiver>"+receiver+"</receiver><sender>"+sender+"</sender></message>";
+       $.ajax({
+           
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.message",
+        data: xml,
+        type: 'POST',
+        contentType: "application/xml",
+        dataType: "application/xml",
+        success: function () {
+
+
+
+
+        }
+        ,
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+        }
+    
+    });
+    
+}
 
 function noteset() {
     $(".task").remove();

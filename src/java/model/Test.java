@@ -16,6 +16,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import service.MessageFacadeREST;
 import service.UserAccountFacadeREST;
 
 /**
@@ -27,7 +28,8 @@ public class Test {
     public static void main(String[] args) {
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.create(new UserAccount());
-        populate();
+        MessageFacadeREST eST = new MessageFacadeREST();
+        eST.create(new Message("test", "admint", "helllo"));
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
@@ -76,13 +78,25 @@ public class Test {
 
         ArrayList<Note> notes = new ArrayList<>();
         ArrayList<Note> notes2 = new ArrayList<>();
+        ArrayList<Message> m1 = new ArrayList<>();
+        ArrayList<Message> m2 = new ArrayList<>();
         notes.add(note1);
         notes.add(note2);
         notes.add(note3);
         notes.add(note4);
         UserAccount user = new UserAccount("test", "kapap");
         AdminAccount aduser = new AdminAccount("admint", "admin");
-
+        Message message1 = new Message("lul@ulu", "Gret@bo", "Hello");
+        Message message2 = new Message("gebbo", "ttt", "elelll");
+        Message message3 = new Message("gobbos", "way", "auuu");
+        m1.add(message3);
+         m1.add(message2);
+        m2.add(message2);
+        
+        user.setMessages(m2);
+      
+        aduser.setMessages(m1);
+        
 //        Collections.sort(notes);
 //       notes.forEach((note) -> {
 //           System.out.println(note.searchUrgency());
@@ -100,6 +114,9 @@ public class Test {
         session.saveOrUpdate(new Note("Go home", 2));
         session.saveOrUpdate(note2);
         session.saveOrUpdate(note3);
+        session.saveOrUpdate(message1);
+        session.saveOrUpdate(message2);
+        session.saveOrUpdate(message3);
 
         session.saveOrUpdate(user);
         session.saveOrUpdate(aduser);
