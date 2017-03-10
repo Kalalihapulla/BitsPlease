@@ -110,8 +110,12 @@
                 <%--</c:if>--%>
             </div>
 
-
-
+            
+               <div id="taskinfo">
+                  
+               </div> 
+            
+            
 
             <div id="taskboxbackground">
                 <div class="taskheader">
@@ -119,7 +123,7 @@
                 </div>
 
                 <div class="taskheader">
-                   In progress
+                    In progress
                 </div>
 
                 <div class="taskheader">

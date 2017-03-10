@@ -41,7 +41,6 @@ function updateProfile(email) {
         data: user,
         type: 'POST',
         contentType: "text/plain",
-       
         async:false,
 
         success: function (data) {
