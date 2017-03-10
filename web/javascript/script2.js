@@ -47,11 +47,11 @@ function updateProfile(email) {
             alert("works");
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
-            alert(fname);
+            //alert(fname);
             //location.reload();
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert("fail");
+            //alert("fail");
             console.log(xhr.status);
             console.log(thrownError);
         },
@@ -89,6 +89,8 @@ function setMessages() {
 
 
 }
+
+
 $(document).ready(function () {
 
 

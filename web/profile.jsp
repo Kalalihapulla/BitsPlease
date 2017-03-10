@@ -68,6 +68,7 @@
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
                     <li><a href='userDash.jsp'>User dashboard</a></li>
                     <li><a href='messages.jsp'>Messages</a></li>
+                    <li><a href="mailbox.jsp">Mailbox</a></li>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -101,17 +102,17 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
-                        <h6>Upload a different photo...</h6>
-                        <input type="file" class="text-center center-block well well-sm">
+                        <h6>This is you, you have the best words</h6>
+<!--                        <input type="file" class="text-center center-block well well-sm">-->
                     </div>
                 </div>
                 <!-- edit form column -->
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="padding-right: 2em;">
-                    <div class="alert alert-info alert-dismissable">
+<!--                    <div class="alert alert-info alert-dismissable">
                         <a class="panel-close close" data-dismiss="alert">×</a> 
                         <i class="fa fa-coffee"></i>
                         This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                    </div>
+                    </div>-->
                     <h3>Personal info</h3>
                     <form class="form-horizontal center-block" role="form">
                         <div class="form-group">
@@ -161,17 +162,13 @@
                     </form>
                 </div>
             </div>
-
-
-
-
         </div>
 
+        
 
 
-
-        <div id="testlul">ddddddddddddddddddddddddddddd
-        </div>
+<!--        <div id="testlul">ddddddddddddddddddddddddddddd
+        </div>-->
 
 
 
