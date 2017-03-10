@@ -237,10 +237,7 @@ function displayMessage() {
 }
 
 $(document).ready(function () {
-    $('#testerButton').click(function(){
-       displayMessage();
-    });
-  });
+
     noteset();
     $("#addTask").click(function () {
         createNote();
@@ -295,6 +292,7 @@ $(document).ready(function () {
 
     });
 
+
     $(document).load(function () {
         $("infoBox").hide();
     });
@@ -319,4 +317,5 @@ $(function () {
                     .html("Dropped!");
         }
     });
+});
 });
