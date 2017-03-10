@@ -31,33 +31,40 @@ function createUser() {
 }
 function sentProfile(email) {
 
-    
+
     $.ajax({
         url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
         data: email,
         type: 'POST',
         contentType: "text/plain",
+
         async: false,
 
         success: function (data) {
+
             var xml = data;
-            alert( $('#emailT').val());
-            xml.getElementsByTagName("email")[0].childNodes[0].nodeValue = $('#emailT').val;
-            xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue = $('#fnameT').val;
-            xml.getElementsByTagName("lastName")[0].childNodes[0].nodeValue = $('#lnameT').val;
+
+            
+            xml.getElementsByTagName("email")[0].childNodes[0].nodeValue = $('#emailT').val();
+            xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue = $('#fnameT').val();
+            xml.getElementsByTagName("lastName")[0].childNodes[0].nodeValue = $('#lnameT').val();
+            var id = xml.getElementsByTagName("id")[0].childNodes[0].nodeValue;
+            var xmlText = new XMLSerializer().serializeToString(xml);
+           
             $.ajax({
-                url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/%7Bid%7D",
-                data: xml,
+                url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/" + id,
+                data: xmlText,
                 type: 'PUT',
                 contentType: "application/xml",
-           
+                async: false,
+
                 success: function () {
                     //location.reload();
-                    alert("hello");
+                    alert("Profile Updated");
                 }
                 ,
                 error: function (xhr, ajaxOptions, thrownError) {
-
+                    alert("fail");
                     console.log(xhr.status);
                     console.log(thrownError);
                 },
@@ -66,16 +73,16 @@ function sentProfile(email) {
             //location.reload();
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            //alert("fail");
+      ;
             console.log(xhr.status);
             console.log(thrownError);
         },
-        timeout: 1200000
+        timeout: 12000
     });
 
-
-
 }
+
+
 function updateProfile(email) {
 
     $.ajax({
@@ -86,7 +93,7 @@ function updateProfile(email) {
         async: false,
 
         success: function (data) {
-
+            // alert("yyy");
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             var lname = data.getElementsByTagName("lastName");

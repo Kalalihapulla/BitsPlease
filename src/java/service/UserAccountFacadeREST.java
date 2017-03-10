@@ -142,9 +142,25 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         return this.restHelper.getUserByEmail("admint@koppa");
     }
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
+    @POST
+    @Path("userByEmail")
+    @Consumes(MediaType.APPLICATION_XML)
+    public void userUD(UserAccount account) {
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+  
+            session.beginTransaction();
+            session.update(account);
+            session.getTransaction().commit();
+
     }
 
-}
+        @Override
+        protected EntityManager getEntityManager
+        
+            () {
+        return em;
+        }
+
+    }

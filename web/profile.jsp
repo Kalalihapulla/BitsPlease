@@ -155,7 +155,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onclick="  var userId = '${loggedInUser}';
+                                        sentProfile(userId);">
                                 <span></span>
                                 <input class="btn btn-default" value="Cancel" type="reset">
                             </div>
@@ -164,7 +165,15 @@
                 </div>
             </div>
         </div>
-        <script>var userId = '${loggedInUser}';sentProfile(userId);</script>
+        <script>
+//            $('#change').click(function ()) {
+//                var userId = '${loggedInUser}';
+//                sentProfile(userId);
+//
+//
+//
+//            });
+        </script>
 
 
 
@@ -178,8 +187,6 @@
         $(document).ready(function () {
             var userId = '${loggedInUser}';
             updateProfile(userId);
-
-
 
 
         });
