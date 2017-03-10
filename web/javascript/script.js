@@ -386,7 +386,9 @@ $(document).ready(function () {
     
         $('#notes').prepend(domElement);
         loadRadio();
-        $(".draggable").draggable();
+        $(".draggable").draggable({
+            containment: ".row"
+        });
         $(".draggable").resizable({
             animate: true,
             maxHeight: 600,

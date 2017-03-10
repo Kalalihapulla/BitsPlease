@@ -11,16 +11,21 @@
 
         <title>Bits Please</title>
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+        <link href="css/bootstrap.css" rel="stylesheet">
+        
+        
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-        <link href="css/grayscale.min.css" rel="stylesheet">
 
         <link href="skins/square/red.css" type="text/css" rel="stylesheet">
         <link href="css/grayscale.min.css" rel="stylesheet">
+        <script src="vendor/jquery/jquery.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+        <script src="js/grayscale.js"></script>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
@@ -147,13 +152,7 @@
             </div>
         </footer>
 
-        <script src="vendor/jquery/jquery.js"></script>
-
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-        <script src="js/grayscale.min.js"></script>
+        
 
     </body>
 

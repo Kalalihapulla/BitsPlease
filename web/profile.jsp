@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : userDash
     Created on : Feb 26, 2017, 5:14:20 PM
@@ -40,8 +41,7 @@
         <script src="javascript/script2.js"></script>
         <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
-        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
-        <link href="css/grayscale.min.css" rel="stylesheet">
+
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -69,6 +69,7 @@
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
                     <li><a href='userDash.jsp'>User dashboard</a></li>
                     <li><a href='messages.jsp'>Messages</a></li>
+                    <li><a href="mailbox.jsp">Mailbox</a></li>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -114,7 +115,7 @@
                         This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div>-->
                     <h3>Personal info</h3>
-                    <form class="form-horizontal center-block" role="form" method="post" name="myForm" id="myForm" onSubmit="return validate()">
+                    <form class="form-horizontal center-block" role="form" onSubmit="var userId = '${loggedInUser}';updateProfile(userId)">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-8">
@@ -142,18 +143,12 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Password:</label>
                             <div class="col-md-8">
-
-                                <input class="form-control" value="11111122333" type="password" name="pass" id="pass">
-
                                 <input class="form-control" value="" type="password">
-
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Confirm password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="11111122333" type="password" name="repeat" id="repeat">
-
                                 <input class="form-control" value="" type="password">
                             </div>
                         </div>
@@ -170,7 +165,13 @@
             </div>
         </div>
 
-       
+        
+
+
+<!--        <div id="testlul">ddddddddddddddddddddddddddddd
+        </div>-->
+
+
 
     </body>
     <script>
@@ -178,11 +179,7 @@
              var userId = '${loggedInUser}';
             updateProfile(userId);
             
-
-
-
         });
 //        
-
     </script>
 </html>

@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1106,6 +1106,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2536,6 +2537,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3027,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3583,7 +3586,7 @@ tbody.collapse.in {
   cursor: not-allowed;
   background-color: transparent;
   background-image: none;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  -ms-filter: 'filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);';
 }
 .open > .dropdown-menu {
   display: block;
@@ -5946,6 +5949,30 @@ button.close {
   position: relative;
   padding: 15px;
 }
+.modal-body input.text {
+  width: 100%;
+    margin: 0 10px 25px 0;
+    padding: 15px 10px;
+    background-color: transparent;
+    border: none;
+    border-left: 1px solid rgb(2, 24, 136);
+    border-bottom: 1px solid rgb(2, 24, 136);
+    outline: transparent;
+}
+.modal-body input.more_btn {
+    padding: 7px 15px;
+    background-color: transparent;
+    border: 2px solid rgb(2, 24, 136);
+    outline: transparent;
+	color:rgb(2, 24, 136);
+    margin:auto;
+  display:block;
+}
+.modal-body input.more_btn:hover {
+	color: #FFf;
+    border: 2px solid #FF166D;
+	background:#FF166D;
+}
 .modal-footer {
   padding: 15px;
   text-align: right;
@@ -5971,7 +5998,7 @@ button.close {
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
-    margin: 30px auto;
+    margin: 100px auto;
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -6333,7 +6360,7 @@ button.close {
   background-image:      -o-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
   background-image:         linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+  -ms-filter: 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);';
   background-repeat: repeat-x;
 }
 .carousel-control.right {
@@ -6343,7 +6370,7 @@ button.close {
   background-image:      -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
   background-image:         linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+  -ms-filter: 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);';
   background-repeat: repeat-x;
 }
 .carousel-control:hover,
@@ -6754,4 +6781,68 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
+
+@media (min-width: 768px) and (max-width: 1200px) {
+     .navbar-nav .open .dropdown-menu {
+         position: static;
+         float: none;
+         width: auto;
+         margin-top: 0;
+         background-color: transparent;
+         border: 0;
+         -webkit-box-shadow: none;
+         box-shadow: none;
+     }
+     .navbar-nav .open .dropdown-menu > li > a {
+         line-height: 20px;
+     }
+     .navbar-nav .open .dropdown-menu > li > a,
+     .navbar-nav .open .dropdown-menu .dropdown-header {
+         padding: 5px 15px 5px 25px;
+     }
+     .dropdown-menu > li > a {
+         display: block;
+         padding: 3px 20px;
+         clear: both;
+         font-weight: normal;
+         line-height: 1.42857143;
+         color: #333;
+         white-space: nowrap;
+     }
+     .navbar-header {
+         float: none;
+     }
+     .navbar-toggle {
+         display: block;
+     }
+     .navbar-collapse {
+         border-top: 1px solid transparent;
+         box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+     }
+     .navbar-collapse.collapse {
+         display: none!important;
+     }
+     .navbar-nav {
+         float: none!important;
+         /*margin: 7.5px -15px;*/
+         margin: 7.5px 50px 7.5px -15px
+     }
+     .navbar-nav>li {
+         float: none;
+     }
+     .navbar-nav>li>a {
+         padding-top: 10px;
+         padding-bottom: 10px;
+     }
+     .navbar-text {
+         float: none;
+         margin: 15px 0;
+     }
+     /* since 3.1.0 */
+     .navbar-collapse.collapse.in {
+         display: block!important;
+     }
+     .collapsing {
+         overflow: hidden!important;
+     }
+ }
