@@ -29,17 +29,18 @@ public class Message implements Serializable {
     private String subject;
     private boolean readStatus;
 
-    public Message(String sender, String receiver, String body) {
+    public Message(String sender, String receiver, String body, String subject) {
         this.id = 0L;
         this.sender = sender;
         this.receiver = receiver;
         this.body = body;
+        this.subject= subject;
         this.timeCreated = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date());
         this.readStatus = false;
     }
 
     public Message() {
-        this("unknown", "unknown", "empty");
+        this("unknown", "unknown", "empty","empty");
     }
 
     @XmlElement
@@ -97,6 +98,16 @@ public class Message implements Serializable {
     @Basic
     public boolean getReadStatus() {
         return this.readStatus;
+
+    }
+    @XmlElement
+    @Basic
+    public String getSubject() {
+        return this.subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
 
     }
 
