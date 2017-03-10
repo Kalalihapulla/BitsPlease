@@ -70,7 +70,7 @@
                         </c:if>
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
                     <li><a href='userDash.jsp'>User dashboard</a></li>
-                     <li><a href='messages.jsp'>Messages</a></li>
+                    <li><a href='messages.jsp'>Messages</a></li>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -109,6 +109,12 @@
                 <%--</c:if>--%>
             </div>
 
+            <div id="taskinfo">
+                TESTETESTSRSTSRSRST
+            </div>
+
+
+        
 
 
 
@@ -118,7 +124,7 @@
                 </div>
 
                 <div class="taskheader">
-                   In progress
+                    In progress
                 </div>
 
                 <div class="taskheader">

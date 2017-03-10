@@ -258,6 +258,13 @@ footer {
 
 }
 
+.qm {
+    float: right;
+    height: 40px;
+    width:  30px;
+}
+
+
 
 #messageField {
     position: absolute;
