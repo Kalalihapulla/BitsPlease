@@ -29,7 +29,49 @@ function createUser() {
         timeout: 1200000
     });
 }
-function getMessages() {
+function sentProfile(email) {
+
+    
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
+        data: email,
+        type: 'POST',
+        contentType: "text/plain",
+        async: false,
+
+        success: function (data) {
+            var xml = data;
+            alert( $('#emailT').val());
+            xml.getElementsByTagName("email")[0].childNodes[0].nodeValue = $('#emailT').val;
+            xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue = $('#fnameT').val;
+            xml.getElementsByTagName("lastName")[0].childNodes[0].nodeValue = $('#lnameT').val;
+            $.ajax({
+                url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/%7Bid%7D",
+                data: xml,
+                type: 'PUT',
+                contentType: "application/xml",
+           
+                success: function () {
+                    //location.reload();
+                    alert("hello");
+                }
+                ,
+                error: function (xhr, ajaxOptions, thrownError) {
+
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                },
+                timeout: 1200000
+            });
+            //location.reload();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            //alert("fail");
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 1200000
+    });
 
 
 
@@ -44,7 +86,7 @@ function updateProfile(email) {
         async: false,
 
         success: function (data) {
-           
+
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             var lname = data.getElementsByTagName("lastName");
@@ -53,12 +95,12 @@ function updateProfile(email) {
             fnameT = fname[0].childNodes[0].nodeValue;
             lnameT = lname[0].childNodes[0].nodeValue;
             jobT = job[0].childNodes[0].nodeValue;
-            
+
             $('#fnameT').val(fnameT);
             $('#lnameT').val(lnameT);
             $('#emailT').val(emailT);
             $('#positionT').val(jobT);
-           
+
             //location.reload();
         },
         error: function (xhr, ajaxOptions, thrownError) {
