@@ -119,7 +119,7 @@ function noteset() {
                 if (urgency[i].childNodes[0].nodeValue === "0") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
                         $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
-
+                         
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
                         $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
@@ -235,6 +235,53 @@ function displayMessage() {
 
     $('#mailtable').append(domElement);
 }
+function opennote() {
+
+
+    $(function () {
+
+        //  $("#taskinfo").empty();
+        $("#taskinfo").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "blind",
+                duration: 500
+            },
+            width: 600,
+            height: 400
+        });
+
+
+        jQuery.ajax({
+            url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
+            type: "GET",
+            contentType: 'application/xml; charset=utf-8',
+            success: function (resultData) {
+                var desc = resultData.getElementsByTagName("description");
+                var urgency = resultData.getElementsByTagName("urgency");
+                var time = resultData.getElementsByTagName("timeCreated");
+                var status = resultData.getElementsByTagName("status");
+                descT = "";
+                urgencyT = "";
+                timeT = "";
+                statusT = "";
+                descT = "Task: " + desc[i].childNodes[0].nodeValue;
+                urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
+                timeT = "Created: " + time[i].childNodes[0].nodeValue;
+                //statusT = "Status: " + status[i].childNodes[0].nodeValue;
+
+            }
+        });
+
+        $("#taskinfo").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + '</div>');
+        $("#taskinfo").dialog("open");
+
+    });
+}
 
 $(document).ready(function () {
 
@@ -320,52 +367,6 @@ $(document).ready(function () {
     });
 
 
-    function opennote() {
 
-
-        $(function () {
-
-            //  $("#taskinfo").empty();
-            $("#taskinfo").dialog({
-                autoOpen: false,
-                show: {
-                    effect: "blind",
-                    duration: 500
-                },
-                hide: {
-                    effect: "blind",
-                    duration: 500
-                },
-                width: 600,
-                height: 400
-            });
-
-
-            jQuery.ajax({
-                url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
-                type: "GET",
-                contentType: 'application/xml; charset=utf-8',
-                success: function (resultData) {
-                    var desc = resultData.getElementsByTagName("description");
-                    var urgency = resultData.getElementsByTagName("urgency");
-                    var time = resultData.getElementsByTagName("timeCreated");
-                    var status = resultData.getElementsByTagName("status");
-                    descT = "";
-                    urgencyT = "";
-                    timeT = "";
-                    statusT = "";
-                    descT = "Task: " + desc[i].childNodes[0].nodeValue;
-                    urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
-                    timeT = "Created: " + time[i].childNodes[0].nodeValue;
-                    //statusT = "Status: " + status[i].childNodes[0].nodeValue;
-
-                }
-            });
-
-            $("#taskinfo").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + '</div>');
-            $("#taskinfo").dialog("open");
-
-        });
-    }
 });
 
