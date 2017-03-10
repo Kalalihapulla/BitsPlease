@@ -43,6 +43,8 @@
         <script src="javascript/script.js"></script>
         <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
+        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
+        <link href="css/grayscale.min.css" rel="stylesheet">
 
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

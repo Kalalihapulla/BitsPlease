@@ -28,6 +28,7 @@
         <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -38,6 +39,10 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
         <!-- Theme CSS -->
+        <script src="javascript/icheck.js"></script>
+        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
+        <link href="skins/square/yellow.css" type="text/css" rel="stylesheet">
+        <link href="skins/square/green.css" type="text/css" rel="stylesheet">
         <link href="css/grayscale.min.css" rel="stylesheet">
         <link href="css/grayscale.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -106,19 +111,34 @@
 
 
         <div class='container' id='main'>
-            
+
             <div class='row index-row' id='info'>
                 <h1 id='dashboard' class='text-center'>Dashboard</h1>
-                
+
                 <c:if test="${not empty loggedInUser}">
-                    
-                    <h3 class='text-center'>Welcome "${loggedInUser}"</h3>
-                    <div id="droppable" class="ui-widget-header">
-                        <p>Drop here</p>
+
+                    <div class='row' style='width:100vw;'>
+                        <div class='col-xs-3'>
+                    <div id="dropShelf" class="droppable droppableleft ui-widget-header">
+                        SHELVERS
                     </div>
-                    <div class='row' id='notes'></div>
+
+                    <div id="dropChef" class="droppable droppableleft ui-widget-header">
+                        CHEFS
+                    </div>
+                        </div>
+                        <div class='col-xs-6' id='notes'></div>
+                    <div class='col-xs-3'>
+                    <div id="dropJan" class="droppable droppableright ui-widget-header">
+                        JANITORS
+                    </div>
+                    <div id="dropCash" class="droppable droppableright ui-widget-header">
+                        CASHIERS
+                    </div>
+                        <div>
+                    </div>
                 </c:if>
-                    
+
                 <c:if test="${empty loggedInUser}">
                     <h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>
                 </c:if>

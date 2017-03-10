@@ -40,7 +40,8 @@
         <script src="javascript/script2.js"></script>
         <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
-
+        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
+        <link href="css/grayscale.min.css" rel="stylesheet">
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -113,7 +114,7 @@
                         This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div>
                     <h3>Personal info</h3>
-                    <form class="form-horizontal center-block" role="form">
+                    <form class="form-horizontal center-block" role="form" method="post" name="myForm" id="myForm" onSubmit="return validate()">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-8">
@@ -141,19 +142,19 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="11111122333" type="password">
+                                <input class="form-control" value="11111122333" type="password" name="pass" id="pass">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Confirm password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="11111122333" type="password">
+                                <input class="form-control" value="11111122333" type="password" name="repeat" id="repeat">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="submit">
                                 <span></span>
                                 <input class="btn btn-default" value="Cancel" type="reset">
                             </div>
