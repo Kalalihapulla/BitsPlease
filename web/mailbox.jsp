@@ -92,112 +92,84 @@
                 <h1 class="page-header" style="padding-left: 1em;">Inbox</h1>
             </div>
             <div class='container-fluid' id='back'>
-	<div class="row">
-		<div class="box-body no-padding">
-                  <div class="mailbox-controls">
-                    <!-- Check all button -->
-                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
-                    <div class="btn-group">
-                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
-                    </div><!-- /.btn-group -->
-                    <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
-                    <div class="pull-right">
-                      1-50/200
-                      <div class="btn-group">
-                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
-                      </div><!-- /.btn-group -->
-                    </div><!-- /.pull-right -->
-                  </div>
-                  <hr>
-                  <div class="table-responsive mailbox-messages">
-                    <table class="table table-striped">
-                      <tbody>
-                        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                  <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-            <td>OBS Name</td>
-            <td>OBS Description</td>
-            <td>hpcloud</td>
-            <td>nova</td>
-          <td> created</td>
-
-        </tr>
-        <tr>
-            <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1"> 
-              <table class="table table-striped">
-                      <thead>
-                        <tr><td><a href="WorkloadURL">Workload link</a></td><td>Bandwidth: Dandwidth Details</td><td>OBS Endpoint: end point</td></tr>
-                        <tr><th>Access Key</th><th>Secret Key</th><th>Status </th><th> Created</th><th> Expires</th><th>Actions</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr><td>access-key-1</td><td>secretKey-1</td><td>Status</td><td>some date</td><td>some date</td><td><a href="#" class="btn btn-default btn-sm">
-                  <i class="glyphicon glyphicon-cog"></i></a></td></tr>
-                        
-                     
-                    
-                      </tbody>
-               	</table>
-              
-              </div> </td>
-        </tr>  
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                          <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                          <td class="mailbox-date">5 mins ago</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                          <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                          <td class="mailbox-date">28 mins ago</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td>
-                          <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                          <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                          <td class="mailbox-date">11 hours ago</td>
-                        </tr>
-                      </tbody>
-                    </table><!-- /.table -->
-                  </div><!-- /.mail-box-messages -->
-                </div><!-- /.box-body -->
-                <hr>
-                <div class="box-footer no-padding">
-                  <div class="mailbox-controls">
-                    <!-- Check all button -->
-                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
-                    <div class="btn-group">
-                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
-                    </div><!-- /.btn-group -->
-                    <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
-                    <div class="pull-right">
-                      1-50/200
-                      <div class="btn-group">
-                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
-                      </div><!-- /.btn-group -->
-                    </div><!-- /.pull-right -->
-                  </div>
-                </div>
-              </div><!-- /. box -->
+                <div class="row">
+                    <div class="box-body no-padding">
+                        <div class="mailbox-controls">
+                            <!-- Check all button -->
+                            <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
+                            <div class="btn-group">
+                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
+                            </div><!-- /.btn-group -->
+                            <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
+                            <div class="pull-right">
+                                1-50/200
+                                <div class="btn-group">
+                                    <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                                    <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                                </div><!-- /.btn-group -->
+                            </div><!-- /.pull-right -->
+                        </div>
+                        <hr>
+                        <div class="table-responsive mailbox-messages">
+                            <table class="table table-striped" id="mailtable">
+                                <tbody>
+                                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                                        <td><input type="checkbox"></td>
+                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
+                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
+                                        <td class="mailbox-date">5 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1"> 
+                                                <div>Message goes here.</div>                  
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
+                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
+                                        <td class="mailbox-date">5 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
+                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
+                                        <td class="mailbox-date">28 mins ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
+                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
+                                        <td class="mailbox-date">11 hours ago</td>
+                                    </tr>
+                                </tbody>
+                            </table><!-- /.table -->
+                        </div><!-- /.mail-box-messages -->
+                    </div><!-- /.box-body -->
+                    <hr>
+                    <div class="box-footer no-padding">
+                        <div class="mailbox-controls">
+                            <!-- Check all button -->
+                            <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
+                            <div class="btn-group">
+                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
+                            </div><!-- /.btn-group -->
+                            <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
+                            <div class="pull-right">
+                                1-50/200
+                                <div class="btn-group">
+                                    <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                                    <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                                </div><!-- /.btn-group -->
+                            </div><!-- /.pull-right -->
+                        </div>
+                    </div>
+                </div><!-- /. box -->
             </div><!-- /.col -->
-          </div><!-- /.row -->
-
-          
-
-        
-
-            
-                            <!--                        </div>-->
-                        
-                    
-                
-
-
-                </body>
-                </html>
+        </div><!-- /.row -->
+    </body>
+</html>

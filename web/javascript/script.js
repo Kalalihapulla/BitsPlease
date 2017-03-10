@@ -61,11 +61,11 @@ function validate() {
     }
 }
 
-function sentMessage() {
-    var sender = $("#from").val();
-    var receiver = $("#to").val();
-    var body = $("#message").val();
-    alert(receiver);
+function sendMessage(to, subject, messageout, from) {
+    var sender = from;
+    var receiver = document.getElementById(to).value;
+    var subject = document.getElementById(subject).value;
+    var body = document.getElementById(messageout).value;
 
     var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
  
@@ -89,7 +89,7 @@ function sentMessage() {
             console.log(xhr.status);
             console.log(thrownError);
         },
-        timeout: 1200000
+        timeout: 12000
 
     });
 
@@ -225,8 +225,22 @@ function removal(caller) {
     caller.parent("div").html("");
 }
 
-$(document).ready(function () {
 
+function displayMessage() {
+    var domElement = $("<tr data-toggle='collapse' data-target='#demo1' class='accordion-toggle'>\n\
+                        <td><input type='checkbox'></td><td class='mailbox-name'><a href='readmail.jsp'>test\n\
+                        </a></td><td class='mailbox-subject'><b>test</b> - Trying to find a solution to this problem...</td>\n\
+                        <td class='mailbox-date'>5 mins ago</td></tr><tr>\n\
+                        <td colspan='12' class='hiddenRow'><div class='accordian-body collapse' id='test'>div>test</div></td></tr>");
+    
+    $('#mailtable').append(domElement);
+}
+
+$(document).ready(function () {
+    $('#testerButton').click(function(){
+       displayMessage();
+    });
+  });
     noteset();
     $("#addTask").click(function () {
         createNote();
@@ -237,12 +251,6 @@ $(document).ready(function () {
         createNote();
 
     });
-    $("#send").click(function () {
-
-        sentMessage();
-    });
-
-
     $("#noteButton").click(function () {
         var domElement = $("<div id='draggable' class='col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
                         <form id='radioForm'><div style= 'padding:1px; margin-left: 1.2em; border:1px solid red;float:left; border-radius: 50px'>\n\
@@ -290,10 +298,6 @@ $(document).ready(function () {
     $(document).load(function () {
         $("infoBox").hide();
     });
-
-
-
-});
 
 $(function () {
     $(".grid").sortable({
