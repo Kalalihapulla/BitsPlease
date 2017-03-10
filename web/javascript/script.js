@@ -68,7 +68,7 @@ function sendMessage(to, subject, messageout, from) {
     var body = document.getElementById(messageout).value;
 
     var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
- 
+
     $.ajax({
 
         url: "http://localhost:8080/ProjectTestUD/webresources/model.message",
@@ -120,28 +120,47 @@ function noteset() {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
                         $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:seagreen" aria-hidden="true"></i></div>');
 
+                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
+                         
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
                         $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:seagreen" aria-hidden="true"></i></div>');
+                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
+
                         $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:seagreen" aria-hidden="true"></i></div>');
+
+                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
+
 
                     }
 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "1") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
+
                         $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:gold" aria-hidden="true"></i></div>');
+
+                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
+
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
+
                         $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:gold" aria-hidden="true"></i></div>');
+
+                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
+
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
+
                         $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:gold" aria-hidden="true"></i></div>');
+
+                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
+
 
                     }
 
@@ -150,15 +169,27 @@ function noteset() {
                 }
                 if (urgency[i].childNodes[0].nodeValue === "2") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
+
                         $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:chocolate" aria-hidden="true"></i></div>');
+
+                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
+
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
+
                         $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:chocolate" aria-hidden="true"></i></div>');
+
+                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
+
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
+
                         $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:chocolate" aria-hidden="true"></i></div>');
+
+                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
+
 
                     }
 
@@ -208,40 +239,6 @@ function createNote(caller) {
 
 }
 
-function createNoteDrop(caller) {
-    var text = caller.find('#noteText').val();
-    var prio = $("input:radio[name=optradio]:checked").val();
-    var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
-
-
-    $.ajax({
-
-        url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
-        data: xml,
-        type: 'POST',
-        contentType: "application/xml",
-        dataType: "application/xml",
-        //processData: false,
-        success: function () {
-
-
-
-
-        }
-        ,
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status);
-            console.log(thrownError);
-        }
-
-    });
-    caller.fadeTo(500,0,function(){caller.css('visibility', 'hidden');});
-    caller.html("");
-
-
-
-}
-
 function createNoteDrop(caller, job) {
     console.log(job);
     var text = caller.find('#noteText').val();
@@ -276,18 +273,6 @@ function createNoteDrop(caller, job) {
 
 
 }
-function remove(caller) {
-    $.ajax({
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status);
-            console.log(thrownError);
-        }
-
-    });
-    caller.parent("div").css('visibility', 'hidden');
-    caller.parent("div").html("");
-}
-
 function removal(caller) {
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
@@ -300,8 +285,55 @@ function displayMessage() {
                         </a></td><td class='mailbox-subject'><b>test</b> - Trying to find a solution to this problem...</td>\n\
                         <td class='mailbox-date'>5 mins ago</td></tr><tr>\n\
                         <td colspan='12' class='hiddenRow'><div class='accordian-body collapse' id='test'>div>test</div></td></tr>");
-    
+
     $('#mailtable').append(domElement);
+}
+function opennote() {
+
+
+    $(function () {
+
+        //  $("#taskinfo").empty();
+        $("#taskinfo").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "blind",
+                duration: 500
+            },
+            width: 600,
+            height: 400
+        });
+
+
+        jQuery.ajax({
+            url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
+            type: "GET",
+            contentType: 'application/xml; charset=utf-8',
+            success: function (resultData) {
+                var desc = resultData.getElementsByTagName("description");
+                var urgency = resultData.getElementsByTagName("urgency");
+                var time = resultData.getElementsByTagName("timeCreated");
+                var status = resultData.getElementsByTagName("status");
+                descT = "";
+                urgencyT = "";
+                timeT = "";
+                statusT = "";
+                descT = "Task: " + desc[i].childNodes[0].nodeValue;
+                urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
+                timeT = "Created: " + time[i].childNodes[0].nodeValue;
+                //statusT = "Status: " + status[i].childNodes[0].nodeValue;
+
+            }
+        });
+
+        $("#taskinfo").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + '</div>');
+        $("#taskinfo").dialog("open");
+
+    });
 }
 
 function loadRadio() {
@@ -387,14 +419,14 @@ $(document).ready(function () {
         $("infoBox").hide();
     });
 
-$(function () {
-    $(".grid").sortable({
-        tolerance: 'pointer',
-        revert: 'invalid',
-        placeholder: 'span2 well placeholder tile',
-        forceHelperSize: true
+    $(function () {
+        $(".grid").sortable({
+            tolerance: 'pointer',
+            revert: 'invalid',
+            placeholder: 'span2 well placeholder tile',
+            forceHelperSize: true
+        });
     });
-});
 
 
 $(function () {
@@ -423,7 +455,11 @@ $(function () {
                     .find("p")
                     .html("Dropped!")
         ;}
-    });
+
+
+
+});
+
 });
 });
 

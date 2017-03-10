@@ -73,6 +73,7 @@
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
                     <li><a href='userDash.jsp'>User dashboard</a></li>
                      <li><a href='messages.jsp'>Messages</a></li>
+                     <li><a href="mailbox.jsp">Mailbox</a></li>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -111,8 +112,12 @@
                 <%--</c:if>--%>
             </div>
 
-
-
+            
+               <div id="taskinfo">
+                  
+               </div> 
+            
+            
 
             <div id="taskboxbackground">
                 <div class="taskheader">
@@ -120,7 +125,7 @@
                 </div>
 
                 <div class="taskheader">
-                   In progress
+                    In progress
                 </div>
 
                 <div class="taskheader">
