@@ -89,54 +89,23 @@
 
         <div class='container' id='main'>
             <div class='row index-row' id='info'>
-                <h1 class="page-header" style="padding-left: 1em;">Message Form</h1>
+                <h1 class="page-header" style="padding-left: 1em;">Inbox</h1>
             </div>
             <div class='container-fluid' id='back'>
-                <div class="panel-body">
-                    <form role="form" class="form-horizontal">
-                        <form class="form-horizontal" role="form" method="post" action="index.php">
-                            <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">To (username):</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="to" name="to" placeholder="Username" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="col-sm-2 control-label">Subject</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="col-sm-2 control-label">Message</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" rows="4" id="message" name="message"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
-                                    <input id="send" name="send" type="submit" value="Send" class="btn btn-primary">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
-                                    <div class="alert alert-info alert-dismissable">
-                                        <a class="panel-close close" data-dismiss="alert">×</a> 
-                                        <i class="fa fa-coffee"></i>
-                                        This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--                        </div>-->
+
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          
+
+        
+
+            
+                            <!--                        </div>-->
+                        
+                    
+                
 
 
-
-
-
-    </body>
-</html>
+                </body>
+                </html>

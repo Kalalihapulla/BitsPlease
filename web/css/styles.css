@@ -259,4 +259,58 @@ footer {
 }
 
 
+#messageField {
+    position: absolute;
+    color: transparent;
+    overflow: hidden;
+    white-space: pre-wrap;
+    border: 1.33333px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 228px; width: 98%;
+    z-index: 0; padding: 6px 12px;
+    margin: 0px;
+    top: auto;
+    left: auto;
+    background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);
+}
+
+#messageSpan {
+    display:inline-block;
+    line-height:26.6667px;
+    color:transparent;
+    overflow:hidden;
+    text-align:left;
+    clear:none;
+    box-sizing:border-box;
+    vertical-align:baseline;
+    white-space:pre-wrap;
+    width:100%;margin:0;
+    padding:0;border:0;
+    font-size:14px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;letter-spacing:normal;
+    text-shadow:none;
+    height:225px;
+}
+
+#inputBody {
+    z-index: auto;
+    position: relative;
+    line-height: 26.6667px;
+    font-size: 14px;
+    transition: none;
+    overflow: auto;
+    background: transparent !important;
+}
+
+#messageDiv {
+    z-index: 2;
+    opacity: 1;
+    margin-left: 794px;
+    margin-top: 197px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: black;
+ }
 
