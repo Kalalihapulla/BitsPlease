@@ -87,9 +87,9 @@ public class Test {
         notes.add(note4);
         UserAccount user = new UserAccount("test@ulu", "kapap", "JANITOR", "Kappa", "Keepo");
         AdminAccount aduser = new AdminAccount("admint@koppa", "admin", "MANAGEMENT", "Kala", "Kukko");
-        Message message1 = new Message("lul@ulu", "Gret@bo", "Hello");
-        Message message2 = new Message("gebbo", "ttt", "elelll");
-        Message message3 = new Message("gobbos", "way", "auuu");
+        Message message1 = new Message("lul@ulu", "Gret@bo", "Hello","HI");
+        Message message2 = new Message("gebbo", "ttt", "elelll","lko");
+        Message message3 = new Message("gobbos", "way", "auuu","llls");
         m1.add(message3);
         m1.add(message2);
         m2.add(message2);
