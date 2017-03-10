@@ -114,47 +114,47 @@
                         This is an <strong>.alert</strong>. Use this to show important messages to the user.
                     </div>-->
                     <h3>Personal info</h3>
-                    <form class="form-horizontal center-block" role="form">
+                    <form class="form-horizontal center-block" role="form" onSubmit="var userId = '${loggedInUser}';updateProfile(userId)">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-8">
-                                <input class="form-control" value="Donald" type="text">
+                                <input class="form-control" value="" id="fnameT" type="text">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Last name:</label>
                             <div class="col-lg-8">
-                                <input class="form-control" value="Trump" type="text">
+                                <input class="form-control" value="" id="lnameT" type="text">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Position:</label>
                             <div class="col-lg-8">
-                                <input class="form-control" value="Presirdent" type="text">
+                                <input class="form-control" value="" id="positionT" type="text">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Email:</label>
                             <div class="col-lg-8">
-                                <input class="form-control" value="trumpsta69@gov.com" type="text">
+                                <input class="form-control" id="emailT" value="" type="text">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="11111122333" type="password">
+                                <input class="form-control" value="" type="password">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Confirm password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="11111122333" type="password">
+                                <input class="form-control" value="" type="password">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="submit">
                                 <span></span>
                                 <input class="btn btn-default" value="Cancel" type="reset">
                             </div>
@@ -175,27 +175,14 @@
     </body>
     <script>
         $(document).ready(function () {
-
-
-
-        });
-//        function sending() {
-//
-//            alert(userId);
-//            updateProfile(userId);
-//
-//
-//
-//        }
-        $("#testlul").click(function () {
-            alert("ulu");
-            var userId = '${loggedInUser}';
+             var userId = '${loggedInUser}';
             updateProfile(userId);
-
+            
 
 
 
         });
+//        
 
     </script>
 </html>

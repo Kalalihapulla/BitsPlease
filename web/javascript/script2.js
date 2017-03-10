@@ -29,25 +29,36 @@ function createUser() {
         timeout: 1200000
     });
 }
+function getMessages() {
+
+
+
+}
 function updateProfile(email) {
-    var user = "rebelhaze@gmail.com";
-    alert(email);
-
-
-
 
     $.ajax({
         url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
-        data: user,
+        data: email,
         type: 'POST',
         contentType: "text/plain",
-        async:false,
+        async: false,
 
         success: function (data) {
-            alert("works");
+           
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
-            //alert(fname);
+            var lname = data.getElementsByTagName("lastName");
+            var job = data.getElementsByTagName("jobDescription");
+            emailT = email[0].childNodes[0].nodeValue;
+            fnameT = fname[0].childNodes[0].nodeValue;
+            lnameT = lname[0].childNodes[0].nodeValue;
+            jobT = job[0].childNodes[0].nodeValue;
+            
+            $('#fnameT').val(fnameT);
+            $('#lnameT').val(lnameT);
+            $('#emailT').val(emailT);
+            $('#positionT').val(jobT);
+           
             //location.reload();
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -62,19 +73,18 @@ function updateProfile(email) {
 }
 function setMessages() {
     jQuery.ajax({
-      
+
         url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
         type: "GET",
-    
-      
+
         success: function (resultData) {
-            var text="";
+            var text = "";
             var message = resultData.getElementsByTagName("body");
             for (i = 0; i < message.length; i++) {
-               text += message[i].childNodes[0].nodeValue;
-                
-                
-                
+                text += message[i].childNodes[0].nodeValue;
+
+
+
             }
             alert(text);
 
