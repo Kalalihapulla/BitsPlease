@@ -26,6 +26,7 @@ public class Message implements Serializable {
     private String receiver;
     private String body;
     private String timeCreated;
+    private String subject;
     private boolean readStatus;
 
     public Message(String sender, String receiver, String body) {

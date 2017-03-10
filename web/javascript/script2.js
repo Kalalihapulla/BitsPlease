@@ -40,8 +40,9 @@ function updateProfile(email) {
         url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
         data: user,
         type: 'POST',
-        contentType: "text",
-        dataType: "application/xml",
+        contentType: "text/plain",
+       
+        async:false,
 
         success: function (data) {
             alert("works");
