@@ -61,13 +61,14 @@ function validate() {
     }
 }
 
-function sendMessage(to, subject, messageout, from) {
+function sendMessage(to, subjects, messageout, from) {
     var sender = from;
     var receiver = document.getElementById(to).value;
     var subject = document.getElementById(subject).value;
     var body = document.getElementById(messageout).value;
+   
 
-    var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
+    var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender><subject>"+ subject+"</subject></message>";
 
     $.ajax({
 

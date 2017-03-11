@@ -50,7 +50,7 @@ public class UserAccount implements Serializable {
 
     public UserAccount() {
         this("unknown", "unknown", "unknown","unknown","unknown");
-        this.isAdmin = false;
+   
     }
 
     public UserAccount(String email, String password, String description, String firstName, String lastName) {

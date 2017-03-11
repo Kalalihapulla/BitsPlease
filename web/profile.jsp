@@ -141,15 +141,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Password:</label>
+                            <label class="col-md-3 control-label">New password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="" type="password">
+                                <input class="form-control" value="" type="password" id = "nPass">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Confirm password:</label>
+                            <label class="col-md-3 control-label">Old password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="" type="password">
+                                <input class="form-control" value="" type="password" id = "oPass">
                             </div>
                         </div>
                         <div class="form-group">
@@ -158,7 +158,7 @@
                                 <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onclick="  var userId = '${loggedInUser}';
                                         sentProfile(userId);">
                                 <span></span>
-                                <input class="btn btn-default" value="Cancel" type="reset">
+                                <input class="btn btn-default" value="Cancel" type="button" onclick="location.reload();"
                             </div>
                         </div>
                     </form>
