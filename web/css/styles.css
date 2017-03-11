@@ -133,8 +133,12 @@ footer {
     border-top-right-radius: 0;
 }
 
-#draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent;}
+#draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent; cursor: url(grab.png) 4 12, auto;}
 .ui-draggable-helper { border: 1px dotted gray; }
+
+#draggable:active {
+    cursor: url(grabbing.png) 4 12, auto;
+}
 
 #droppable { width: 250px; height: 250px; padding: 0.5em; float: left; margin: 10px; }
 
@@ -160,7 +164,7 @@ footer {
     border-width: 1px;
     min-width:0%; 
     width: 31%; 
-    min-height:0%; 
+    min-height:10em; 
     height: fit-content;
     box-shadow: 5px 5px 2.5px rgba(0, 0, 0, 0.5);
 }
@@ -201,9 +205,15 @@ footer {
     width: 100%; 
     min-height:0x; 
     height: 50%; 
+    cursor: url(grab.png) 4 12, auto;
+    z-index: 890;
 }
 
-
+.task:active { 
+  
+    cursor: url(grabbing.png) 4 12, auto;
+    
+}
 
 
 #taskInfo {
@@ -236,8 +246,8 @@ footer {
     border-color: black;
     min-width:0x; 
     width: 98%; 
-    min-height:0x; 
-    height: 200%;
+    min-height:600px; 
+    
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     height: fit-content;
 
@@ -255,8 +265,7 @@ footer {
     box-shadow: 0px 0px 10px #888;
 }
 .tile {
-    height: 8.4em;
-    width:  27.2em;
+height: 40vh;
 }
 .grid {
 
