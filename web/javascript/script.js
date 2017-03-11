@@ -119,7 +119,7 @@ function noteset() {
                 if (urgency[i].childNodes[0].nodeValue === "0") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
                         $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
-                         
+
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
                         $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
@@ -304,7 +304,17 @@ $(document).ready(function () {
 
     $("#sortable1, #sortable2, #sortable3").sortable({
         //    items: "li:not(.ui-state-disabled)"    
-        connectWith: "#sortable1, #sortable2, #sortable3"
+        connectWith: "#sortable1, #sortable2, #sortable3",
+        revert: 'invalid',
+        tolerance: 'pointer',
+        forceHelperSize: true,
+        containment: "#taskboxbackground",
+        start: function (e, ui) {
+            $(ui.placeholder).hide(250);
+        },
+        change: function (e, ui) {
+            $(ui.placeholder).hide().show(250);
+        }
 
     });
     $("#sortable1, #sortable2, #sortable3").disableSelection();
@@ -323,14 +333,14 @@ $(document).ready(function () {
         $("infoBox").hide();
     });
 
-    $(function () {
-        $(".grid").sortable({
-            tolerance: 'pointer',
-            revert: 'invalid',
-            placeholder: 'span2 well placeholder tile',
-            forceHelperSize: true
-        });
-    });
+    //$(function () {
+      //  $(".grid").sortable({
+      //      tolerance: 'pointer',
+      //      revert: 'invalid',
+       //     placeholder: 'span2 well placeholder tile',
+    //        forceHelperSize: true
+   //     });
+  //  });
 
 
     $(function () {
