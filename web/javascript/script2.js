@@ -182,7 +182,7 @@ function getMessages(email) {
         contentType: "text/plain",
         async: false,
 
-        success: function (data) {
+        success: function (resultData) {
             var receiver = resultData.getElementsByTagName("receiver");
             var sender = resultData.getElementsByTagName("sender");
             var time = resultData.getElementsByTagName("timeCreated");
@@ -190,6 +190,24 @@ function getMessages(email) {
             var subject = resultData.getElementsByTagName("subject");
             var id = resultData.getElementsByTagName("id");
 
+
+            receiverT = "";
+            senderT = "";
+            timeT = "";
+            bodyT = "";
+            subjectT = "";
+            idT = "";
+
+            for (i = 0; i < receiver.length; i++) {
+                receiverT = receiver[i].childNodes[0].nodeValue;
+                senderT = sender[i].childNodes[0].nodeValue;
+                subjectT = subject[i].childNodes[0].nodeValue;
+                bodyT = body[i].childNodes[0].nodeValue;
+                timeT = time[i].childNodes[0].nodeValue;
+                idT = id[i].childNodes[0].nodeValue;
+
+
+            }
 
 
         },
