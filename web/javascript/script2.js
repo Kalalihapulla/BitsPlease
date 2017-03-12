@@ -207,7 +207,7 @@ function getMessages(email) {
                 timeT = time[i].childNodes[0].nodeValue;
                 idT = id[i].childNodes[0].nodeValue;
                 var domElement = $("<tr data-toggle='collapse' data-target='#"+idT+"' class='accordion-toggle'>\n\
-                        <td><button class='btn btn-default btn-sm'><i class='glyphicon glyphicon-trash'></i></button></td><td class='mailbox-name'>From: "+senderT+" - To: "+receiverT+"\n\
+                        <td><button class='btn btn-default btn-sm' onclick='removeMessage($(this))'><i class='glyphicon glyphicon-trash'></i></button></td><td class='mailbox-name'>From: "+senderT+" - To: "+receiverT+"\n\
                         </td><td class='mailbox-subject'><b>Subject: "+subjectT+"</b></td>\n\
                         <td class='mailbox-date'>Time: "+timeT+"</td></tr><tr>\n\
                         <td colspan='12' class='hiddenRow'><div class='accordian-body collapse' id='"+idT+"'><div>"+bodyT+"</div></td></tr>");
@@ -229,6 +229,11 @@ function getMessages(email) {
 
 
 
+}
+
+function removeMessage(caller) {
+    console.log(caller);
+    $(caller).closest('tr').remove();
 }
 
 function setMessages() {
