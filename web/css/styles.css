@@ -133,14 +133,11 @@ footer {
     border-top-right-radius: 0;
 }
 
-.draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent;}
-
-
-#draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent; cursor: url(grab.png) 4 12, auto;}
+.draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent;cursor: url(grab.png) 4 12, auto;}
 
 .ui-draggable-helper { border: 1px dotted gray; }
 
-#draggable:active {
+.draggable:active {
     cursor: url(grabbing.png) 4 12, auto;
 }
 
