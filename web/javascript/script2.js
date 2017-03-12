@@ -48,7 +48,7 @@ function checkPass(email, password, nPass, nPass2) {
                             <i class='fa fa-coffee'></i>\n\
                             Wrong password!.\n\
                            </div>");
-                    $("#myForm").prepend(domElement);
+        $("#myForm").prepend(domElement);
 
                 }
 
@@ -114,7 +114,7 @@ function sendProfile(email, nPass) {
                             <i class='fa fa-coffee'></i>\n\
                             Profile updated!\n\
                            </div>");
-                    $("#myForm").prepend(domElement);
+        $("#myForm").prepend(domElement);
                 }
                 ,
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -147,7 +147,7 @@ function updateProfile(email) {
         async: false,
 
         success: function (data) {
-            
+            // alert("yyy");
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             var lname = data.getElementsByTagName("lastName");
@@ -180,36 +180,12 @@ function getMessages(email) {
         data: email,
         type: 'POST',
         contentType: "text/plain",
+
         async: false,
 
-        success: function (resultData) {
-            var receiver = resultData.getElementsByTagName("receiver");
-            var sender = resultData.getElementsByTagName("sender");
-            var time = resultData.getElementsByTagName("timeCreated");
-            var body = resultData.getElementsByTagName("body");
-            var subject = resultData.getElementsByTagName("subject");
-            var id = resultData.getElementsByTagName("id");
-
-
-            receiverT = "";
-            senderT = "";
-            timeT = "";
-            bodyT = "";
-            subjectT = "";
-            idT = "";
-
-            for (i = 0; i < receiver.length; i++) {
-                receiverT = receiver[i].childNodes[0].nodeValue;
-                senderT = sender[i].childNodes[0].nodeValue;
-                subjectT = subject[i].childNodes[0].nodeValue;
-                bodyT = body[i].childNodes[0].nodeValue;
-                timeT = time[i].childNodes[0].nodeValue;
-                idT = id[i].childNodes[0].nodeValue;
-
-
-            }
-
-
+        success: function (data) {
+            
+           
         },
         error: function (xhr, ajaxOptions, thrownError) {
             ;
