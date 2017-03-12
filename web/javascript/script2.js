@@ -159,6 +159,31 @@ function updateProfile(email) {
 
 
 }
+function getMessages(email) {
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
+        data: email,
+        type: 'POST',
+        contentType: "text/plain",
+
+        async: false,
+
+        success: function (data) {
+            
+           
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            ;
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 12000
+    });
+
+
+
+
+}
 function setMessages() {
     jQuery.ajax({
 
