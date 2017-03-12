@@ -343,18 +343,19 @@ $(document).ready(function () {
         noteIndex++;
     });
 
-    $("#sortable1, #sortable2, #sortable3").sortable({
+  $("#sortable1, #sortable2, #sortable3").sortable({
         //    items: "li:not(.ui-state-disabled)"    
         connectWith: "#sortable1, #sortable2, #sortable3",
-        revert: 'invalid',
         tolerance: 'pointer',
         forceHelperSize: true,
         containment: "#taskboxbackground",
+
         start: function (e, ui) {
-            $(ui.placeholder).hide(250);
+            $(ui.placeholder).hide(200);
         },
         change: function (e, ui) {
-            $(ui.placeholder).hide().show(250);
+            $(ui.placeholder).hide().show(200);
+
         }
 
     });
