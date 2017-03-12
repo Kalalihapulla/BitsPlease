@@ -14,7 +14,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class Signup extends HttpServlet {
-   private Validate validate;
+   private final Validate validate;
 
     public Signup() {
         this.validate = new Validate();

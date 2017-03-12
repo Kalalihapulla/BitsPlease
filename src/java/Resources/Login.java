@@ -15,7 +15,7 @@ import javax.servlet.http.*;
 import java.sql.*;
 
 public class Login extends HttpServlet {
-    private Validate validate;
+    private final Validate validate;
 
     public Login() {
         this.validate = new Validate();
