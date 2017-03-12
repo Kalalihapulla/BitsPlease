@@ -87,6 +87,7 @@ public class Test {
         notes.add(note4);
         UserAccount user = new UserAccount("test@ulu", "kapap", "JANITOR", "Kappa", "Keepo");
         AdminAccount aduser = new AdminAccount("admint@koppa", "admin", "MANAGEMENT", "Kala", "Kukko");
+        UserAccount ua = new UserAccount();
         Message message1 = new Message("lul@ulu", "Gret@bo", "Hello","HI");
         Message message2 = new Message("gebbo", "ttt", "elelll","lko");
         Message message3 = new Message("gobbos", "way", "auuu","llls");
@@ -118,7 +119,7 @@ public class Test {
         session.saveOrUpdate(message1);
         session.saveOrUpdate(message2);
         session.saveOrUpdate(message3);
-
+        session.saveOrUpdate(ua);
         session.saveOrUpdate(user);
         session.saveOrUpdate(aduser);
         session.getTransaction().commit();
