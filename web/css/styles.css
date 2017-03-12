@@ -133,14 +133,22 @@ footer {
     border-top-right-radius: 0;
 }
 
-#draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent; cursor: url(grab.png) 4 12, auto;}
+.draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent;cursor: url(grab.png) 4 12, auto;}
+
 .ui-draggable-helper { border: 1px dotted gray; }
 
-#draggable:active {
+.draggable:active {
     cursor: url(grabbing.png) 4 12, auto;
 }
 
-#droppable { width: 250px; height: 250px; padding: 0.5em; float: left; margin: 10px; }
+.droppable { width: 250px; height: 250px; padding: 0.5em; margin: 10px; border-radius: 15px; opacity: 0.4; line-height: 210px; text-align: center; font-size: 1.5em; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;}
+.droppableright {
+    float: right;
+    margin-right: -19px;
+}
+.droppableleft {
+    float: left;
+}
 
 #remember {
     color: papayawhip;
@@ -152,7 +160,6 @@ footer {
 }
 
 .taskBox {
-
     background-color: white;
     float: left;
     margin: 1% 1% 1% 1%;
@@ -237,7 +244,7 @@ footer {
 }
 
 #taskboxbackground {
-    background-color: papayawhip;
+    background-color: transparent;
     float: left;
     margin: 1% 1% 1% 1%;
     padding-bottom: 0.5em;
@@ -247,8 +254,6 @@ footer {
     min-width:0x; 
     width: 98%; 
     min-height:600px; 
-    
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     height: fit-content;
 
 }

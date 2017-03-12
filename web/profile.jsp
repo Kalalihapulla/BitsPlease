@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : userDash
     Created on : Feb 26, 2017, 5:14:20 PM
@@ -115,7 +116,7 @@
                                         </div>-->
                     <h3>Personal info</h3>
 <!--                    var userId = '${loggedInUser}';updateProfile(userId)-->
-                    <form class="form-horizontal center-block" role="form">
+                    <form class="form-horizontal center-block" id="myForm" role="form">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-8">
@@ -161,15 +162,14 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onclick="  var userId = '${loggedInUser}'; var oPass = $('#oPass').val(); var nPass = $('#nPass').val();var nPass2 = $('#nPass2').val(); checkPass(userId,oPass,nPass,nPass2);">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onSubmit="" onclick="  var userId = '${loggedInUser}'; var oPass = $('#oPass').val(); var nPass = $('#nPass').val();var nPass2 = $('#nPass2').val(); checkPass(userId,oPass,nPass,nPass2);">
                                 <span></span>
                                 <input class="btn btn-default" value="Cancel" type="button" onclick="location.reload();"
                             </div>
                         </div>
-                    </form>
+
                 </div>
-            </div>
-        </div>
+        </form>
         <script>
 //            $('#change').click(function ()) {
 //                var userId = '${loggedInUser}';
@@ -179,6 +179,7 @@
 //
 //            });
         </script>
+
 
 
 
@@ -192,10 +193,8 @@
         $(document).ready(function () {
             var userId = '${loggedInUser}';
             updateProfile(userId);
-
-
+            
         });
 //        
-
     </script>
 </html>

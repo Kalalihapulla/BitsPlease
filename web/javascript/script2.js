@@ -43,7 +43,12 @@ function checkPass(email, password, nPass, nPass2) {
                     sendProfile(email, nPass);
 
                 } else {
-                    alert("Wrong password");
+                    var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Wrong password!.\n\
+                           </div>");
+        $("#myForm").prepend(domElement);
 
                 }
 
@@ -57,7 +62,12 @@ function checkPass(email, password, nPass, nPass2) {
         });
 
     } else {
-        alert("Password error");
+        var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Error. Plase follow the rules.\n\
+                           </div>");
+        $("#myForm").prepend(domElement);
 
 
     }
@@ -99,7 +109,12 @@ function sendProfile(email, nPass) {
 
                 success: function () {
                     //location.reload();
-                    alert("Profile Updated");
+                    var domElement = $("<div class='alert alert-success alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Profile updated!\n\
+                           </div>");
+        $("#myForm").prepend(domElement);
                 }
                 ,
                 error: function (xhr, ajaxOptions, thrownError) {

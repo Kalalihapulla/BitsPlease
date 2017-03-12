@@ -8,44 +8,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project Bits | About</title>
+        <title>Project Bits | Dashboard</title>
 
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <script src="vendor/jquery/jquery.js"></script>
+        
 
         <!-- Theme JavaScript -->
-        <script src="js/grayscale.min.js"></script>
-
-        <link rel="stylesheet"
-              href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-        <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+        <script src="javascript/jquery.js"></script>
+        <script src="js/grayscale.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="javascript/script.js"></script>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
         <!-- Theme CSS -->
+        <script src="javascript/icheck.js"></script>
+        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
+        <link href="skins/square/yellow.css" type="text/css" rel="stylesheet">
+        <link href="skins/square/green.css" type="text/css" rel="stylesheet">
         <link href="css/grayscale.min.css" rel="stylesheet">
         <link href="css/grayscale.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-
+        
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
 
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -107,19 +102,34 @@
 
 
         <div class='container' id='main'>
-            
+
             <div class='row index-row' id='info'>
                 <h1 id='dashboard' class='text-center'>Dashboard</h1>
-                
+
                 <c:if test="${not empty loggedInUser}">
-                    
-                    <h3 class='text-center'>Welcome "${loggedInUser}"</h3>
-                    <div id="droppable" class="ui-widget-header">
-                        <p>Drop here</p>
+
+                    <div class='row' style='width:100vw;'>
+                        <div class='col-xs-3'>
+                    <div id="dropShelf" class="droppable droppableleft ui-widget-header">
+                        SHELVERS
                     </div>
-                    <div class='row' id='notes'></div>
+
+                    <div id="dropChef" class="droppable droppableleft ui-widget-header">
+                        CHEFS
+                    </div>
+                        </div>
+                        <div class='col-xs-6' id='notes'></div>
+                    <div class='col-xs-3'>
+                    <div id="dropJan" class="droppable droppableright ui-widget-header">
+                        JANITORS
+                    </div>
+                    <div id="dropCash" class="droppable droppableright ui-widget-header">
+                        CASHIERS
+                    </div>
+                        <div>
+                    </div>
                 </c:if>
-                    
+
                 <c:if test="${empty loggedInUser}">
                     <h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>
                 </c:if>
