@@ -5,6 +5,7 @@
  */
 package service;
 
+import Resources.Validate;
 import Util.HibernateStuff;
 import java.util.ArrayList;
 import java.util.List;
@@ -149,18 +150,25 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
-  
-            session.beginTransaction();
-            session.update(account);
-            session.getTransaction().commit();
+
+        session.beginTransaction();
+        session.update(account);
+        session.getTransaction().commit();
 
     }
 
-        @Override
-        protected EntityManager getEntityManager
-        
-            () {
+    @GET
+    @Path("userPassCheck/{email}/{password}")
+ 
+    @Produces(MediaType.TEXT_PLAIN)
+    public boolean checkPassword(@PathParam("email") String email, @PathParam("password") String password) {
+        Validate validate = new Validate();
+        return validate.checkUser(email, password);
+    }
+
+    @Override
+    protected EntityManager getEntityManager() {
         return em;
-        }
-
     }
+
+}

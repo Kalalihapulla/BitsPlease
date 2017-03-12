@@ -107,19 +107,24 @@ function noteset() {
             var urgency = resultData.getElementsByTagName("urgency");
             var time = resultData.getElementsByTagName("timeCreated");
             var status = resultData.getElementsByTagName("status");
+            var id  = resultData.getElementsByTagName("id");
 
             descT = "";
             urgencyT = "";
             timeT = "";
+            idT = "";
 
             for (i = 0; i < desc.length; i++) {
                 descT = "Task: " + desc[i].childNodes[0].nodeValue;
                 urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
                 timeT = "Created: " + time[i].childNodes[0].nodeValue;
+                idT = id[i].childNodes[0].nodeValue;
+                
                 //txt += x[i].childNodes[0].nodeValue + "<br>";
                 if (urgency[i].childNodes[0].nodeValue === "0") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
+                  
+                        $("#sortable1").append('<div class="ui-state-default task" data-internalid="idT"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
@@ -237,6 +242,7 @@ function displayMessage() {
     $('#mailtable').append(domElement);
 }
 function opennote(calleri) {
+
 
 
     $(function () {

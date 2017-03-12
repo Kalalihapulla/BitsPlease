@@ -146,8 +146,14 @@
                                 <input class="form-control" value="" type="password" id = "nPass">
                             </div>
                         </div>
+                         <div class="form-group">
+                            <label class="col-md-3 control-label">New password again:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" value="" type="password" id = "nPass2">
+                            </div>
+                        </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Old password:</label>
+                            <label class="col-md-3 control-label">Old password(requirement):</label>
                             <div class="col-md-8">
                                 <input class="form-control" value="" type="password" id = "oPass">
                             </div>
@@ -155,8 +161,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onclick="  var userId = '${loggedInUser}';
-                                        sentProfile(userId);">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onclick="  var userId = '${loggedInUser}'; var oPass = $('#oPass').val(); var nPass = $('#nPass').val();var nPass2 = $('#nPass2').val(); checkPass(userId,oPass,nPass,nPass2);">
                                 <span></span>
                                 <input class="btn btn-default" value="Cancel" type="button" onclick="location.reload();"
                             </div>
