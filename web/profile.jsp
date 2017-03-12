@@ -104,18 +104,19 @@
                     <div class="text-center">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
                         <h6>This is you, you have the best words</h6>
-<!--                        <input type="file" class="text-center center-block well well-sm">-->
+                        <!--                        <input type="file" class="text-center center-block well well-sm">-->
                     </div>
                 </div>
                 <!-- edit form column -->
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="padding-right: 2em;">
-<!--                    <div class="alert alert-info alert-dismissable">
-                        <a class="panel-close close" data-dismiss="alert">×</a> 
-                        <i class="fa fa-coffee"></i>
-                        This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                    </div>-->
+                    <!--                    <div class="alert alert-info alert-dismissable">
+                                            <a class="panel-close close" data-dismiss="alert">×</a> 
+                                            <i class="fa fa-coffee"></i>
+                                            This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                                        </div>-->
                     <h3>Personal info</h3>
-                    <form class="form-horizontal center-block" role="form" onSubmit="var userId = '${loggedInUser}';updateProfile(userId)">
+<!--                    var userId = '${loggedInUser}';updateProfile(userId)-->
+                    <form class="form-horizontal center-block" id="myForm" role="form">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-8">
@@ -131,7 +132,7 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Position:</label>
                             <div class="col-lg-8">
-                                <input class="form-control" value="" id="positionT" type="text">
+                                <input class="form-control" value="" id="positionT" type="text" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -141,42 +142,56 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Password:</label>
+                            <label class="col-md-3 control-label">New password:</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="" type="password">
+                                <input class="form-control" value="" type="password" id = "nPass">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-md-3 control-label">New password again:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" value="" type="password" id = "nPass2">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Confirm password:</label>
+                            <label class="col-md-3 control-label">Old password(requirement):</label>
                             <div class="col-md-8">
-                                <input class="form-control" value="" type="password">
+                                <input class="form-control" value="" type="password" id = "oPass">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="submit">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onSubmit="" onclick="  var userId = '${loggedInUser}'; var oPass = $('#oPass').val(); var nPass = $('#nPass').val();var nPass2 = $('#nPass2').val(); checkPass(userId,oPass,nPass,nPass2);">
                                 <span></span>
-                                <input class="btn btn-default" value="Cancel" type="reset">
+                                <input class="btn btn-default" value="Cancel" type="button" onclick="location.reload();"
                             </div>
                         </div>
-                    </form>
+
                 </div>
-            </div>
-        </div>
+        </form>
+        <script>
+//            $('#change').click(function ()) {
+//                var userId = '${loggedInUser}';
+//                sentProfile(userId);
+//
+//
+//
+//            });
+        </script>
 
-        
 
 
-<!--        <div id="testlul">ddddddddddddddddddddddddddddd
-        </div>-->
+
+        <!--        <div id="testlul">ddddddddddddddddddddddddddddd
+                </div>-->
 
 
 
     </body>
     <script>
         $(document).ready(function () {
-             var userId = '${loggedInUser}';
+            var userId = '${loggedInUser}';
             updateProfile(userId);
             
         });

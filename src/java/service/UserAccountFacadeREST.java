@@ -5,6 +5,7 @@
  */
 package service;
 
+import Resources.Validate;
 import Util.HibernateStuff;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.UserAccount;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -63,7 +66,23 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Long id, UserAccount entity) {
-        super.edit(entity);
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(entity);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+
+        }
+
     }
 
     @DELETE
@@ -122,6 +141,29 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     public UserAccount getUsertest() {
 
         return this.restHelper.getUserByEmail("admint@koppa");
+    }
+
+    @POST
+    @Path("userByEmail")
+    @Consumes(MediaType.APPLICATION_XML)
+    public void userUD(UserAccount account) {
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.update(account);
+        session.getTransaction().commit();
+
+    }
+
+    @GET
+    @Path("userPassCheck/{email}/{password}")
+ 
+    @Produces(MediaType.TEXT_PLAIN)
+    public boolean checkPassword(@PathParam("email") String email, @PathParam("password") String password) {
+        Validate validate = new Validate();
+        return validate.checkUser(email, password);
     }
 
     @Override

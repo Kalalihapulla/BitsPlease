@@ -29,11 +29,114 @@ function createUser() {
         timeout: 1200000
     });
 }
-function getMessages() {
+function checkPass(email, password, nPass, nPass2) {
+
+    if ((nPass === nPass2 && nPass.length >= 4) || (nPass === "" && nPass2 === "")) {
+
+        jQuery.ajax({
+
+            url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userPassCheck/" + email + "/" + password,
+            type: "GET",
+
+            success: function (resultData) {
+                if (resultData === "true") {
+                    sendProfile(email, nPass);
+
+                } else {
+                    var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Wrong password!.\n\
+                           </div>");
+        $("#myForm").prepend(domElement);
+
+                }
 
 
+            }, error: function (xhr, ajaxOptions, thrownError) {
+
+                console.log(xhr.status);
+                console.log(thrownError);
+            },
+            timeout: 120000
+        });
+
+    } else {
+        var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Error. Plase follow the rules.\n\
+                           </div>");
+        $("#myForm").prepend(domElement);
+
+
+    }
 
 }
+function sendProfile(email, nPass) {
+
+
+
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
+        data: email,
+        type: 'POST',
+        contentType: "text/plain",
+
+        async: false,
+
+        success: function (data) {
+
+            var xml = data;
+
+            if (nPass !== "") {
+                xml.getElementsByTagName("password")[0].childNodes[0].nodeValue = nPass;
+            }
+            xml.getElementsByTagName("email")[0].childNodes[0].nodeValue = $('#emailT').val();
+            xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue = $('#fnameT').val();
+            xml.getElementsByTagName("lastName")[0].childNodes[0].nodeValue = $('#lnameT').val();
+            alert(xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue);
+
+            var id = xml.getElementsByTagName("id")[0].childNodes[0].nodeValue;
+            var xmlText = new XMLSerializer().serializeToString(xml);
+
+            $.ajax({
+                url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/" + id,
+                data: xmlText,
+                type: 'PUT',
+                contentType: "application/xml",
+                async: false,
+
+                success: function () {
+                    //location.reload();
+                    var domElement = $("<div class='alert alert-success alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Profile updated!\n\
+                           </div>");
+        $("#myForm").prepend(domElement);
+                }
+                ,
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("fail");
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                },
+                timeout: 1200000
+            });
+            //location.reload();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            ;
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 12000
+    });
+
+}
+
+
 function updateProfile(email) {
 
     $.ajax({
@@ -44,7 +147,7 @@ function updateProfile(email) {
         async: false,
 
         success: function (data) {
-           
+            // alert("yyy");
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             var lname = data.getElementsByTagName("lastName");
@@ -53,12 +156,12 @@ function updateProfile(email) {
             fnameT = fname[0].childNodes[0].nodeValue;
             lnameT = lname[0].childNodes[0].nodeValue;
             jobT = job[0].childNodes[0].nodeValue;
-            
+
             $('#fnameT').val(fnameT);
             $('#lnameT').val(lnameT);
             $('#emailT').val(emailT);
             $('#positionT').val(jobT);
-           
+
             //location.reload();
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -95,6 +198,32 @@ function setMessages() {
         },
         timeout: 120000
     });
+
+
+
+}
+function updateStatus(id, status) {
+
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
+        data: status,
+        type: 'PUT',
+        contentType: "text/plain",
+        async: false,
+
+        success: function () {
+            //location.reload();
+            alert("Note Updated");
+        }
+        ,
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert("fail");
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 1200000
+    });
+
 
 
 

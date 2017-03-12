@@ -61,13 +61,14 @@ function validate() {
     }
 }
 
-function sendMessage(to, subject, messageout, from) {
+function sendMessage(to, subjects, messageout, from) {
     var sender = from;
     var receiver = document.getElementById(to).value;
     var subject = document.getElementById(subject).value;
     var body = document.getElementById(messageout).value;
+   
 
-    var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender></message>";
+    var xml = "<message><body>" + body + "</body><receiver>" + receiver + "</receiver><sender>" + sender + "</sender><subject>"+ subject+"</subject></message>";
 
     $.ajax({
 
@@ -106,101 +107,73 @@ function noteset() {
             var urgency = resultData.getElementsByTagName("urgency");
             var time = resultData.getElementsByTagName("timeCreated");
             var status = resultData.getElementsByTagName("status");
-
+             var id = resultData.getElementsByTagName("id");
+ 
             descT = "";
             urgencyT = "";
             timeT = "";
-
+            idT = "";
+ 
             for (i = 0; i < desc.length; i++) {
                 descT = "Task: " + desc[i].childNodes[0].nodeValue;
                 urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
                 timeT = "Created: " + time[i].childNodes[0].nodeValue;
+                idT = id[i].childNodes[0].nodeValue;
                 //txt += x[i].childNodes[0].nodeValue + "<br>";
                 if (urgency[i].childNodes[0].nodeValue === "0") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:seagreen" aria-hidden="true"></i></div>');
-
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
-                         
+                        $("#sortable1").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
+ 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
-                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:seagreen" aria-hidden="true"></i></div>');
-                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
-
+                        $("#sortable2").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
+ 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
-
-                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:seagreen" aria-hidden="true"></i></div>');
-
-                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:green" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable3").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
+ 
                     }
-
+ 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "1") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
-
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:gold" aria-hidden="true"></i></div>');
-
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable1").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
+ 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
-
-                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:gold" aria-hidden="true"></i></div>');
-
-                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable2").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick=opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
+ 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
-
-                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:gold" aria-hidden="true"></i></div>');
-
-                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:yellow" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable3").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
+ 
                     }
-
-
-
+ 
+ 
+ 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "2") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
-
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:chocolate" aria-hidden="true"></i></div>');
-
-                        $("#sortable1").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable1").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
+ 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
-
-                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:chocolate" aria-hidden="true"></i></div>');
-
-                        $("#sortable2").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable2").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
+ 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
-
-                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:chocolate" aria-hidden="true"></i></div>');
-
-                        $("#sortable3").append('<div class="ui-state-default task"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote()"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:red" aria-hidden="true"></i></div>');
-
-
+                        $("#sortable3").append('<div class="ui-state-default task" id="'+idT+'"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
+ 
                     }
-
-
+ 
+ 
                 }
-
+ 
             }
-
+ 
         },
         error: function (jqXHR, textStatus, errorThrown) {
-
+ 
         },
         timeout: 120000
     });
@@ -288,7 +261,7 @@ function displayMessage() {
 
     $('#mailtable').append(domElement);
 }
-function opennote() {
+function opennote(caller) {
 
 
     $(function () {
@@ -308,29 +281,8 @@ function opennote() {
             height: 400
         });
 
-
-        jQuery.ajax({
-            url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
-            type: "GET",
-            contentType: 'application/xml; charset=utf-8',
-            success: function (resultData) {
-                var desc = resultData.getElementsByTagName("description");
-                var urgency = resultData.getElementsByTagName("urgency");
-                var time = resultData.getElementsByTagName("timeCreated");
-                var status = resultData.getElementsByTagName("status");
-                descT = "";
-                urgencyT = "";
-                timeT = "";
-                statusT = "";
-                descT = "Task: " + desc[i].childNodes[0].nodeValue;
-                urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
-                timeT = "Created: " + time[i].childNodes[0].nodeValue;
-                //statusT = "Status: " + status[i].childNodes[0].nodeValue;
-
-            }
-        });
-
-        $("#taskinfo").append('<div class="ui-state-default task"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + '</div>');
+        var noteinfo = caller.siblings('.task').val();
+        $("#taskinfo").append('<div class="ui-state-default task"> ' + noteinfo + '</div>');
         $("#taskinfo").dialog("open");
 
     });
@@ -402,7 +354,17 @@ $(document).ready(function () {
 
     $("#sortable1, #sortable2, #sortable3").sortable({
         //    items: "li:not(.ui-state-disabled)"    
-        connectWith: "#sortable1, #sortable2, #sortable3"
+        connectWith: "#sortable1, #sortable2, #sortable3",
+        revert: 'invalid',
+        tolerance: 'pointer',
+        forceHelperSize: true,
+        containment: "#taskboxbackground",
+        start: function (e, ui) {
+            $(ui.placeholder).hide(250);
+        },
+        change: function (e, ui) {
+            $(ui.placeholder).hide().show(250);
+        }
 
     });
     $("#sortable1, #sortable2, #sortable3").disableSelection();
@@ -421,14 +383,14 @@ $(document).ready(function () {
         $("infoBox").hide();
     });
 
-    $(function () {
-        $(".grid").sortable({
-            tolerance: 'pointer',
-            revert: 'invalid',
-            placeholder: 'span2 well placeholder tile',
-            forceHelperSize: true
-        });
-    });
+    //$(function () {
+      //  $(".grid").sortable({
+      //      tolerance: 'pointer',
+      //      revert: 'invalid',
+       //     placeholder: 'span2 well placeholder tile',
+    //        forceHelperSize: true
+   //     });
+  //  });
 
 
 $(function () {
@@ -454,8 +416,6 @@ $(function () {
                     .animate({backgroundColor: '#98FB98', opacity: 0.6}, 1000, function(){
                         $(this).animate({backgroundColor: 'white', opacity: 0.4}, 3000);
             })
-                    .find("p")
-                    .html("Dropped!")
         ;}
 
 
