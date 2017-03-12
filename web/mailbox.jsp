@@ -13,7 +13,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        
+
 
         <!-- Theme JavaScript -->
         <script src="javascript/jquery.js"></script>
@@ -26,6 +26,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="javascript/script.js"></script>
+        <script src="javascript/script2.js"></script>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -39,6 +40,15 @@
         <link href="css/grayscale.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        
+        <script>
+            $(document).ready(function () {
+                $('#refreshB').click(function () {
+                   var userID = "${loggedInUser}";
+                   getMessages(userID);
+                });
+            });
+        </script>
 
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -102,13 +112,9 @@
                     <div class="box-body no-padding">
                         <div class="mailbox-controls">
                             <!-- Check all button -->
-                            <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
                             <div class="btn-group">
-                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
                             </div><!-- /.btn-group -->
-                            <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
+                            <button class="btn btn-default btn-sm" id="refreshB"><i class="glyphicon glyphicon-refresh"></i></button>
                             <div class="pull-right">
                                 1-50/200
                                 <div class="btn-group">
@@ -122,7 +128,7 @@
                             <table class="table table-striped" id="mailtable">
                                 <tbody>
                                     <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                                        <td><input type="checkbox"></td>
+                                        <td><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
                                         <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
                                         <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
                                         <td class="mailbox-date">5 mins ago</td>
@@ -158,13 +164,9 @@
                     <div class="box-footer no-padding">
                         <div class="mailbox-controls">
                             <!-- Check all button -->
-                            <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
                             <div class="btn-group">
-                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                                <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
                             </div><!-- /.btn-group -->
-                            <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
+                            <button class="btn btn-default btn-sm" id="refreshB"><i class="glyphicon glyphicon-refresh"></i></button>
                             <div class="pull-right">
                                 1-50/200
                                 <div class="btn-group">
