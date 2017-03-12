@@ -254,8 +254,8 @@ function removal(caller) {
 
 function displayMessage() {
     var domElement = $("<tr data-toggle='collapse' data-target='#demo1' class='accordion-toggle'>\n\
-                        <td><input type='checkbox'></td><td class='mailbox-name'><a href='readmail.jsp'>test\n\
-                        </a></td><td class='mailbox-subject'><b>test</b> - Trying to find a solution to this problem...</td>\n\
+                        <td><input type='checkbox'></td><td class='mailbox-name'>test\n\
+                        </td><td class='mailbox-subject'><b>test</b> - Trying to find a solution to this problem...</td>\n\
                         <td class='mailbox-date'>5 mins ago</td></tr><tr>\n\
                         <td colspan='12' class='hiddenRow'><div class='accordian-body collapse' id='test'>div>test</div></td></tr>");
 
