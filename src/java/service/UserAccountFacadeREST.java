@@ -8,6 +8,7 @@ package service;
 import Resources.Validate;
 import Util.HibernateStuff;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,6 +22,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Message;
 import model.UserAccount;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -131,8 +133,12 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     @Consumes({MediaType.TEXT_PLAIN})
     @Produces(MediaType.APPLICATION_XML)
     public UserAccount getUser(String email) {
+        UserAccount ua = restHelper.getUserByEmail(email);
+        List<Message> messages = ua.getMessages();
+        Collections.reverse(messages);
+        ua.setMessages(messages);
+        return ua;
 
-        return this.restHelper.getUserByEmail(email);
     }
 
     @GET
@@ -159,7 +165,7 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
 
     @GET
     @Path("userPassCheck/{email}/{password}")
- 
+
     @Produces(MediaType.TEXT_PLAIN)
     public boolean checkPassword(@PathParam("email") String email, @PathParam("password") String password) {
         Validate validate = new Validate();
