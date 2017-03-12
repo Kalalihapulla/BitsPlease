@@ -147,7 +147,7 @@ function updateProfile(email) {
         async: false,
 
         success: function (data) {
-            // alert("yyy");
+            
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             var lname = data.getElementsByTagName("lastName");

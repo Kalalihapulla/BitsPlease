@@ -169,39 +169,40 @@
                         </div>
 
                 </div>
-                </form>
-                <script>
-        //            $('#change').click(function ()) {
-        //                var userId = '${loggedInUser}';
-        //                sentProfile(userId);
-        //
-        //
-        //
-        //            });
-                </script>
+            </div>
+        </form>
+        <script>
+            //            $('#change').click(function ()) {
+            //                var userId = '${loggedInUser}';
+            //                sentProfile(userId);
+            //
+            //
+            //
+            //            });
+        </script>
 
 
 
 
-                <!--        <div id="testlul">ddddddddddddddddddddddddddddd
-                        </div>-->
+        <!--        <div id="testlul">ddddddddddddddddddddddddddddd
+                </div>-->
 
 
 
-                </body>
-                <script>
-                    $(document).ready(function () {
-                        var userId = '${loggedInUser}';
-                        updateProfile(userId);
-                        var audioElement = document.createElement('audio');
-                        audioElement.loop = false;
-                        audioElement.setAttribute('src', 'noot.mp3');
-                        $('#trump').click(function () {
-                            audioElement.play();
-                            $('#trump').effect("shake");
-                            
-                        });
-                    });
-                </script>
-           
-                </html>
+</body>
+<script>
+    $(document).ready(function () {
+        var userId = '${loggedInUser}';
+        updateProfile(userId);
+        var audioElement = document.createElement('audio');
+        audioElement.loop = false;
+        audioElement.setAttribute('src', 'noot.mp3');
+        $('#trump').click(function () {
+            audioElement.play();
+            $('#trump').effect("shake");
+
+        });
+    });
+</script>
+
+</html>

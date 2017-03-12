@@ -13,7 +13,7 @@ public enum JobDescription {
     JANITOR,
     CASHIER,
     MANAGEMENT,
-    STOCKMAN;
+    STOREKEEPER;
     
     
     
