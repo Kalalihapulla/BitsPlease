@@ -12,8 +12,8 @@
         <title>Bits Please</title>
 
         <link href="css/bootstrap.css" rel="stylesheet">
-        
-        
+
+
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -51,12 +51,12 @@
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
-                    <c:if test="${not empty loggedInUser}">
-                    <li><a href='userDash.jsp'>User dashboard</a></li>
+                        <c:if test="${not empty loggedInUser}">
+                        <li><a href='userDash.jsp'>User dashboard</a></li>
                         <li><a href='messages.jsp'>Messages</a></li>
                         <li><a href="mailbox.jsp">Mailbox</a></li>
-                    </c:if>
-                        
+                        </c:if>
+
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -108,7 +108,7 @@
                     <div id='about'>
                         <p>
                             NootPad is a school project made in an effort to provide Stockmann Deli with an amazing user experience. NootPad provides the administration with a management tool that can be used to assign work for the users in a dynamic environment.  
-                            
+
                         </p>
                     </div>
                     <h3>Technical Details</h3>
@@ -118,7 +118,7 @@
                         </p>
                     </div>
                     <h3>Developers</h3>
-                    
+
                     <div id='about'>
                         <p>Samuel Jaantila
                         <p>Jere Raassina
@@ -128,7 +128,7 @@
                 </div>
             </div> 
         </section>
-        
+
 
         <!-- Download Section -->
         <section id="download" class="content-section text-center">
@@ -152,7 +152,7 @@
             </div>
         </footer>
 
-        
+
 
     </body>
 

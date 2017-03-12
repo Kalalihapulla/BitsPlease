@@ -101,7 +101,7 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="text-center">
+                    <div class="text-center" id = "trump">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
                         <h6>This is you, you have the best words</h6>
                         <!--                        <input type="file" class="text-center center-block well well-sm">-->
@@ -147,7 +147,7 @@
                                 <input class="form-control" value="" type="password" id = "nPass">
                             </div>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label class="col-md-3 control-label">New password again:</label>
                             <div class="col-md-8">
                                 <input class="form-control" value="" type="password" id = "nPass2">
@@ -162,39 +162,46 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
-                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onSubmit="" onclick="  var userId = '${loggedInUser}'; var oPass = $('#oPass').val(); var nPass = $('#nPass').val();var nPass2 = $('#nPass2').val(); checkPass(userId,oPass,nPass,nPass2);">
+                                <input class="btn btn-primary" id ="change" value="Save Changes" type="button" onSubmit="" onclick="  var userId = '${loggedInUser}'; var oPass = $('#oPass').val(); var nPass = $('#nPass').val();var nPass2 = $('#nPass2').val(); checkPass(userId, oPass, nPass, nPass2);">
                                 <span></span>
                                 <input class="btn btn-default" value="Cancel" type="button" onclick="location.reload();"
                             </div>
                         </div>
 
                 </div>
-        </form>
-        <script>
-//            $('#change').click(function ()) {
-//                var userId = '${loggedInUser}';
-//                sentProfile(userId);
-//
-//
-//
-//            });
-        </script>
+                </form>
+                <script>
+        //            $('#change').click(function ()) {
+        //                var userId = '${loggedInUser}';
+        //                sentProfile(userId);
+        //
+        //
+        //
+        //            });
+                </script>
 
 
 
 
-        <!--        <div id="testlul">ddddddddddddddddddddddddddddd
-                </div>-->
+                <!--        <div id="testlul">ddddddddddddddddddddddddddddd
+                        </div>-->
 
 
 
-    </body>
-    <script>
-        $(document).ready(function () {
-            var userId = '${loggedInUser}';
-            updateProfile(userId);
-            
-        });
-//        
-    </script>
-</html>
+                </body>
+                <script>
+                    $(document).ready(function () {
+                        var userId = '${loggedInUser}';
+                        updateProfile(userId);
+                        var audioElement = document.createElement('audio');
+                        audioElement.loop = false;
+                        audioElement.setAttribute('src', 'noot.mp3');
+                        $('#trump').click(function () {
+                            audioElement.play();
+                            $('#trump').effect("shake");
+                            
+                        });
+                    });
+                </script>
+           
+                </html>

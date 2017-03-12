@@ -48,7 +48,7 @@ function checkPass(email, password, nPass, nPass2) {
                             <i class='fa fa-coffee'></i>\n\
                             Wrong password!.\n\
                            </div>");
-        $("#myForm").prepend(domElement);
+                    $("#myForm").prepend(domElement);
 
                 }
 
@@ -114,7 +114,7 @@ function sendProfile(email, nPass) {
                             <i class='fa fa-coffee'></i>\n\
                             Profile updated!\n\
                            </div>");
-        $("#myForm").prepend(domElement);
+                    $("#myForm").prepend(domElement);
                 }
                 ,
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -180,12 +180,18 @@ function getMessages(email) {
         data: email,
         type: 'POST',
         contentType: "text/plain",
-
         async: false,
 
         success: function (data) {
-            
-           
+            var receiver = resultData.getElementsByTagName("receiver");
+            var sender = resultData.getElementsByTagName("sender");
+            var time = resultData.getElementsByTagName("timeCreated");
+            var body = resultData.getElementsByTagName("body");
+            var subject = resultData.getElementsByTagName("subject");
+            var id = resultData.getElementsByTagName("id");
+
+
+
         },
         error: function (xhr, ajaxOptions, thrownError) {
             ;
