@@ -294,7 +294,7 @@ function deleteMessage(msgid,email){
     $.ajax({
         url: "http://localhost:8080/ProjectTestUD/webresources/model.message/delete/" + msgid + "/"+email,
         type: 'DELETE',
-        async: false,
+       
 
         success: function () {
           

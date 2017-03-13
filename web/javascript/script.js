@@ -96,7 +96,7 @@ function validate(email) {
 function sendMessage(to, subjects, messageout, from) {
     var sender = from;
     var receiver = document.getElementById(to).value;
-    var subject = document.getElementById(subject).value;
+    var subject = document.getElementById(subjects).value;
     var body = document.getElementById(messageout).value;
 
 
@@ -305,7 +305,8 @@ function opennote(caller) {
             height: 400
         });
 
-        var noteinfo = caller.siblings('.task').val();
+        var noteinfo = $(caller).closest('.task').val();
+        console.log(noteinfo);
         $("#taskinfo").append('<div class="ui-state-default task"> ' + noteinfo + '</div>');
         $("#taskinfo").dialog("open");
 
@@ -333,7 +334,6 @@ function loadRadio() {
 
 $(document).ready(function () {
     var noteIndex = 0;
-    var mailIndex = 0;
 
     noteset();
     $("#addTask").click(function () {
@@ -390,9 +390,49 @@ $(document).ready(function () {
         change: function (e, ui) {
             $(ui.placeholder).hide().show(200);
 
-        }
+        },
+        
+        receive: function(event, ui) {
+        var source = ui.sender;
+        var target = $(event.target);
+        var id = ui.item.attr("id");
+               
+            if (target.is("#sortable1")) {
+                     var status = "STATUS_APPROVED";
+                }
+                  
+                if (target.is("#sortable2")) {
+                     var status = "STATUS_PROCESSING";
+                }
+ 
+                 if (target.is("#sortable3")) {
+                     var status = "STATUS_DONE";
+                }
+                
+                $.ajax({
+                    
+                    url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
+                    data: status,
+                    type: 'PUT',
+                    contentType: "text/plain",
+                    async: false,
+ 
+                    success: function () {
+                        //location.reload();
+                    }
+                    ,
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("fail");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    },
+                    timeout: 1200000
+                });
+ 
+            }
 
     });
+    
     $("#sortable1, #sortable2, #sortable3").disableSelection();
 
 
@@ -449,7 +489,10 @@ $(document).ready(function () {
 
         });
 
-    });
+});
+
+
+
 });
 
 
