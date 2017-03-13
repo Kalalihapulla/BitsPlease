@@ -48,7 +48,13 @@
 
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+        
+        <script>
+            $(document).ready(function () {
+                var user = "${loggedInUser}";
+                getUserd(user);
+            });
+        </script>
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 

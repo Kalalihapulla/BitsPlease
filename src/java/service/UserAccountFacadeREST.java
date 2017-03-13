@@ -179,5 +179,13 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     protected EntityManager getEntityManager() {
         return em;
     }
+    @GET
+    @Path("userJob/{email}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    public String userJob(@PathParam("email")String email) {
+       return this.restHelper.getUserByEmail(email).getJobDescription();
+        
+    }
+
 
 }

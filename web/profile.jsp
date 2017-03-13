@@ -17,7 +17,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <script src="vendor/jquery/jquery.js"></script>
 
-        <!-- Theme JavaScript -->
         <script src="js/grayscale.min.js"></script>
 
         <link rel="stylesheet"
@@ -39,9 +38,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <script src="javascript/script.js"></script>
         <script src="javascript/script2.js"></script>
-        <!-- Theme CSS -->
-        <link href="css/grayscale.min.css" rel="stylesheet">
 
+        <link href="css/grayscale.min.css" rel="stylesheet">
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -59,10 +57,9 @@
                 </a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+
                     <c:if test="${empty loggedInUser}">
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
@@ -92,22 +89,20 @@
                     </form>
                 </c:if>
             </div>
-            <!-- /.navbar-collapse -->
-            <!-- /.container -->
+
         </nav>
 
         <div class='container' id='main'>
             <h1 class="page-header">Edit Profile</h1>
             <div class="row">
-                <!-- left column -->
+
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center" id = "trump">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
                         <h6>This is you, you have the best words</h6>
-                        <!--                        <input type="file" class="text-center center-block well well-sm">-->
                     </div>
                 </div>
-                <!-- edit form column -->
+
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="padding-right: 2em;">
                     <!--                    <div class="alert alert-info alert-dismissable">
                                             <a class="panel-close close" data-dismiss="alert">×</a> 
@@ -180,13 +175,6 @@
             //
             //            });
         </script>
-
-
-
-
-        <!--        <div id="testlul">ddddddddddddddddddddddddddddd
-                </div>-->
-
 
 
 </body>

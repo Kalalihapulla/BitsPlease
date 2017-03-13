@@ -93,6 +93,26 @@ function validate(email) {
     }
 }
 
+
+function getUserd(email){
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userJob/"+email,
+        type: 'GET',
+        async: false,
+       
+
+        success: function (data) {
+            noteset(data);
+        }
+        ,
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 1200000
+    });
+}
+
 function sendMessage(to, subjects, messageout, from) {
     var sender = from;
     var receiver = document.getElementById(to).value;
@@ -109,8 +129,15 @@ function sendMessage(to, subjects, messageout, from) {
         type: 'POST',
         contentType: "application/xml",
         dataType: "application/xml",
+        async: false,
         success: function () {
-            //location.reload();
+            var domElement = $("<div class='alert alert-success alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            Message sent!.\n\
+                           </div>");
+            $("#form1").prepend(domElement);
+             $('#form1').closest('form').find("input[type=text], textarea").val("");
 
 
 
@@ -118,7 +145,12 @@ function sendMessage(to, subjects, messageout, from) {
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
-
+                 var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            No such address exists!\n\
+                           </div>");
+            $("#form1").prepend(domElement);
             console.log(xhr.status);
             console.log(thrownError);
         },
@@ -128,7 +160,10 @@ function sendMessage(to, subjects, messageout, from) {
 
 }
 
-function noteset() {
+
+
+function noteset(data) {
+    var job = data;
     $(".task").remove();
     jQuery.ajax({
         url: "http://localhost:8080/ProjectTestUD/webresources/model.note",
@@ -140,6 +175,8 @@ function noteset() {
             var time = resultData.getElementsByTagName("timeCreated");
             var status = resultData.getElementsByTagName("status");
             var id = resultData.getElementsByTagName("id");
+            var jobD = resultData.getElementsByTagName("worker");
+            console.log(job);
 
             descT = "";
             urgencyT = "";
@@ -151,32 +188,33 @@ function noteset() {
                 urgencyT = "Urgency: " + urgency[i].childNodes[0].nodeValue;
                 timeT = "Created: " + time[i].childNodes[0].nodeValue;
                 idT = id[i].childNodes[0].nodeValue;
+                jobDT = jobD[i].childNodes[0].nodeValue;
                 //txt += x[i].childNodes[0].nodeValue + "<br>";
                 if (urgency[i].childNodes[0].nodeValue === "0") {
-                    if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED" && (job === jobDT || jobDT === "general")) {
                         $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
 
                     }
-                    if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING" && (job === jobDT || jobDT === "general")) {
                         $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
 
                     }
-                    if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_DONE" && (job === jobDT || jobDT === "general")) {
                         $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
 
                     }
 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "1") {
-                    if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED" && (job === jobDT || jobDT === "general")) {
                         $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
 
                     }
-                    if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING" && (job === jobDT || jobDT === "general")) {
                         $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick=opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
 
                     }
-                    if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_DONE" && (job === jobDT || jobDT === "general")) {
                         $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
 
                     }
@@ -185,15 +223,15 @@ function noteset() {
 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "2") {
-                    if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED" && (job === jobDT || jobDT === "general")) {
                         $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
 
                     }
-                    if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING" && (job === jobDT || jobDT === "general")) {
                         $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
 
                     }
-                    if (status[i].childNodes[0].nodeValue === "STATUS_DONE") {
+                    if (status[i].childNodes[0].nodeValue === "STATUS_DONE" && (job === jobDT || jobDT === "general")) {
                         $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
 
                     }

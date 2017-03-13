@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
 
@@ -31,9 +27,10 @@ public class Test {
 //        MessageFacadeREST eST = new MessageFacadeREST();
 //        eST.create(new Message("test", "admint", "helllo"));
         //populate();
-        MessageFacadeREST eST =new MessageFacadeREST();
-        Long lul = 2L;       
-        eST.remove(lul, "test@ulu");
+//        MessageFacadeREST eST =new MessageFacadeREST();
+//        Long lul = 2L;       
+//        eST.remove(lul, "test@ulu");
+populate();
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
@@ -76,9 +73,9 @@ public class Test {
 
     public static void populate() {
         Note note1 = new Note();
-        Note note2 = new Note("Stop the robbery", 2);
+        Note note2 = new Note("Stop the robbery", 2,"Cashier");
         Note note3 = new Note();
-        Note note4 = new Note("Take out the garbage", 1);
+        Note note4 = new Note("Take out the garbage", 1,"Management");
 
         ArrayList<Note> notes = new ArrayList<>();
         ArrayList<Note> notes2 = new ArrayList<>();
@@ -110,13 +107,13 @@ public class Test {
         Session session
                 = sessionFactory.openSession();
         session.beginTransaction();
-        Note note12 = new Note("Fill the shelves", 1);
+        Note note12 = new Note("Fill the shelves", 1,"Cashier");
         notes2.add(note12);
         user.setNotes(notes);
         aduser.setNotes(notes2);
         session.saveOrUpdate(note12);
         session.saveOrUpdate(note1);
-        session.saveOrUpdate(new Note("Go home", 2));
+        session.saveOrUpdate(new Note("Go home", 2,"Janitor"));
         session.saveOrUpdate(note2);
         session.saveOrUpdate(note3);
         session.saveOrUpdate(message1);
@@ -129,3 +126,6 @@ public class Test {
     }
 
 }
+
+
+

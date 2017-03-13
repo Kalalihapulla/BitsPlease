@@ -30,17 +30,19 @@ public class Note implements Serializable, Comparable<Note> {
     private Status status;
     private String timeCreated;
     private int urgency;
+    private String worker;
 
     public Note() {
-        this("empty", 0);
+        this("empty", 0, "Cashier");
     }
 
-    public Note(String description, int urgency) {
+    public Note(String description, int urgency, String worker) {
         this.timeCreated = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date());
         this.urgency = urgency;
         this.id = 0L;
         this.status = Status.STATUS_APPROVED;
         this.description = description;
+        this.worker = worker;
 
     }
 
@@ -95,6 +97,17 @@ public class Note implements Serializable, Comparable<Note> {
         this.urgency = urgency;
     }
 
+    @XmlElement
+    @Basic
+    public String getWorker() {
+        return this.worker;
+
+    }
+
+    public void setWorker(String worker) {
+        this.worker = worker;
+    }
+
     @Override
     public int compareTo(Note t) {
         if (this.urgency == t.getUrgency()) {
@@ -105,6 +118,5 @@ public class Note implements Serializable, Comparable<Note> {
             return -1;
         }
     }
-      
 
 }

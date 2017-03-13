@@ -1,51 +1,40 @@
-<%-- 
-    Document   : Dashboard
-    Created on : Feb 13, 2017, 12:23:17 PM
-    Author     : samuelja
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <title>Project Bits | Feature</title>
 
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
+        <title>Bits Please</title>
 
-        <!-- Theme JavaScript -->
-        <script src="javascript/jquery.js"></script>
-        <script src="js/grayscale.js"></script>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="javascript/script.js"></script>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        
+        
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-        <!-- Theme CSS -->
-        <script src="javascript/icheck.js"></script>
+
         <link href="skins/square/red.css" type="text/css" rel="stylesheet">
-        <link href="skins/square/yellow.css" type="text/css" rel="stylesheet">
-        <link href="skins/square/green.css" type="text/css" rel="stylesheet">
         <link href="css/grayscale.min.css" rel="stylesheet">
-        <link href="css/grayscale.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="vendor/jquery/jquery.js"></script>
+        <script src="javascript/script.js"></script>
+        <link href="css/styles.css" type="text/css" rel="stylesheet">
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-
+        <script src="js/grayscale.js"></script>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
-    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+    <body id="page-top pogchamp" data-spy="scroll" data-target=".navbar-fixed-top">
 
+        <!-- Navigation -->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -64,11 +53,12 @@
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
-                        <c:if test="${not empty loggedInUser}">
-                        <li><a href='userDash.jsp'>User dashboard</a></li>
+                    <c:if test="${not empty loggedInUser}">
+                    <li><a href='userDash.jsp'>User dashboard</a></li>
                         <li><a href='messages.jsp'>Messages</a></li>
                         <li><a href="mailbox.jsp">Mailbox</a></li>
-                        </c:if>
+                    </c:if>
+                        
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -94,52 +84,56 @@
             <!-- /.navbar-collapse -->
             <!-- /.container -->
         </nav>
-        <c:if test="${not empty loggedInUser}">
-            <div id='addNote'>
-                <button type="button" class="btn btn-primary btn-lg" id='noteButton' name='noteButton'>+</button>
+
+        <!-- Intro Header -->
+            <div class="container" id="main">
+                <div class="container polaroid">
+                    <div class="row">
+                            <img src="http://i.imgur.com/OJffOQM.gif" class="img-responsive center-block">
+                            <a href="#about" class="btn btn-circle page-scroll center-block">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                    </div>
+                </div>
             </div>
-        </c:if>
 
+        <!-- About Section -->
+        <section id="about" class="container content-section text-center">
+            <div class="container polaroid">
+                    <div class="row" style="margin-top: -100px;">
+                            <img src="http://i.imgur.com/e55GnMV.gif" class="img-responsive center-block">
+                            <a href="#download" class="btn btn-circle page-scroll">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                    </div>
+                </div>
+        </section>
+        
 
-        <div class='container' id='main'>
-
-            <section id="dia" class="content-section text-center">
-                <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-check-square"></i>List icons</li>
-                    <li><i class="fa-li fa fa-check-square"></i>can be used</li>
-                    <li><i class="fa-li fa fa-spinner fa-spin"></i>as bullets</li>
-                    <li><i class="fa-li fa fa-square"></i>in lists</li>
-                </ul>
-                <a href="#dia1" class="btn btn-circle page-scroll">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </section>
-            <section id="dia1" class="content-section text-center">
-                <a href="#dia2" class="btn btn-circle page-scroll">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </section>
-            <section id="dia2" class="content-section text-center">
-                <a href="#dia3" class="btn btn-circle page-scroll">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </section>
-            <section id="dia3" class="content-section text-center">
-                <a href="#dia4" class="btn btn-circle page-scroll">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </section>
-            <section id="dia4" class="content-section text-center">
-                <a href="#about" class="btn btn-circle page-scroll">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </section>
-
-        </div>
+        <!-- Download Section -->
+        <section id="download" class="content-section text-center">
+            <div class="download-section">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Try NootPad!</h2>
+                        <p>Sign up for NootPad!</p>
+                        <a href="signup.jsp" class="btn btn-default btn-lg">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
+        <!-- Footer -->
+        <footer>
+            <div class="container text-center">
+                <p>Copyright &copy; Bits Please 2017</p>
+            </div>
+        </footer>
 
+        
 
     </body>
+
 </html>

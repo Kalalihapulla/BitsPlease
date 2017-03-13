@@ -96,7 +96,7 @@
             </div>
             <div class='container-fluid' id='back'>
                 <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="post" action="javascript:sendMessage('to','subject','messageout','${loggedInUser}')">
+                        <form class="form-horizontal" role="form" id="form1" method="post" action="javascript:sendMessage('to','subject','messageout','${loggedInUser}')">
                             <div class="form-group">
                                 <label for="email" class="col-sm-2 control-label">To (email):</label>
                                 <div class="col-sm-10">

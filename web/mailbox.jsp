@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project Bits | Sign up!</title>
+        <title>Project Bits | Mailbox</title>
 
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -40,13 +40,13 @@
         <link href="css/grayscale.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        
+
         <script>
             $(document).ready(function () {
                 var userID = "${loggedInUser}";
                 getMessages(userID);
                 $('#refreshB').click(function () {
-                   getMessages(userID);
+                    getMessages(userID);
                 });
             });
             function getUser() {
@@ -131,7 +131,7 @@
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-striped" id="mailtable">
                                 <tbody>
-                                    
+
                                 </tbody>
                             </table><!-- /.table -->
                         </div><!-- /.mail-box-messages -->
