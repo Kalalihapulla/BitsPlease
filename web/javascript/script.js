@@ -245,7 +245,6 @@ function createNote(caller) {
 }
 
 function createNoteDrop(caller, job) {
-    console.log(job);
     var text = caller.find('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
     var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
@@ -464,11 +463,11 @@ $(document).ready(function () {
             drop: function (event, ui) {
                 var id = (ui.draggable.attr("id"));
                 switch ($(this).attr("id")) {
-                    case 'dropShelf':
-                        createNoteDrop($("#" + id), 'shelf');
+                    case 'dropStore':
+                        createNoteDrop($("#" + id), 'store');
                         break;
-                    case 'dropChef':
-                        createNoteDrop($("#" + id), 'chef');
+                    case 'dropMana':
+                        createNoteDrop($("#" + id), 'management');
                         break;
                     case 'dropJan':
                         createNoteDrop($("#" + id), 'janitor');
