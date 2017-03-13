@@ -94,12 +94,11 @@ function validate(email) {
 }
 
 
-function getUserd(email){
+function getUserd(email) {
     $.ajax({
-        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userJob/"+email,
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userJob/" + email,
         type: 'GET',
         async: false,
-       
 
         success: function (data) {
             noteset(data);
@@ -137,7 +136,7 @@ function sendMessage(to, subjects, messageout, from) {
                             Message sent!.\n\
                            </div>");
             $("#form1").prepend(domElement);
-             $('#form1').closest('form').find("input[type=text], textarea").val("");
+            $('#form1').closest('form').find("input[type=text], textarea").val("");
 
 
 
@@ -145,7 +144,7 @@ function sendMessage(to, subjects, messageout, from) {
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
-                 var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+            var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
                             <a class='panel-close close' data-dismiss='alert'>×</a>\n\
                             <i class='fa fa-coffee'></i>\n\
                             No such address exists!\n\
@@ -371,7 +370,7 @@ function loadRadio() {
 
 $(document).ready(function () {
     var noteIndex = 0;
-    
+
     noteset();
     $("#addTask").click(function () {
         createNote();
@@ -416,10 +415,11 @@ $(document).ready(function () {
 
     $("#sortable1, #sortable2, #sortable3").sortable({
         //    items: "li:not(.ui-state-disabled)"    
+
         connectWith: "#sortable1, #sortable2, #sortable3",
         tolerance: 'pointer',
         forceHelperSize: true,
-        containment: "#taskboxbackground",
+        containment: "#dashpage",
 
         start: function (e, ui) {
             $(ui.placeholder).hide(200);
@@ -428,34 +428,87 @@ $(document).ready(function () {
             $(ui.placeholder).hide().show(200);
 
         },
-        
-        receive: function(event, ui) {
-        var source = ui.sender;
-        var target = $(event.target);
-        var id = ui.item.attr("id");
-               
+
+        receive: function (event, ui) {
+            var source = ui.sender;
+            var target = $(event.target);
+            var id = ui.item.attr("id");
+
+
+
             if (target.is("#sortable1")) {
-                     var status = "STATUS_APPROVED";
+                var status = "STATUS_APPROVED";
+            }
+
+            if (target.is("#sortable2")) {
+                var status = "STATUS_PROCESSING";
+            }
+
+            if (target.is("#sortable3")) {
+                var status = "STATUS_DONE";
+            }
+
+
+
+
+            $.ajax({
+
+                url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
+                data: status,
+                type: 'PUT',
+                contentType: "text/plain",
+                async: false,
+
+                success: function () {
+                    //location.reload();
                 }
-                  
-                if (target.is("#sortable2")) {
-                     var status = "STATUS_PROCESSING";
-                }
- 
-                 if (target.is("#sortable3")) {
-                     var status = "STATUS_DONE";
-                }
-                
+                ,
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("fail");
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                },
+                timeout: 1200000
+            });
+
+        }
+
+    });
+
+
+
+
+
+    $("#deletenote, #sortable3").sortable({
+        //    items: "li:not(.ui-state-disabled)"    
+
+        connectWith: "#sortable3, #deletenote, #sortable1, #sortable2",
+        tolerance: 'pointer',
+        forceHelperSize: true,
+        containment: "#dashpage",
+
+        receive: function (event, ui) {
+            var source = ui.sender;
+            var target = $(event.target);
+            var id = ui.item.attr("id");
+
+
+            if (target.is("#deletenote") && source.is("#sortable3")) {
+                ui.item.empty();
+                ui.item.css('clear', 'both');
+                ui.item.css('background-color', '#FFCCCC');
+                ui.item.slideUp();
+
                 $.ajax({
-                    
                     url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
-                    data: status,
-                    type: 'PUT',
-                    contentType: "text/plain",
-                    async: false,
- 
+                    type: 'DELETE',
+
                     success: function () {
-                        //location.reload();
+                        ui.item.remove();
+                        alert("Note deleted");
+
+                        ;
+
                     }
                     ,
                     error: function (xhr, ajaxOptions, thrownError) {
@@ -465,21 +518,12 @@ $(document).ready(function () {
                     },
                     timeout: 1200000
                 });
- 
             }
-
+        }
     });
-    
-    $("#sortable1, #sortable2, #sortable3").disableSelection();
 
 
-    $("#taskInfo").click(function () {
-
-        $("infoBox").show(1000);
-        $("infoBox").append('TEST TEST TEST');
-        alert("aasdasd");
-
-    });
+    $("#sortable1, #sortable2, #sortable3, #deletenote").disableSelection();
 
 
     $(document).load(function () {
@@ -526,57 +570,57 @@ $(document).ready(function () {
 
         });
 
-});
+    });
 
-/*
-Reference: http://jsfiddle.net/BB3JK/47/
-*/
+    /*
+     Reference: http://jsfiddle.net/BB3JK/47/
+     */
 
-$('select').each(function(){
-    var $this = $(this), numberOfOptions = $(this).children('option').length;
-  
-    $this.addClass('select-hidden'); 
-    $this.wrap('<div class="select"></div>');
-    $this.after('<div class="select-styled"></div>');
+    $('select').each(function () {
+        var $this = $(this), numberOfOptions = $(this).children('option').length;
 
-    var $styledSelect = $this.next('div.select-styled');
-    $styledSelect.text($this.children('option').eq(0).text());
-  
-    var $list = $('<ul />', {
-        'class': 'select-options'
-    }).insertAfter($styledSelect);
-  
-    for (var i = 0; i < numberOfOptions; i++) {
-        $('<li />', {
-            text: $this.children('option').eq(i).text(),
-            rel: $this.children('option').eq(i).val()
-        }).appendTo($list);
-    }
-  
-    var $listItems = $list.children('li');
-  
-    $styledSelect.click(function(e) {
-        e.stopPropagation();
-        $('div.select-styled.active').not(this).each(function(){
-            $(this).removeClass('active').next('ul.select-options').hide();
+        $this.addClass('select-hidden');
+        $this.wrap('<div class="select"></div>');
+        $this.after('<div class="select-styled"></div>');
+
+        var $styledSelect = $this.next('div.select-styled');
+        $styledSelect.text($this.children('option').eq(0).text());
+
+        var $list = $('<ul />', {
+            'class': 'select-options'
+        }).insertAfter($styledSelect);
+
+        for (var i = 0; i < numberOfOptions; i++) {
+            $('<li />', {
+                text: $this.children('option').eq(i).text(),
+                rel: $this.children('option').eq(i).val()
+            }).appendTo($list);
+        }
+
+        var $listItems = $list.children('li');
+
+        $styledSelect.click(function (e) {
+            e.stopPropagation();
+            $('div.select-styled.active').not(this).each(function () {
+                $(this).removeClass('active').next('ul.select-options').hide();
+            });
+            $(this).toggleClass('active').next('ul.select-options').toggle();
         });
-        $(this).toggleClass('active').next('ul.select-options').toggle();
-    });
-  
-    $listItems.click(function(e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $list.hide();
-        //console.log($this.val());
-    });
-  
-    $(document).click(function() {
-        $styledSelect.removeClass('active');
-        $list.hide();
-    });
 
-});
+        $listItems.click(function (e) {
+            e.stopPropagation();
+            $styledSelect.text($(this).text()).removeClass('active');
+            $this.val($(this).attr('rel'));
+            $list.hide();
+            //console.log($this.val());
+        });
+
+        $(document).click(function () {
+            $styledSelect.removeClass('active');
+            $list.hide();
+        });
+
+    });
 
 });
 

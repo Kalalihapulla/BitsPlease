@@ -13,18 +13,13 @@ and open the template in the editor.
     margin-top:0px !important;
     padding-top: 0px !important;
 }
- .feature {
-     font-family: 'Abel' !important;
-     height: 50vw;
-     width: 100%;
-     padding-top: 200px !important;
- }
 
 body {
     background-image: url("back.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
+
 #about {
     background-color: transparent;
 }
@@ -259,7 +254,7 @@ footer {
     border-color: black;
     min-width:0x; 
     width: 98%; 
-    min-height:600px; 
+    
     height: fit-content;
 
 }
@@ -343,8 +338,46 @@ height: 40vh;
 
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-    background-color: black;
+   background-color: black;
  }
  
+#deletenote { 
+    background-color: #FFCCCC;
+    float: right;
+    margin: 0% 8% 1.5% 1%;
+    padding: 0.5em 0.5em 2em 0.5em;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    min-width:0%; 
+    width: 20%; 
+    height: 2em;
+    min-height:0%; 
+    box-shadow: 5px 5px 2.5px rgba(0, 0, 0, 0.5);
+    font-size: 2vw;
+    color: black;
+    text-align: center; 
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+#dashpage {
+    background-color: transparent;
+    float: left;
+    margin: 1% 1% 1% 1%;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    border-radius: 5px;
+    border-color: black;
+    min-width:0x; 
+    width: 98%; 
+    min-height:3500px; 
+    height: fit-content;
+
+}
+
+
 
 
