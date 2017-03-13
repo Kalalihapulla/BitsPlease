@@ -356,9 +356,56 @@ $(document).ready(function () {
         change: function (e, ui) {
             $(ui.placeholder).hide().show(200);
 
-        }
+        },
+        
+        receive: function(event, ui) {
+        var source = ui.sender;
+        var target = $(event.target);
+        console.log(id);
+ 
+               
+            if (target.is("#sortable1")) {
+                     alert("1");
+                     var status = "STATUS_APPROVED";
+                }
+               
+ 
+               
+                if (target.is("#sortable2")) {
+                     alert("2");
+                     var status = "STATUS_APPROVED";
+                }
+ 
+                 if (target.is("#sortable3")) {
+                     alert("3");
+                     var status = "STATUS_APPROVED";
+                }
+                
+                $(this).ajax({
+                    
+                    url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
+                    data: status,
+                    type: 'PUT',
+                    contentType: "text/plain",
+                    async: false,
+ 
+                    success: function () {
+                        //location.reload();
+                        alert("Note Updated");
+                    }
+                    ,
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("fail");
+                        console.log(xhr.status);
+                        console.log(thrownError);
+                    },
+                    timeout: 1200000
+                });
+ 
+            }
 
     });
+    
     $("#sortable1, #sortable2, #sortable3").disableSelection();
 
 
@@ -415,6 +462,9 @@ $(function () {
 });
 
 });
+
+
+
 });
 
 
