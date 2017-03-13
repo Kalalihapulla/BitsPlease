@@ -271,7 +271,8 @@ function opennote(caller) {
             height: 400
         });
 
-        var noteinfo = caller.siblings('.task').val();
+        var noteinfo = $(caller).closest('.task').val();
+        console.log(noteinfo);
         $("#taskinfo").append('<div class="ui-state-default task"> ' + noteinfo + '</div>');
         $("#taskinfo").dialog("open");
 
@@ -299,7 +300,6 @@ function loadRadio() {
 
 $(document).ready(function () {
     var noteIndex = 0;
-    var mailIndex = 0;
 
     noteset();
     $("#addTask").click(function () {
