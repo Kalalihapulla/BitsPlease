@@ -1,7 +1,3 @@
-
-
-
-
 <%-- 
     Document   : userDash
     Created on : Feb 26, 2017, 5:14:20 PM
@@ -48,13 +44,7 @@
 
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        
-        <script>
-            $(document).ready(function () {
-                var user = "${loggedInUser}";
-                getUserd(user);
-            });
-        </script>
+
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -78,8 +68,8 @@
                         </c:if>
                     <li><a href='dashboard.jsp'>Dashboard</a></li>
                     <li><a href='userDash.jsp'>User dashboard</a></li>
-                     <li><a href='messages.jsp'>Messages</a></li>
-                     <li><a href="mailbox.jsp">Mailbox</a></li>
+                    <li><a href='messages.jsp'>Messages</a></li>
+                    <li><a href="mailbox.jsp">Mailbox</a></li>
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -107,53 +97,61 @@
         </nav>
 
         <div class='container' id='main'>
-            <div class='row index-row' id='info'>
-                <h1 id='dashboard' class='text-center'>User Dashboard</h1>
-                <%--<c:if test="${not empty loggedInUser}">--%>
-                    <!--<h3 class='text-center'>Welcome "${loggedInUser}"</h3>-->
-                <!--<div class='row' id='notes'></div>-->
-                <%--</c:if>--%>
-                <%--<c:if test="${empty loggedInUser}">--%>
-                <!--<h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>-->
-                <%--</c:if>--%>
-            </div>
+            <div id="dashpage">
+                <div class='row index-row' id='info'>
+                    <h1 id='dashboard' class='text-center'>User Dashboard</h1>
+                    <div id="deletenote">
+                        Delete note 
 
-            
-               <div id="taskinfo">
-                  
-               </div> 
-            
-            
+                    </div>
 
-            <div id="taskboxbackground">
-                <div class="taskheader">
-                    Available tasks
+                    <%--<c:if test="${not empty loggedInUser}">--%>
+                        <!--<h3 class='text-center'>Welcome "${loggedInUser}"</h3>-->
+                    <!--<div class='row' id='notes'></div>-->
+                    <%--</c:if>--%>
+                    <%--<c:if test="${empty loggedInUser}">--%>
+                    <!--<h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>-->
+                    <%--</c:if>--%>
                 </div>
 
-                <div class="taskheader">
-                    In progress
-                </div>
 
-                <div class="taskheader">
-                    Completed tasks
+
+                <div id="taskinfo">
+
                 </div> 
 
 
-                <div id="sortable1" class="taskBox row grid span8">
 
-                </div>
+                <div id="taskboxbackground">
 
-                <div id="sortable2" class="taskBox row grid span8">
+                    <div class="taskheader">
+                        Available tasks
+                    </div>
 
-                </div>
+                    <div class="taskheader">
+                        In progress
+                    </div>
 
-                <div id="sortable3" class="taskBox row grid span8">
-
-                </div>
-
-            </div>          
+                    <div class="taskheader">
+                        Completed tasks
+                    </div> 
 
 
+                    <div id="sortable1" class="taskBox row grid span8">
+
+                    </div>
+
+                    <div id="sortable2" class="taskBox row grid span8">
+
+                    </div>
+
+                    <div id="sortable3" class="taskBox row grid span8">
+
+                    </div>
+
+                </div>          
+
+            </div>
         </div>
 
 
