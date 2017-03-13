@@ -115,4 +115,10 @@ public class Message implements Serializable {
         this.readStatus = readStatus;
     }
 
+    @Override
+    public String toString() {
+       return this.body;
+    }
+    
+
 }

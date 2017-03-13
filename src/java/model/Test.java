@@ -30,7 +30,10 @@ public class Test {
 //        accountFacadeREST.create(new UserAccount());
 //        MessageFacadeREST eST = new MessageFacadeREST();
 //        eST.create(new Message("test", "admint", "helllo"));
-        populate();
+        //populate();
+        MessageFacadeREST eST =new MessageFacadeREST();
+        Long lul = 2L;       
+        eST.remove(lul, "test@ulu");
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();

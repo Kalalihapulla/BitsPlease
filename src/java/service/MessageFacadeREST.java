@@ -6,6 +6,8 @@
 package service;
 
 import Util.HibernateStuff;
+import static java.util.Collections.list;
+import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -98,9 +100,42 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
     }
 
     @DELETE
-    @Path("{id}")
-    public void remove(@PathParam("id") Long id) {
-        super.remove(super.find(id));
+    @Path("delete/{msgid}/{email}")
+    public void remove(@PathParam("msgid") Long msgid, @PathParam("email") String email) {
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        Session session
+                = sessionFactory.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            UserAccount ua = this.restHelper.getUserByEmail(email);
+            System.out.println(ua.getId());
+          
+           
+            UserAccount update = (UserAccount) session.get(UserAccount.class, ua.getId());
+            List<Message> messages = update.getMessages();
+            for (Iterator<Message> iter = messages.listIterator(); iter.hasNext();) {
+                Long a = iter.next().getId();
+                if (a == msgid) {
+                    iter.remove();
+                }
+            }
+           
+
+             update.setMessages(messages);
+            System.out.println(update.getMessages());
+            session.update(update);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+
+        }
+
     }
 
     @GET

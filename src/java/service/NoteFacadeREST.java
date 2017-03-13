@@ -99,6 +99,7 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
         tx = session.beginTransaction();
         session.delete(find(id));
       
+      
     }
 
     @GET
