@@ -457,7 +457,6 @@ $(document).ready(function () {
                 data: status,
                 type: 'PUT',
                 contentType: "text/plain",
-                async: false,
 
                 success: function () {
                     //location.reload();

@@ -41,8 +41,12 @@
         <link href="css/grayscale.min.css" rel="stylesheet">
         <link href="skins/square/red.css" type="text/css" rel="stylesheet">
         <link href="css/grayscale.min.css" rel="stylesheet">
-
-
+        <script>
+            $(document).ready(function () {
+                var user = "${loggedInUser}";
+                getUserd(user);
+            });
+        </script>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
