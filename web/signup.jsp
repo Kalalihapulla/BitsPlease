@@ -110,9 +110,9 @@
                                 <input type="password" name='repeat' id="repeat" class="form-control" placeholder="Repeat password" required="">
                                 <div style="padding-bottom: 10px">
                                     <select class="form-control" placeholder="Choose job description">
-                                        <option>Chef</option>
+                                        <option>Management</option>
                                         <option>Janitor</option>
-                                        <option>Shelver</option>
+                                        <option>Storekeeper</option>
                                         <option>Cashier</option>
                                     </select>
                                 </div>
