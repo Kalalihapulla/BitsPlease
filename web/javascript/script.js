@@ -361,27 +361,21 @@ $(document).ready(function () {
         receive: function(event, ui) {
         var source = ui.sender;
         var target = $(event.target);
-        console.log(id);
- 
+        var id = ui.item.attr("id");
                
             if (target.is("#sortable1")) {
-                     alert("1");
                      var status = "STATUS_APPROVED";
                 }
-               
- 
-               
+                  
                 if (target.is("#sortable2")) {
-                     alert("2");
-                     var status = "STATUS_APPROVED";
+                     var status = "STATUS_PROCESSING";
                 }
  
                  if (target.is("#sortable3")) {
-                     alert("3");
-                     var status = "STATUS_APPROVED";
+                     var status = "STATUS_DONE";
                 }
                 
-                $(this).ajax({
+                $.ajax({
                     
                     url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
                     data: status,
@@ -391,7 +385,6 @@ $(document).ready(function () {
  
                     success: function () {
                         //location.reload();
-                        alert("Note Updated");
                     }
                     ,
                     error: function (xhr, ajaxOptions, thrownError) {
