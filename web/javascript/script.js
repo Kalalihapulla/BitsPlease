@@ -125,7 +125,12 @@ function sendMessage(to, subjects, messageout, from) {
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
-
+                 var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
+                            <a class='panel-close close' data-dismiss='alert'>×</a>\n\
+                            <i class='fa fa-coffee'></i>\n\
+                            No such address exists!\n\
+                           </div>");
+            $("#form1").prepend(domElement);
             console.log(xhr.status);
             console.log(thrownError);
         },
