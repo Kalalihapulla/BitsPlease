@@ -210,10 +210,9 @@ function getMessages(email) {
                         <td><button class='btn btn-default btn-sm' onclick='removeMessage($(this))'><i class='glyphicon glyphicon-trash'></i></button></td><td class='mailbox-name'>From: "+senderT+" - To: "+receiverT+"\n\
                         </td><td class='mailbox-subject'><b>Subject: "+subjectT+"</b></td>\n\
                         <td class='mailbox-date'>Time: "+timeT+"</td></tr><tr>\n\
-                        <td colspan='12' class='hiddenRow'><div class='accordian-body collapse' id='mail"+i+"'><div>"+bodyT+"</div></td></tr>");
+                        <td colspan='12' class='hiddenRow' style='display=none;'><div class='accordian-body collapse' id='mail"+i+"'><div>"+bodyT+"</div></td></tr>");
 
                 $('#mailtable').append(domElement);
-
             }
 
 
@@ -232,7 +231,11 @@ function getMessages(email) {
 }
 
 function removeMessage(caller) {
+    var id = $(caller).closest('tr').attr('data-target');
+    console.log(id);
     $(caller).closest('tr').remove();
+    $(id).parent().remove();
+    $(id).remove();
 }
 
 function setMessages() {

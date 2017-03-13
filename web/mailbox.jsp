@@ -43,8 +43,9 @@
         
         <script>
             $(document).ready(function () {
+                var userID = "${loggedInUser}";
+                getMessages(userID);
                 $('#refreshB').click(function () {
-                   var userID = "${loggedInUser}";
                    getMessages(userID);
                 });
             });
@@ -127,35 +128,7 @@
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-striped" id="mailtable">
                                 <tbody>
-                                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                                        <td><button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button></td>
-                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                                        <td class="mailbox-date">5 mins ago</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1"> 
-                                                <div>Message goes here.</div>                  
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                                        <td class="mailbox-date">5 mins ago</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                                        <td class="mailbox-date">28 mins ago</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td class="mailbox-name"><a href="readmail.jsp">WM06</a></td>
-                                        <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                                        <td class="mailbox-date">11 hours ago</td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table><!-- /.table -->
                         </div><!-- /.mail-box-messages -->

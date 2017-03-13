@@ -34,6 +34,8 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="javascript/script.js"></script>
         <script src="javascript/script2.js"></script>
+        <script src="jquery.selectbox.min.js" type="text/javascript"></script>
+        <link href="jquery.selectbox.css" rel="stylesheet" type="text/css" />
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
@@ -41,46 +43,46 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                        Menu <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="index.jsp">
-                        <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
-                    </a>
-                </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.jsp">
+                    <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
+                </a>
+            </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
-                    <ul class="nav navbar-nav">
-                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                        <c:if test="${empty loggedInUser}">
-                            <li><a href='signup.jsp'>Sign Up</a></li>
-                        </c:if>
-                        <li><a href='dashboard.jsp'>Dashboard</a></li>
-                        <c:if test="${not empty loggedInUser}">
-                    <li><a href='userDash.jsp'>User dashboard</a></li>
-                    </c:if>
-                    </ul>
-                    <c:if test="${not empty loggedInUser}">
-                        <form class='navbar-form navbar-right' method='post' action='login' >
-                            <p id='loggedIn'>Welcome ${loggedInUser}</p>
-                            <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
-                        </form>
-                    </c:if>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <c:if test="${empty loggedInUser}">
-                        <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
-                            <div class='form-group'>
-                                <input class='form-control note-input' placeholder='Email' type='email' name='email' />
-                            </div>
-                            <div class='form-group'>
-                                <input class='form-control note-input' placeholder='Password' type='password' name='pass' />
-                            </div>
-                            <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
-                        </form>
-                    </c:if>
-                </div>
-                <!-- /.navbar-collapse -->
+                        <li><a href='signup.jsp'>Sign Up</a></li>
+                        </c:if>
+                    <li><a href='dashboard.jsp'>Dashboard</a></li>
+                        <c:if test="${not empty loggedInUser}">
+                        <li><a href='userDash.jsp'>User dashboard</a></li>
+                        </c:if>
+                </ul>
+                <c:if test="${not empty loggedInUser}">
+                    <form class='navbar-form navbar-right' method='post' action='login' >
+                        <p id='loggedIn'>Welcome ${loggedInUser}</p>
+                        <input class='form-control btn btn-info note-input' type='submit' value='Log Out' name='submit'>
+                    </form>
+                </c:if>
+                <c:if test="${empty loggedInUser}">
+                    <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
+                        <div class='form-group'>
+                            <input class='form-control note-input' placeholder='Email' type='email' name='email' />
+                        </div>
+                        <div class='form-group'>
+                            <input class='form-control note-input' placeholder='Password' type='password' name='pass' />
+                        </div>
+                        <input class='form-control btn btn-info note-input' type='submit' value='Log In' name='submit'>
+                    </form>
+                </c:if>
+            </div>
+            <!-- /.navbar-collapse -->
             <!-- /.container -->
         </nav>
 
@@ -106,6 +108,14 @@
                                 <input type="password" name='pass' id="pass" class="form-control" placeholder="Password" required="">
                                 <label for="repeat" class="sr-only">Password</label>
                                 <input type="password" name='repeat' id="repeat" class="form-control" placeholder="Repeat password" required="">
+                                <div style="padding-bottom: 10px">
+                                    <select class="form-control" placeholder="Choose job description">
+                                        <option>Chef</option>
+                                        <option>Janitor</option>
+                                        <option>Shelver</option>
+                                        <option>Cashier</option>
+                                    </select>
+                                </div>
                                 <button class="btn btn-lg btn-primary btn-block" id="cUser" type="submit">Sign Up</button>
                             </form>
                         </div>
