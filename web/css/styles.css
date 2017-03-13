@@ -214,6 +214,7 @@ footer {
     height: 50%; 
     cursor: url(grab.png) 4 12, auto;
     z-index: 890;
+    word-wrap: break-word;
 }
 
 .task:active { 
