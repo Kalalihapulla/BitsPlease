@@ -49,6 +49,9 @@
                    getMessages(userID);
                 });
             });
+            function getUser() {
+                return "${loggedInUser}";
+            }
         </script>
 
     </head>

@@ -110,12 +110,12 @@
 
                     <div class='row' style='width:100vw;'>
                         <div class='col-xs-3'>
-                    <div id="dropShelf" class="droppable droppableleft ui-widget-header">
-                        SHELVERS
+                    <div id="dropStore" class="droppable droppableleft ui-widget-header">
+                        STOREKEEPERS
                     </div>
 
-                    <div id="dropChef" class="droppable droppableleft ui-widget-header">
-                        CHEFS
+                    <div id="dropMana" class="droppable droppableleft ui-widget-header">
+                        MANAGEMENT
                     </div>
                         </div>
                         <div class='col-xs-6' id='notes'></div>
