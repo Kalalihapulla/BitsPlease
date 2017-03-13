@@ -64,7 +64,7 @@ function validate() {
 function sendMessage(to, subjects, messageout, from) {
     var sender = from;
     var receiver = document.getElementById(to).value;
-    var subject = document.getElementById(subject).value;
+    var subject = document.getElementById(subjects).value;
     var body = document.getElementById(messageout).value;
    
 
