@@ -250,7 +250,7 @@ function setMessages() {
 
 
             }
-            alert(text);
+           
 
         }, error: function (xhr, ajaxOptions, thrownError) {
             alert("fail");
@@ -288,6 +288,30 @@ function updateStatus(id, status) {
 
 
 
+}
+function deleteMessage(msgid,email){
+    
+    $.ajax({
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.message/delete/" + msgid + "/"+email,
+        type: 'DELETE',
+        async: false,
+
+        success: function () {
+          
+            alert("Message deleted");
+        }
+        ,
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert("fail");
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 1200000
+    });
+    
+    
+    
+    
 }
 
 

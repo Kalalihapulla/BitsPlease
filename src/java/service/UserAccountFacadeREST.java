@@ -141,14 +141,6 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
 
     }
 
-    @GET
-    @Path("userByEmail")
-    @Produces(MediaType.APPLICATION_XML)
-    public UserAccount getUsertest() {
-
-        return this.restHelper.getUserByEmail("admint@koppa");
-    }
-
     @POST
     @Path("userByEmail")
     @Consumes(MediaType.APPLICATION_XML)
@@ -170,6 +162,17 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     public boolean checkPassword(@PathParam("email") String email, @PathParam("password") String password) {
         Validate validate = new Validate();
         return validate.checkUser(email, password);
+    }
+
+    @POST
+    @Path("signup")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
+    public boolean signupCheck(String email) {
+        UserAccount account = new UserAccount();
+        account.setEmail(email);
+        return !this.restHelper.checkEmail(account);
+
     }
 
     @Override
