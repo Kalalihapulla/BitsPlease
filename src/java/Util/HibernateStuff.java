@@ -6,6 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.boot.registry.internal.StandardServiceRegistryImpl;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class HibernateStuff {
 
@@ -21,7 +22,7 @@ public class HibernateStuff {
         config.addAnnotatedClass(model.UserAccount.class);
         config.addAnnotatedClass(model.AdminAccount.class);
         config = config.configure();
-
+//new SchemaExport(config).create(true, true);
         StandardServiceRegistryBuilder serviceRegistryBuilder
                 = new StandardServiceRegistryBuilder();
         serviceRegistryBuilder.applySettings(config.getProperties());

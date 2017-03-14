@@ -11,38 +11,38 @@
 <html>
     <!--Head-->
     <head>
-        <title>Project Bits | User</title>
-
+        <title>Project Bits | User Dash</title>
+ 
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-        <!--Javascript-->
-        
         <script src="vendor/jquery/jquery.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ 
+        <!-- JavaScript -->
+       
+        <script src="javascript/grayscale.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="javascript/script.js"></script>
-        <script src="javascript/grayscale.js"></script>
-        
-
-        <!--CSS-->
-        <link rel="stylesheet"href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"/>  
+       
+        <!-- CSS -->
+       
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="css/grayscale.min.css" rel="stylesheet">
-
-        <!--Script to get tasks-->
+        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
+        <link href="css/grayscale.min.css" rel="stylesheet">
+       
         <script>
             $(document).ready(function () {
                 var user = "${loggedInUser}";
@@ -50,7 +50,7 @@
             });
         </script>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+ 
     </head>
     <!--Body -->
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

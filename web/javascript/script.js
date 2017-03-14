@@ -433,10 +433,10 @@ $(document).ready(function () {
     });
 
 // Makes userDash columns sortable
-    $("#sortable1, #sortable2").sortable({
+    $("#sortable1, #sortable2,#sortable3, #deletenote").sortable({
         //    items: "li:not(.ui-state-disabled)"    
 
-        connectWith: "#sortable1, #sortable2, #sortable3",
+        connectWith: "#sortable1, #sortable2, #sortable3, #deletenote",
         tolerance: 'pointer',
         forceHelperSize: true,
         containment: "#dashpage",
@@ -458,56 +458,20 @@ $(document).ready(function () {
 
             if (target.is("#sortable1")) {
                 var status = "STATUS_APPROVED";
+                alert(status);
             }
 
             if (target.is("#sortable2")) {
                 var status = "STATUS_PROCESSING";
+                 alert(status);
             }
 
             if (target.is("#sortable3")) {
                 var status = "STATUS_DONE";
+                 alert(status);
             }
-
-            $.ajax({
-
-                url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
-                data: status,
-                type: 'PUT',
-                contentType: "text/plain",
-
-                success: function () {
-                    //location.reload();
-                }
-                ,
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert("fail");
-                    console.log(xhr.status);
-                    console.log(thrownError);
-                },
-                timeout: 1200000
-            });
-
-        }
-
-    });
-
-// Provides functionality for drag and drop task delete
-
-    $("#deletenote, #sortable3").sortable({
-        //    items: "li:not(.ui-state-disabled)"    
-
-        connectWith: "#sortable3, #deletenote, #sortable1, #sortable2",
-        tolerance: 'pointer',
-        forceHelperSize: true,
-        containment: "#dashpage",
-
-        receive: function (event, ui) {
-            var source = ui.sender;
-            var target = $(event.target);
-            var id = ui.item.attr("id");
-
-
-            if (target.is("#deletenote") && source.is("#sortable3")) {
+            
+             if (target.is("#deletenote")) {
                 ui.item.empty();
                 ui.item.css('clear', 'both');
                 ui.item.css('background-color', '#FFCCCC');
@@ -533,9 +497,34 @@ $(document).ready(function () {
                     timeout: 1200000
                 });
             }
+
+            $.ajax({
+
+                url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
+                data: status,
+                type: 'PUT',
+                contentType: "text/plain",
+                async: false,
+
+                success: function () {
+                    //location.reload();
+                }
+                ,
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("fail");
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                },
+                timeout: 1200000
+            });
+
         }
+
     });
 
+// Provides functionality for drag and drop task delete
+
+   
 
     $("#sortable1, #sortable2, #sortable3, #deletenote").disableSelection();
 
