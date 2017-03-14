@@ -1,6 +1,4 @@
 
-
-
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -15,7 +13,7 @@ and open the template in the editor.
 }
 
 body {
-    background-image: url("back.jpg");
+    background-image: url("../images/back.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
@@ -133,15 +131,35 @@ footer {
     border-top-right-radius: 0;
 }
 
-.draggable { width: 170px; height: 130px; padding: 0.5em; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5); background-image: url('note.png'); background-size: cover; padding: 0.5em; margin: 5px 5px 5px 5px; border: none; background-color: transparent;cursor: url(grab.png) 4 12, auto;}
-
-.ui-draggable-helper { border: 1px dotted gray; }
-
-.draggable:active {
-    cursor: url(grabbing.png) 4 12, auto;
+.draggable { 
+width: 170px;
+height: 130px;
+padding: 0.5em;
+box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+background-image: url('note.png');
+background-size: cover; padding: 0.5em;
+margin: 5px 5px 5px 5px;
+border: none;
+background-color: transparent;
+cursor: url(../images/grab.png) 4 12, auto;
+}
+.ui-draggable-helper { border: 1px dotted gray; 
 }
 
-.droppable { width: 250px; height: 250px; padding: 0.5em; margin: 10px; border-radius: 15px; opacity: 0.4; line-height: 210px; text-align: center; font-size: 1.5em; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;}
+.draggable:active {
+    cursor: url(../images/grabbing.png) 4 12, auto;
+}
+
+.droppable { width: 250px;
+            height: 250px;
+            padding: 0.5em;
+            margin: 10px;
+            border-radius: 15px;
+            opacity: 0.4;
+            line-height: 210px;
+            text-align: center;
+            font-size: 1.5em;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;}
 .droppableright {
     float: right;
     margin-right: -19px;
@@ -195,7 +213,8 @@ footer {
     font-size: 2vw;
     color: black;
     text-align: center; 
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: bold;
 }
 
 
@@ -212,14 +231,14 @@ footer {
     width: 100%; 
     min-height:0x; 
     height: 50%; 
-    cursor: url(grab.png) 4 12, auto;
+    cursor: url(../images/grab.png) 4 12, auto;
     z-index: 890;
     word-wrap: break-word;
 }
 
 .task:active { 
   
-    cursor: url(grabbing.png) 4 12, auto;
+    cursor: url(../images/grabbing.png) 4 12, auto;
     
 }
 
@@ -359,7 +378,8 @@ height: 40vh;
     font-size: 2vw;
     color: black;
     text-align: center; 
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: bold;
 }
 
 
