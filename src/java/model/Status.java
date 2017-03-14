@@ -6,12 +6,11 @@
 package model;
 
 /**
- *
- * @author himelr
+ * Value for the note status.
  */
 public enum Status {
     STATUS_APPROVED,
     STATUS_PROCESSING,
     STATUS_DONE;
-    
+
 }

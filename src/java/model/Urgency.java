@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package model;
-
 /**
- *
- * @author Izymi
+ * Value for the urgency
  */
 public enum Urgency {
     LOW(0),
@@ -19,7 +17,7 @@ public enum Urgency {
         this.number = number;
     }
 
-   public int returnValue() {
+    public int returnValue() {
         return this.number;
     }
 

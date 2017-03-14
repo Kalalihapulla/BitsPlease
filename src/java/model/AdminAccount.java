@@ -9,15 +9,11 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author himelr
- */
 @Entity
 @DiscriminatorValue("adminuser")
 @XmlRootElement
 public class AdminAccount extends UserAccount {
-
+    
     public AdminAccount() {
     }
 
