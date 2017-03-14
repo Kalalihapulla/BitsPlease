@@ -18,13 +18,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
         <!--Javascript-->
-        <script src="javascript/grayscale.js"></script>
+        
         <script src="vendor/jquery/jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="javascript/script.js"></script>
+        <script src="javascript/grayscale.js"></script>
+        
 
         <!--CSS-->
         <link rel="stylesheet"href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"/>  
