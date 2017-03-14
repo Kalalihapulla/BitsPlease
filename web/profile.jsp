@@ -10,43 +10,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project Bits | About</title>
+        <title>Project Bits | Profile</title>
 
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+        <!-- JavaScript -->
+
         <script src="vendor/jquery/jquery.js"></script>
-
-        <script src="js/grayscale.min.js"></script>
-
-        <link rel="stylesheet"
-              href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="javasscript/grayscale.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="javascript/script.js"></script>
+        <script src="javascript/script2.js"></script>
+
+        <!-- CSS -->
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <script src="javascript/script.js"></script>
-        <script src="javascript/script2.js"></script>
+        <link href="css/grayscale.css" rel="stylesheet">
 
-        <link href="css/grayscale.min.css" rel="stylesheet">
+        <!-- Load JSTL -->
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -59,7 +61,6 @@
 
             <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
                 <ul class="nav navbar-nav">
-
                     <c:if test="${empty loggedInUser}">
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
@@ -75,7 +76,6 @@
                     <form class='navbar-form navbar-right' method='post' action='profile.jsp' >
                         <button class='form-control btn btn-info note-input' onClick="location.href = 'profile.jsp';" name='profile'>Profile</button>
                     </form>
-
                 </c:if>
                 <c:if test="${empty loggedInUser}">
                     <form class='navbar-form navbar-right' style='padding-right: 2em;' method='post' action='login' >
@@ -89,13 +89,11 @@
                     </form>
                 </c:if>
             </div>
-
         </nav>
 
         <div class='container' id='main'>
             <h1 class="page-header">Edit Profile</h1>
             <div class="row">
-
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center" id = "trump">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Donald_Trump_August_19,_2015_(cropped).jpg" style="width:50%;height:50%;" class="avatar img-circle img-thumbnail" alt="avatar">
@@ -104,13 +102,7 @@
                 </div>
 
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="padding-right: 2em;">
-                    <!--                    <div class="alert alert-info alert-dismissable">
-                                            <a class="panel-close close" data-dismiss="alert">×</a> 
-                                            <i class="fa fa-coffee"></i>
-                                            This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                                        </div>-->
                     <h3>Personal info</h3>
-<!--                    var userId = '${loggedInUser}';updateProfile(userId)-->
                     <form class="form-horizontal center-block" id="myForm" role="form">
                         <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
@@ -162,20 +154,11 @@
                                 <input class="btn btn-default" value="Cancel" type="button" onclick="location.reload();"
                             </div>
                         </div>
-
                 </div>
+                </form>
             </div>
-        </form>
-        <script>
-            //            $('#change').click(function ()) {
-            //                var userId = '${loggedInUser}';
-            //                sentProfile(userId);
-            //
-            //
-            //
-            //            });
-        </script>
-
+        </div>
+    </div>
 
 </body>
 <script>
@@ -188,7 +171,6 @@
         $('#trump').click(function () {
             audioElement.play();
             $('#trump').effect("shake");
-
         });
     });
 </script>

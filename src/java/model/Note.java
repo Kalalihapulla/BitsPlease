@@ -6,19 +6,15 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author himelr
+ * Contains different methods for the Note object, mainly get() and set() methods.
  */
 @Entity
 //@Table(name = "notebase")

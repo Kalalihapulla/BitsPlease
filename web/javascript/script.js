@@ -5,6 +5,7 @@
  */
 
 
+// Scale window nicely when rescaled
 
 $(document).ready(resize);
 $(window).resize(resize);
@@ -12,12 +13,14 @@ function resize() {
     $('.container').css('height', $(window).height());
     $('.container').css('width', $(window).width());
 }
+
+// Signup validation
+
 function validate(email) {
     var invalid = " "; // Invalid character is a space
     var minLength = 4; // Minimum length
     var pw1 = document.myForm.pass.value;
     var pw2 = document.myForm.repeat.value;
-// check for a value in both fields.
 
     $.ajax({
         url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/signup",
@@ -93,6 +96,7 @@ function validate(email) {
     }
 }
 
+// Gets user ID in order to see which job the user belongs to
 
 function getUserd(email) {
     $.ajax({
@@ -112,6 +116,8 @@ function getUserd(email) {
     });
 }
 
+// Sends the message to backend
+
 function sendMessage(to, subjects, messageout, from) {
     var sender = from;
     var receiver = document.getElementById(to).value;
@@ -130,6 +136,7 @@ function sendMessage(to, subjects, messageout, from) {
         dataType: "application/xml",
         async: false,
         success: function () {
+            // Create success alert if all goes through
             var domElement = $("<div class='alert alert-success alert-dismissable'>\n\
                             <a class='panel-close close' data-dismiss='alert'>×</a>\n\
                             <i class='fa fa-coffee'></i>\n\
@@ -144,6 +151,7 @@ function sendMessage(to, subjects, messageout, from) {
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
+            // Create fail alert if things fail
             var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
                             <a class='panel-close close' data-dismiss='alert'>×</a>\n\
                             <i class='fa fa-coffee'></i>\n\
@@ -159,7 +167,7 @@ function sendMessage(to, subjects, messageout, from) {
 
 }
 
-
+// Function, which brings up the correct task sortables for the logged in user
 
 function noteset(data) {
     var job = data;
@@ -247,6 +255,9 @@ function noteset(data) {
         timeout: 120000
     });
 }
+
+// Sends a note to database and removes the note div
+
 function createNote(caller) {
     var text = caller.siblings('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
@@ -263,9 +274,6 @@ function createNote(caller) {
         //processData: false,
         success: function () {
 
-
-
-
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
@@ -280,6 +288,8 @@ function createNote(caller) {
 
 
 }
+
+// Same as createNote, but acts only when dropped in the .droppable in dashboard. Takes the job as parameter
 
 function createNoteDrop(caller, job) {
     var text = caller.find('#noteText').val();
@@ -298,8 +308,6 @@ function createNoteDrop(caller, job) {
         success: function () {
 
 
-
-
         }
         ,
         error: function (xhr, ajaxOptions, thrownError) {
@@ -312,17 +320,18 @@ function createNoteDrop(caller, job) {
         caller.css('visibility', 'hidden');
     });
     caller.html("");
-
-
-
 }
+
+// Removes the note in dashboard.jsp
+
 function removal(caller) {
     caller.parent("div").css('visibility', 'hidden');
     caller.parent("div").html("");
 }
 
-function opennote(caller) {
+// Extends note info in user board
 
+function opennote(caller) {
 
     $(function () {
 
@@ -349,6 +358,8 @@ function opennote(caller) {
     });
 }
 
+// Loads iCheck radiobuttons for dashboard notes
+
 function loadRadio() {
     $('#high').iCheck({
         checkboxClass: 'icheckbox_square-red',
@@ -368,6 +379,8 @@ function loadRadio() {
 
 }
 
+// Functions that need to be run when document is ready
+
 $(document).ready(function () {
     var noteIndex = 0;
 
@@ -375,12 +388,14 @@ $(document).ready(function () {
     $("#addTask").click(function () {
         createNote();
         noteset();
-
     });
     $("#createButton").click(function () {
         createNote();
 
     });
+
+    // Creates a note when the button is pressed. It then prepends to the #notes row
+
     $("#noteButton").click(function () {
         var domElement = $("<div id='note" + noteIndex + "' class='draggable col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
                         <span class='glyphicon glyphicon-remove' id='close' onclick='removal($(this))'; return false;'></span>\n\
@@ -398,10 +413,13 @@ $(document).ready(function () {
                         </textarea></div>");
 
         $('#notes').prepend(domElement);
+        // Load the iCheck buttons
         loadRadio();
+        // Make the element draggable
         $(".draggable").draggable({
             containment: ".row"
         });
+        // Enable animated resize for said element
         $(".draggable").resizable({
             animate: true,
             maxHeight: 600,
@@ -410,9 +428,11 @@ $(document).ready(function () {
             minWidth: 130,
             aspectRatio: true
         });
+        // Increase the note index to provide each note with a unique ID
         noteIndex++;
     });
 
+// Makes userDash columns sortable
     $("#sortable1, #sortable2").sortable({
         //    items: "li:not(.ui-state-disabled)"    
 
@@ -448,9 +468,6 @@ $(document).ready(function () {
                 var status = "STATUS_DONE";
             }
 
-
-
-
             $.ajax({
 
                 url: "http://localhost:8080/ProjectTestUD/webresources/model.note/" + id,
@@ -474,9 +491,7 @@ $(document).ready(function () {
 
     });
 
-
-
-
+// Provides functionality for drag and drop task delete
 
     $("#deletenote, #sortable3").sortable({
         //    items: "li:not(.ui-state-disabled)"    
@@ -529,15 +544,7 @@ $(document).ready(function () {
         $("infoBox").hide();
     });
 
-    //$(function () {
-    //  $(".grid").sortable({
-    //      tolerance: 'pointer',
-    //      revert: 'invalid',
-    //     placeholder: 'span2 well placeholder tile',
-    //        forceHelperSize: true
-    //     });
-    //  });
-
+    // Makes the drop areas droppable and gives a parameter for createNoteDrop depending on where the draggable was dropped
 
     $(function () {
         $(".droppable").droppable({
@@ -561,19 +568,12 @@ $(document).ready(function () {
                 $(this)
                         .animate({backgroundColor: '#98FB98', opacity: 0.6}, 1000, function () {
                             $(this).animate({backgroundColor: 'white', opacity: 0.4}, 3000);
-                        })
-                        ;
+                        });
             }
-
-
-
         });
-
     });
 
-    /*
-     Reference: http://jsfiddle.net/BB3JK/47/
-     */
+    // SumoSelect jQuery plugin function
 
     $('select').each(function () {
         var $this = $(this), numberOfOptions = $(this).children('option').length;

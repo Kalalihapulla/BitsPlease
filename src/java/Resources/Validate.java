@@ -5,12 +5,6 @@
  */
 package Resources;
 
-/**
- *
- * @author samuelja
- */
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import model.UserAccount;
 import service.RestHelper;
@@ -23,8 +17,15 @@ public class Validate {
         this.helper = new RestHelper();
     }
 
+    /**
+     * Checks if the user email already exists when registering a new account.
+     * Also checks if the password exists.
+     * @param email email to compare with database
+     * @param pass password to compare with database
+     * @return 
+     */
     public boolean checkUser(String email, String pass) {
-       
+
         List<UserAccount> users = this.helper.findAll();
 
         try {
@@ -35,7 +36,6 @@ public class Validate {
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

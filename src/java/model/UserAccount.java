@@ -14,28 +14,24 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.hibernate.annotations.ManyToAny;
 
-/**
- *
- * @author himelr
- */
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue(value = "regularuser")
 @XmlRootElement
 //@Table(name = "userbase") 
+/**
+ * Contains methods and parameters for the UserAccount object.
+ */
 public class UserAccount implements Serializable {
 
     private Long id;
@@ -49,8 +45,8 @@ public class UserAccount implements Serializable {
     private boolean isAdmin;
 
     public UserAccount() {
-        this("unknown", "unknown", "unknown","unknown","unknown");
-   
+        this("unknown", "unknown", "unknown", "unknown", "unknown");
+
     }
 
     public UserAccount(String email, String password, String description, String firstName, String lastName) {

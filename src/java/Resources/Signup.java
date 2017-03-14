@@ -6,7 +6,6 @@
 package Resources;
 
 import java.io.*;
-import java.sql.Connection;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,12 +13,20 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class Signup extends HttpServlet {
-   private final Validate validate;
+
+    private final Validate validate;
 
     public Signup() {
         this.validate = new Validate();
     }
 
+    /**
+     * Is used during signup to evaluate the information given
+     * @param request the request entity for the servlet
+     * @param response the response entity for the servlet
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

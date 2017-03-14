@@ -12,17 +12,24 @@ package Resources;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
 
 public class Login extends HttpServlet {
+
     private final Validate validate;
 
     public Login() {
         this.validate = new Validate();
     }
 
+    /**
+     * This method is run when the user logs in. It checks for the email and password and if they are valid.
+     * @param request the request entity for the servlet
+     * @param response the response entity for the servlet
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
