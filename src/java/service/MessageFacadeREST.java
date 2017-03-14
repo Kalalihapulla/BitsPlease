@@ -28,9 +28,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-/**
- *
- * @author Izymi
+
+
+
+/**Message REST
+ * 
+ * @author Himel
  */
 @Stateless
 @Path("model.message")
@@ -38,14 +41,14 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
 
     @PersistenceContext(unitName = "ProjectTestUDPU")
     private EntityManager em;
-    private RestHelper restHelper;
+    private final RestHelper restHelper;
     private SessionFactory sessionFactory;
 
     public MessageFacadeREST() {
         super(Message.class);
         this.restHelper = new RestHelper();
     }
-
+    
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Override
@@ -98,6 +101,12 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
     public void edit(@PathParam("id") Long id, Message entity) {
         super.edit(entity);
     }
+    /**
+     * Removes messages
+     * @param msgid Message id which is used the remove it.
+     * @param email Email of the user who the message is removed from.
+     *  
+     */
 
     @DELETE
     @Path("delete/{msgid}/{email}")
@@ -137,7 +146,11 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
         }
 
     }
-
+/**
+ * Returns message by id.
+ * @param id Message id.
+ * @return Message object.
+ */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
