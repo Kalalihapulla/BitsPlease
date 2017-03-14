@@ -10,7 +10,7 @@ function createUser() {
     var lName = $("#lName").val();
     var email = $("#email").val();
     var password = $("#pass").val();
-    var job = "EMPTY";
+    var job = $("#job").val();
     var xml = "<userAccount><email>" + email + "</email> <firstName>" + fName + "</firstName><jobDescription>" + job + "</jobDescription><lastName>" + lName + "</lastName><password>" + password + "</password></userAccount>";
 
     $.ajax({
