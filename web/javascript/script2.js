@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//Is used when posting the user information with REST
 function createUser() {
     var fName = $("#fName").val();
     var lName = $("#lName").val();
@@ -19,9 +21,7 @@ function createUser() {
         dataType: "application/plain",
         success: function () {
             //location.reload();
-        }
-        ,
-        error: function (xhr, ajaxOptions, thrownError) {
+        }, error: function (xhr, ajaxOptions, thrownError) {
 
             console.log(xhr.status);
             console.log(thrownError);
@@ -29,6 +29,8 @@ function createUser() {
         timeout: 1200000
     });
 }
+
+//Checks if the password give by the user matches the database entry
 function checkPass(email, password, nPass, nPass2) {
 
     if ((nPass === nPass2 && nPass.length >= 4) || (nPass === "" && nPass2 === "")) {
@@ -48,13 +50,9 @@ function checkPass(email, password, nPass, nPass2) {
                             <i class='fa fa-coffee'></i>\n\
                             Wrong password!.\n\
                            </div>");
-        $("#myForm").prepend(domElement);
-
+                    $("#myForm").prepend(domElement);
                 }
-
-
             }, error: function (xhr, ajaxOptions, thrownError) {
-
                 console.log(xhr.status);
                 console.log(thrownError);
             },
@@ -65,17 +63,14 @@ function checkPass(email, password, nPass, nPass2) {
         var domElement = $("<div class='alert alert-danger alert-dismissable'>\n\
                             <a class='panel-close close' data-dismiss='alert'>×</a>\n\
                             <i class='fa fa-coffee'></i>\n\
-                            Error. Plase follow the rules.\n\
+                            Error. Please follow the rules.\n\
                            </div>");
         $("#myForm").prepend(domElement);
-
-
     }
-
 }
+
+//Updates the profile by sending putting data with REST
 function sendProfile(email, nPass) {
-
-
 
     $.ajax({
         url: "http://localhost:8080/ProjectTestUD/webresources/model.useraccount/userByEmail",
@@ -108,35 +103,28 @@ function sendProfile(email, nPass) {
                 async: false,
 
                 success: function () {
-                    //location.reload();
                     var domElement = $("<div class='alert alert-success alert-dismissable'>\n\
                             <a class='panel-close close' data-dismiss='alert'>×</a>\n\
                             <i class='fa fa-coffee'></i>\n\
                             Profile updated!\n\
                            </div>");
-        $("#myForm").prepend(domElement);
-                }
-                ,
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert("fail");
+                    $("#myForm").prepend(domElement);
+                }, error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
                     console.log(thrownError);
                 },
                 timeout: 1200000
             });
-            //location.reload();
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
+        }, error: function (xhr, ajaxOptions, thrownError) {
             ;
             console.log(xhr.status);
             console.log(thrownError);
         },
         timeout: 12000
     });
-
 }
 
-
+//Updats the profile information
 function updateProfile(email) {
 
     $.ajax({
@@ -147,7 +135,6 @@ function updateProfile(email) {
         async: false,
 
         success: function (data) {
-            // alert("yyy");
             var email = data.getElementsByTagName("email");
             var fname = data.getElementsByTagName("firstName");
             var lname = data.getElementsByTagName("lastName");
@@ -161,19 +148,15 @@ function updateProfile(email) {
             $('#lnameT').val(lnameT);
             $('#emailT').val(emailT);
             $('#positionT').val(jobT);
-
-            //location.reload();
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            //alert("fail");
+        }, error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
             console.log(thrownError);
         },
         timeout: 1200000
     });
-
-
 }
+
+//Gets the messages and their information with REST
 function getMessages(email) {
     $("#mailtable").html("");
     $.ajax({
@@ -191,7 +174,6 @@ function getMessages(email) {
             var subject = resultData.getElementsByTagName("subject");
             var id = resultData.getElementsByTagName("id");
 
-
             receiverT = "";
             senderT = "";
             timeT = "";
@@ -206,30 +188,24 @@ function getMessages(email) {
                 bodyT = body[i].childNodes[0].nodeValue;
                 timeT = time[i].childNodes[0].nodeValue;
                 idT = id[i].childNodes[0].nodeValue;
-                var domElement = $("<tr data-toggle='collapse' data-target='#"+idT+"' class='accordion-toggle'>\n\
-                        <td><button class='btn btn-default btn-sm' onclick='removeMessage($(this))'><i class='glyphicon glyphicon-trash'></i></button></td><td class='mailbox-name'>From: "+senderT+" - To: "+receiverT+"\n\
-                        </td><td class='mailbox-subject'><b>Subject: "+subjectT+"</b></td>\n\
-                        <td class='mailbox-date'>Time: "+timeT+"</td></tr><tr>\n\
-                        <td colspan='12' class='hiddenRow' style='display=none;'><div class='accordian-body collapse' id='"+idT+"'><div>"+bodyT+"</div></td></tr>");
+                var domElement = $("<tr data-toggle='collapse' data-target='#" + idT + "' class='accordion-toggle'>\n\
+                        <td><button class='btn btn-default btn-sm' onclick='removeMessage($(this))'><i class='glyphicon glyphicon-trash'></i></button></td><td class='mailbox-name'>From: " + senderT + " - To: " + receiverT + "\n\
+                        </td><td class='mailbox-subject'><b>Subject: " + subjectT + "</b></td>\n\
+                        <td class='mailbox-date'>Time: " + timeT + "</td></tr><tr>\n\
+                        <td colspan='12' class='hiddenRow' style='display=none;'><div class='accordian-body collapse' id='" + idT + "'><div>" + bodyT + "</div></td></tr>");
 
                 $('#mailtable').append(domElement);
             }
-
-
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
+        }, error: function (xhr, ajaxOptions, thrownError) {
             ;
             console.log(xhr.status);
             console.log(thrownError);
         },
         timeout: 12000
     });
-
-
-
-
 }
 
+//Removes the message from the mailbox
 function removeMessage(caller) {
     var id = $(caller).closest('tr').attr('data-target');
     var idT = id.substring(1);
@@ -241,6 +217,7 @@ function removeMessage(caller) {
     deleteMessage(idT, user);
 }
 
+//Gets the text in the message
 function setMessages() {
     jQuery.ajax({
 
@@ -252,23 +229,17 @@ function setMessages() {
             var message = resultData.getElementsByTagName("body");
             for (i = 0; i < message.length; i++) {
                 text += message[i].childNodes[0].nodeValue;
-
-
-
             }
-           
 
         }, error: function (xhr, ajaxOptions, thrownError) {
-            alert("fail");
             console.log(xhr.status);
             console.log(thrownError);
         },
         timeout: 120000
     });
-
-
-
 }
+
+//Updates the status of the object
 function updateStatus(id, status) {
 
     $.ajax({
@@ -279,60 +250,37 @@ function updateStatus(id, status) {
         async: false,
 
         success: function () {
-            //location.reload();
             alert("Note Updated");
-        }
-        ,
-        error: function (xhr, ajaxOptions, thrownError) {
-            alert("fail");
+        }, error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
             console.log(thrownError);
         },
         timeout: 1200000
     });
-
-
-
-
 }
-function deleteMessage(msgid,email){
-    
+
+//Deletes the messages using REST
+function deleteMessage(msgid, email) {
+
     $.ajax({
-        url: "http://localhost:8080/ProjectTestUD/webresources/model.message/delete/" + msgid + "/"+email,
+        url: "http://localhost:8080/ProjectTestUD/webresources/model.message/delete/" + msgid + "/" + email,
         type: 'DELETE',
-       
 
         success: function () {
-
-        }
-        ,
-        error: function (xhr, ajaxOptions, thrownError) {
-            alert("fail");
+        }, error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
             console.log(thrownError);
         },
         timeout: 12000
     });
-    
-    
-    
-    
 }
 
-
+//Loads the messages
 $(document).ready(function () {
-
 
     $("#cUser").click(function () {
         setMessages();
         createUser();
-
-
-
     });
-
-
-
-
 });
 

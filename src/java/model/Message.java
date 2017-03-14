@@ -12,10 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
 /**
- *
- * @author Izymi
+ * Contains the different methods for Message objects, mainly get() and set() methods.
  */
 @Entity
 @XmlRootElement
@@ -34,13 +32,13 @@ public class Message implements Serializable {
         this.sender = sender;
         this.receiver = receiver;
         this.body = body;
-        this.subject= subject;
+        this.subject = subject;
         this.timeCreated = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date());
         this.readStatus = false;
     }
 
     public Message() {
-        this("unknown", "unknown", "empty","empty");
+        this("unknown", "unknown", "empty", "empty");
     }
 
     @XmlElement
@@ -100,6 +98,7 @@ public class Message implements Serializable {
         return this.readStatus;
 
     }
+
     @XmlElement
     @Basic
     public String getSubject() {
@@ -117,8 +116,7 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-       return this.body;
+        return this.body;
     }
-    
 
 }

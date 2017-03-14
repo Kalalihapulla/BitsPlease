@@ -6,15 +6,11 @@
 package model;
 
 /**
- *
- * @author himelr
+ * Value for job description.
  */
 public enum JobDescription {
     JANITOR,
     CASHIER,
     MANAGEMENT,
     STOREKEEPER;
-    
-    
-    
 }

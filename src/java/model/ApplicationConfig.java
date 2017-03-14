@@ -8,10 +8,6 @@ package model;
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
-/**
- *
- * @author Izymi
- */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
 
@@ -28,6 +24,7 @@ public class ApplicationConfig extends Application {
      * all resources defined in the project.
      * If required, comment out calling this method in getClasses().
      */
+
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(service.AdminAccountFacadeREST.class);
         resources.add(service.MessageFacadeREST.class);
