@@ -458,17 +458,17 @@ $(document).ready(function () {
 
             if (target.is("#sortable1")) {
                 var status = "STATUS_APPROVED";
-                alert(status);
+           
             }
 
             if (target.is("#sortable2")) {
                 var status = "STATUS_PROCESSING";
-                 alert(status);
+              
             }
 
             if (target.is("#sortable3")) {
                 var status = "STATUS_DONE";
-                 alert(status);
+               
             }
             
              if (target.is("#deletenote")) {
@@ -490,7 +490,7 @@ $(document).ready(function () {
                     }
                     ,
                     error: function (xhr, ajaxOptions, thrownError) {
-                        alert("fail");
+                      
                         console.log(xhr.status);
                         console.log(thrownError);
                     },
@@ -504,7 +504,7 @@ $(document).ready(function () {
                 data: status,
                 type: 'PUT',
                 contentType: "text/plain",
-                async: false,
+                
 
                 success: function () {
                     //location.reload();
