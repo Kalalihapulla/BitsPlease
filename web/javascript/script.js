@@ -294,7 +294,7 @@ function createNote(caller) {
 function createNoteDrop(caller, job) {
     var text = caller.find('#noteText').val();
     var prio = $("input:radio[name=optradio]:checked").val();
-    var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency></note>";
+    var xml = "<note><description>" + text + "</description><urgency>" + prio + "</urgency><worker>"+job+"</worker></note>";
 
 
     $.ajax({
