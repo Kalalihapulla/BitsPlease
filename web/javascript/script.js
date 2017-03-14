@@ -551,17 +551,17 @@ $(document).ready(function () {
             drop: function (event, ui) {
                 var id = (ui.draggable.attr("id"));
                 switch ($(this).attr("id")) {
-                    case 'dropStore':
-                        createNoteDrop($("#" + id), 'store');
+                    case 'dropStore': 
+                        createNoteDrop($("#" + id), 'Storekeeper');
                         break;
                     case 'dropMana':
-                        createNoteDrop($("#" + id), 'management');
+                        createNoteDrop($("#" + id), 'Management');
                         break;
                     case 'dropJan':
-                        createNoteDrop($("#" + id), 'janitor');
+                        createNoteDrop($("#" + id), 'Janitor');
                         break;
                     case 'dropCash':
-                        createNoteDrop($("#" + id), 'cash');
+                        createNoteDrop($("#" + id), 'Cash');
                         break;
                 }
 
