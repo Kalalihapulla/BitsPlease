@@ -84,7 +84,7 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
             }
 
             tx.commit();
-            session.close();
+           
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
@@ -120,9 +120,6 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
         try {
             tx = session.beginTransaction();
             UserAccount ua = this.restHelper.getUserByEmail(email);
-            System.out.println(ua.getId());
-          
-           
             UserAccount update = (UserAccount) session.get(UserAccount.class, ua.getId());
             List<Message> messages = update.getMessages();
             for (Iterator<Message> iter = messages.listIterator(); iter.hasNext();) {
@@ -134,10 +131,10 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
            
 
              update.setMessages(messages);
-            System.out.println(update.getMessages());
+          
             session.update(update);
             tx.commit();
-             session.close();
+         
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
