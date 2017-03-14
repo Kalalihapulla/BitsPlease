@@ -44,7 +44,6 @@ function validate(email) {
 
         },
         error: function (xhr, ajaxOptions, thrownError) {
-          
             console.log(xhr.status);
             console.log(thrownError);
         },
@@ -199,30 +198,30 @@ function noteset(data) {
                 //txt += x[i].childNodes[0].nodeValue + "<br>";
                 if (urgency[i].childNodes[0].nodeValue === "0") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
+                        $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
+                        $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
+                        $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#1B7E5A" aria-hidden="true"></i></div>');
 
                     }
 
                 }
                 if (urgency[i].childNodes[0].nodeValue === "1") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
+                        $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick=opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
+                        $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
+                        $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#FFCC33" aria-hidden="true"></i></div>');
 
                     }
 
@@ -231,15 +230,15 @@ function noteset(data) {
                 }
                 if (urgency[i].childNodes[0].nodeValue === "2") {
                     if (status[i].childNodes[0].nodeValue === "STATUS_APPROVED" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
+                        $("#sortable1").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_PROCESSING" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
+                        $("#sortable2").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
 
                     }
                     if (status[i].childNodes[0].nodeValue === "STATUS_DONE" && (job === jobDT || jobDT === "general")) {
-                        $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <img class="qm" src="questionmark.png" onclick="opennote($(this))"><br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
+                        $("#sortable3").append('<div class="ui-state-default task" id="' + idT + '"> ' + descT + ' <br> ' + urgencyT + '<br> ' + timeT + ' <i id="taskInfo" class="fa fa-circle" style="color:#D54E21" aria-hidden="true"></i></div>');
 
                     }
 
@@ -399,7 +398,6 @@ $(document).ready(function () {
     $("#noteButton").click(function () {
         var domElement = $("<div id='note" + noteIndex + "' class='draggable col-xs-6 col-sm-3 ui-widget-content ui-draggable ui-draggable-handle'>\n\
                         <span class='glyphicon glyphicon-remove' id='close' onclick='removal($(this))'; return false;'></span>\n\
-                        <span class='glyphicon glyphicon-ok' id='taskaddd' onclick='createNote($(this))'; return false;'></span>\n\
                         <form id='radioForm' style='float:right;padding-right:30px;'><div style= 'padding-right:1px;float:right'>\n\
                         <input type='radio' value=2 id='high' name='optradio'>\n\
                          </div>\n\
@@ -511,7 +509,6 @@ $(document).ready(function () {
                 }
                 ,
                 error: function (xhr, ajaxOptions, thrownError) {
-                  
                     console.log(xhr.status);
                     console.log(thrownError);
                 },
@@ -550,7 +547,7 @@ $(document).ready(function () {
                         createNoteDrop($("#" + id), 'Janitor');
                         break;
                     case 'dropCash':
-                        createNoteDrop($("#" + id), 'Cash');
+                        createNoteDrop($("#" + id), 'Cashier');
                         break;
                 }
 

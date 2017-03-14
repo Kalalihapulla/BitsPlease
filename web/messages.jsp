@@ -8,36 +8,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Bits Please | Messages</title>
+        
+        <!-- JavaScript -->
+        
         <script src="vendor/jquery/jquery.js"></script>
-
-        <!-- Theme JavaScript -->
-        <script src="js/grayscale.min.js"></script>
-
-        <link rel="stylesheet"
-              href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="javascript/grayscale.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="javascript/script.js"></script>
+        
+        <!-- CSS -->
+        
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <script src="javascript/script.js"></script>
-        <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
 
-
+        <!-- Load JSTL -->
+        
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
+    
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
         <!-- Navigation -->
