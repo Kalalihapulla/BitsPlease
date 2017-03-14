@@ -6,11 +6,43 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import service.MessageFacadeREST;
+import service.NoteFacadeREST;
+import service.UserAccountFacadeREST;
 
 public class Test {
 
     public static void main(String[] args) {
+
+//        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
+//        accountFacadeREST.create(new UserAccount());
+//        MessageFacadeREST eST = new MessageFacadeREST();
+//        eST.create(new Message("test", "admint", "helllo"));
+        //populate();
+//        MessageFacadeREST eST =new MessageFacadeREST();
+//        Long lul = 2L;       
+//        eST.remove(lul, "test@ulu");
+
+//populate();
+
+//        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
+//        accountFacadeREST.findAll();
+//        Criteria criteria = session.createCriteria(UserAccount.class);
+//        criteria.setMaxResults(5);
+//        List users = criteria.list();
+//
+//        users.forEach((user1) -> {
+//            UserAccount user1 = (UserAccount) user1;
+//            System.out.println(user1.getEmail());
+//        });
+//        String lul = "2";
+//        Long ulu = Long.parseLong(lul);
+//        updateUser(ulu, "lonhlhh");
+//        UsersResource resource = new UsersResource();
+//        System.out.println(resource.getOneUser());
+
         populate();
+
     }
 
     public static void updatePassword(Long UserAccountID, String password) {
