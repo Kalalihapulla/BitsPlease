@@ -46,7 +46,7 @@ public class Signup extends HttpServlet {
 
         } else {
             out.println("Account already exists!");
-            RequestDispatcher rs = request.getRequestDispatcher("Error.jsp");
+            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
             rs.include(request, response);
         }
     }
