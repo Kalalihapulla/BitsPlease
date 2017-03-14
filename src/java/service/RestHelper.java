@@ -14,13 +14,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
- * @author Izymi
+ * Gives rest classes additional functionality
+ * @author Himel
  */
 public class RestHelper {
 
     private SessionFactory sessionFactory;
-
+/**
+ * return user by email
+ * @param email user's email
+ * @return user
+ */
     public UserAccount getUserByEmail(String email) {
 
         List<UserAccount> users = findAll();
@@ -34,7 +38,10 @@ public class RestHelper {
         return new UserAccount();
 
     }
-
+/**
+ * All users
+ * @return list of users
+ */
     public List<UserAccount> findAll() {
 
         this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
@@ -53,7 +60,11 @@ public class RestHelper {
         return allusers;
 
     }
-
+/**
+ * Checks if email exists
+ * @param ua user which is tested
+ * @return boolean
+ */
     public boolean checkEmail(UserAccount ua) {
         List<UserAccount> users = findAll();
         for (UserAccount user : users) {

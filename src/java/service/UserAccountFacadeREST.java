@@ -33,6 +33,7 @@ import org.hibernate.Transaction;
 /**
  *
  * @author Izymi
+ * User REST
  */
 @Stateless
 @Path("model.useraccount")
@@ -47,7 +48,11 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         super(UserAccount.class);
         this.restHelper = new RestHelper();
     }
-
+/**
+ * 
+ * Consumes user xml. And creates a new account.
+ * @param entity The new user.
+ */
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -63,7 +68,11 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         }
 
     }
-
+/**
+ * Updates user
+ * @param id User's id
+ * @param entity The new user.
+ */
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -92,7 +101,11 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
-
+    /**
+     * GET user
+     * @param id user's id
+     * @return user which is returned
+     */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML})
@@ -127,7 +140,11 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    /**
+     * User by email
+     * @param email The user's email
+     * @return Wanted user
+     */
     @POST
     @Path("userByEmail")
     @Consumes({MediaType.TEXT_PLAIN})
@@ -140,7 +157,10 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         return ua;
 
     }
-
+    /**
+     * Updates user
+     * @param account User
+     */
     @POST
     @Path("userByEmail")
     @Consumes(MediaType.APPLICATION_XML)
@@ -154,16 +174,21 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
         session.getTransaction().commit();
 
     }
-
+/*'
+    Validates user and password.
+    */
     @GET
     @Path("userPassCheck/{email}/{password}")
-
     @Produces(MediaType.TEXT_PLAIN)
     public boolean checkPassword(@PathParam("email") String email, @PathParam("password") String password) {
         Validate validate = new Validate();
         return validate.checkUser(email, password);
     }
-
+   /**
+    * Check if email is registered
+    * @param email Email that is to be checked.
+    * @return true or false
+    */
     @POST
     @Path("signup")
     @Produces(MediaType.TEXT_PLAIN)
@@ -179,6 +204,11 @@ public class UserAccountFacadeREST extends AbstractFacade<UserAccount> {
     protected EntityManager getEntityManager() {
         return em;
     }
+    /**
+     * Return user's job
+     * @param email user's email
+     * @return job description
+     */
     @GET
     @Path("userJob/{email}")
     @Consumes(MediaType.TEXT_PLAIN)

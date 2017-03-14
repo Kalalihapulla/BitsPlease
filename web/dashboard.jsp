@@ -58,7 +58,7 @@
                     <c:if test="${empty loggedInUser}">
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
-                    <li><a href='dashboard.jsp'>Dashboard</a></li>
+                   <li><a href='dashboard.jsp'>Create tasks</a></li>
                         <c:if test="${not empty loggedInUser}">
                         <li><a href='userDash.jsp'>User dashboard</a></li>
                         <li><a href='messages.jsp'>Messages</a></li>
