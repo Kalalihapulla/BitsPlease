@@ -84,6 +84,7 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
             }
 
             tx.commit();
+            session.close();
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
@@ -136,6 +137,7 @@ public class MessageFacadeREST extends AbstractFacade<Message> {
             System.out.println(update.getMessages());
             session.update(update);
             tx.commit();
+             session.close();
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();

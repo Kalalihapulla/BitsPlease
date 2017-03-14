@@ -67,6 +67,7 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
 
         session.saveOrUpdate(note);
         session.getTransaction().commit();
+         session.close();
 
     }
 
@@ -92,6 +93,7 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
             note.setStatus(strtost(status));
             session.update(note);
             tx.commit();
+             session.close();
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();

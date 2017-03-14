@@ -44,7 +44,7 @@ function validate(email) {
 
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            //alert("fail");
+          
             console.log(xhr.status);
             console.log(thrownError);
         },
@@ -511,7 +511,7 @@ $(document).ready(function () {
                 }
                 ,
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alert("fail");
+                  
                     console.log(xhr.status);
                     console.log(thrownError);
                 },

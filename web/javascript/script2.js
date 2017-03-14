@@ -90,7 +90,7 @@ function sendProfile(email, nPass) {
             xml.getElementsByTagName("email")[0].childNodes[0].nodeValue = $('#emailT').val();
             xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue = $('#fnameT').val();
             xml.getElementsByTagName("lastName")[0].childNodes[0].nodeValue = $('#lnameT').val();
-            alert(xml.getElementsByTagName("firstName")[0].childNodes[0].nodeValue);
+          
 
             var id = xml.getElementsByTagName("id")[0].childNodes[0].nodeValue;
             var xmlText = new XMLSerializer().serializeToString(xml);
@@ -250,7 +250,7 @@ function updateStatus(id, status) {
         async: false,
 
         success: function () {
-            alert("Note Updated");
+           
         }, error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
             console.log(thrownError);
