@@ -7,40 +7,40 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
+    <!--Head-->
     <head>
-        <title>Project Bits | About</title>
+        <title>Project Bits | User</title>
 
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+        <!--Javascript-->
+        <script src="javascript/grayscale.js"></script>
         <script src="vendor/jquery/jquery.js"></script>
-
-        <!-- Theme JavaScript -->
-        <script src="js/grayscale.min.js"></script>
-
-        <link rel="stylesheet"
-              href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="javascript/script.js"></script>
+
+        <!--CSS-->
+        <link rel="stylesheet"href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"/>  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <script src="javascript/script.js"></script>
-        <!-- Theme CSS -->
         <link href="css/grayscale.min.css" rel="stylesheet">
-        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
-        <link href="css/grayscale.min.css" rel="stylesheet">
+
+        <!--Script to get tasks-->
         <script>
             $(document).ready(function () {
                 var user = "${loggedInUser}";
@@ -50,9 +50,10 @@
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
+    <!--Body -->
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-
+        <!--Nav bar start-->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -63,10 +64,9 @@
                 </a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--Signup-->
             <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <ul class="nav navbar-nav">                  
                     <c:if test="${empty loggedInUser}">
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
@@ -96,35 +96,21 @@
                     </form>
                 </c:if>
             </div>
-            <!-- /.navbar-collapse -->
-            <!-- /.container -->
         </nav>
-
+        
+        <!--Main container -->
         <div class='container' id='main'>
             <div id="dashpage">
                 <div class='row index-row' id='info'>
                     <h1 id='dashboard' class='text-center'>User Dashboard</h1>
                     <div id="deletenote">
                         Delete note 
-
                     </div>
-
-                    <%--<c:if test="${not empty loggedInUser}">--%>
-                        <!--<h3 class='text-center'>Welcome "${loggedInUser}"</h3>-->
-                    <!--<div class='row' id='notes'></div>-->
-                    <%--</c:if>--%>
-                    <%--<c:if test="${empty loggedInUser}">--%>
-                    <!--<h3 class='text-center'>You have no privileges as you're not logged in. Forgot to <a href="signup.jsp">sign up?</a></h3>-->
-                    <%--</c:if>--%>
                 </div>
-
-
 
                 <div id="taskinfo">
 
                 </div> 
-
-
 
                 <div id="taskboxbackground">
 
@@ -156,10 +142,7 @@
                 </div>          
 
             </div>
-        </div>
-
-
-
+        </div>´
     </body>
 </html>
 
