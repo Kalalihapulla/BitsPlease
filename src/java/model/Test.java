@@ -73,9 +73,9 @@ populate();
 
     public static void populate() {
         Note note1 = new Note();
-        Note note2 = new Note("Stop the robbery", 2,"Cashier");
+        Note note2 = new Note("Stop the robbery", 2,"Janitor");
         Note note3 = new Note();
-        Note note4 = new Note("Take out the garbage", 1,"Management");
+        Note note4 = new Note("Take out the garbage",0,"Janitor");
 
         ArrayList<Note> notes = new ArrayList<>();
         ArrayList<Note> notes2 = new ArrayList<>();
@@ -107,7 +107,8 @@ populate();
         Session session
                 = sessionFactory.openSession();
         session.beginTransaction();
-        Note note12 = new Note("Fill the shelves", 1,"Cashier");
+        Note note12 = new Note("Fill the shelves", 1,"Janitor");
+        Note note124 = new Note("Drink coffee", 0,"Janitor");
         notes2.add(note12);
         user.setNotes(notes);
         aduser.setNotes(notes2);
@@ -116,6 +117,7 @@ populate();
         session.saveOrUpdate(new Note("Go home", 2,"Janitor"));
         session.saveOrUpdate(note2);
         session.saveOrUpdate(note3);
+        session.saveOrUpdate(note124);
         session.saveOrUpdate(message1);
         session.saveOrUpdate(message2);
         session.saveOrUpdate(message3);

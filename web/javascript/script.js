@@ -413,7 +413,7 @@ $(document).ready(function () {
         noteIndex++;
     });
 
-    $("#sortable1, #sortable2, #sortable3").sortable({
+    $("#sortable1, #sortable2").sortable({
         //    items: "li:not(.ui-state-disabled)"    
 
         connectWith: "#sortable1, #sortable2, #sortable3",
