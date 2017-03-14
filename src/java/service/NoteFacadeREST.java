@@ -6,8 +6,10 @@
 package service;
 
 import Util.HibernateStuff;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,6 +23,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import model.Message;
 import model.Note;
 import model.Status;
 import model.UserAccount;
@@ -32,6 +35,7 @@ import org.hibernate.Transaction;
 
 /**
  * Note REST
+ *
  * @author himel
  */
 @Stateless
@@ -46,10 +50,12 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     public NoteFacadeREST() {
         super(Note.class);
     }
-/**
- * Note is created.
- * @param note Note which is created.
- */
+
+    /**
+     * Note is created.
+     *
+     * @param note Note which is created.
+     */
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -63,11 +69,13 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
         session.getTransaction().commit();
 
     }
-/**
- * Updates note status
- * @param id Note id
- * @param status New status
- */
+
+    /**
+     * Updates note status
+     *
+     * @param id Note id
+     * @param status New status
+     */
     @PUT
     @Path("{id}")
     @Consumes({MediaType.TEXT_PLAIN})
@@ -94,28 +102,46 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
         }
 
     }
-/**
- * Removes note by id
- * @param id Note id
- */
+
+    /**
+     * Removes note by id
+     *
+     * @param id Note id
+     */
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
-       this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
+        this.sessionFactory = HibernateStuff.getInstance().getSessionFactory();
         Session session
                 = sessionFactory.openSession();
-        Transaction tx = null;
+        session.getTransaction().begin();
+       
 
-        tx = session.beginTransaction();
-        session.delete(find(id));
-      
-      
+        try {
+             
+
+            Object note = session.load(Note.class, id);
+            if (note != null) {
+                System.out.println(note);
+                session.delete(note);
+                session.getTransaction().commit();
+            }
+           
+        } catch (HibernateException e) {
+           
+            e.printStackTrace();
+        } finally {
+
+        }
+
     }
-/**
- * Note by id return.
- * @param id Note id 
- * @return Note with the matching id.
- */
+
+    /**
+     * Note by id return.
+     *
+     * @param id Note id
+     * @return Note with the matching id.
+     */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -130,10 +156,12 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
                 = (Note) session.get(Note.class, id);
         return note;
     }
-/**
- * GET all notes
- * @return list of all notes.
- */
+
+    /**
+     * GET all notes
+     *
+     * @return list of all notes.
+     */
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -172,11 +200,13 @@ public class NoteFacadeREST extends AbstractFacade<Note> {
     protected EntityManager getEntityManager() {
         return em;
     }
-/**
- * Receives a string of status and changes it.
- * @param status String of the status 
- * @return Matching enum
- */
+
+    /**
+     * Receives a string of status and changes it.
+     *
+     * @param status String of the status
+     * @return Matching enum
+     */
     public static Status strtost(String status) {
         if (status.equals("STATUS_APPROVED")) {
             return Status.STATUS_APPROVED;

@@ -13,6 +13,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import service.MessageFacadeREST;
+import service.NoteFacadeREST;
 import service.UserAccountFacadeREST;
 
 /**
@@ -30,7 +31,8 @@ public class Test {
 //        MessageFacadeREST eST =new MessageFacadeREST();
 //        Long lul = 2L;       
 //        eST.remove(lul, "test@ulu");
-populate();
+
+//populate();
 
 //        UserAccountFacadeREST accountFacadeREST = new UserAccountFacadeREST();
 //        accountFacadeREST.findAll();
