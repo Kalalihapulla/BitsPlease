@@ -483,7 +483,7 @@ $(document).ready(function () {
 
                     success: function () {
                         ui.item.remove();
-                        alert("Note deleted");
+                 
 
                         ;
 
