@@ -1,3 +1,9 @@
+<%-- 
+    Document   : Dashboard
+    Created on : Feb 12, 2017, 10:38:15 PM
+    Author     : samuelja
+--%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +17,24 @@
 
         <title>Bits Please</title>
 
-        <link href="css/bootstrap.css" rel="stylesheet">
+        <!-- Javascript -->
 
-
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-
-        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
-        <link href="css/grayscale.min.css" rel="stylesheet">
         <script src="vendor/jquery/jquery.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="javascript/grayscale.js"></script>
 
-        <script src="js/grayscale.js"></script>
+        <!-- CSS -->
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="skins/square/red.css" type="text/css" rel="stylesheet">
+        <link href="css/grayscale.min.css" rel="stylesheet">
+
+        <!-- Load JSTL -->
+
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     </head>
@@ -33,6 +42,7 @@
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
         <!-- Navigation -->
+
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -42,11 +52,8 @@
                     <i class="fa fa-terminal"></i> <span class="light">Bits</span> Please
                 </a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-center navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <c:if test="${empty loggedInUser}">
                         <li><a href='signup.jsp'>Sign Up</a></li>
                         </c:if>
@@ -56,7 +63,6 @@
                         <li><a href='messages.jsp'>Messages</a></li>
                         <li><a href="mailbox.jsp">Mailbox</a></li>
                         </c:if>
-
                 </ul>
                 <c:if test="${not empty loggedInUser}">
                     <form class='navbar-form navbar-right' method='post' style='padding-right: 2em;' action='login' >
@@ -79,11 +85,10 @@
                     </form>
                 </c:if>
             </div>
-            <!-- /.navbar-collapse -->
-            <!-- /.container -->
         </nav>
 
-        <!-- Intro Header -->
+        <!-- Main page header -->
+
         <header class="intro">
             <div class="intro-body">
                 <div class="container polaroid">
@@ -101,6 +106,7 @@
         </header>
 
         <!-- About Section -->
+
         <section id="about" class="container content-section text-center">
             <div class="col-lg-8 col-lg-offset-2">
                 <div>
@@ -108,7 +114,6 @@
                     <div id='about'>
                         <p>
                             NootPad is a school project made in an effort to provide Stockmann Deli with an amazing user experience. NootPad provides the administration with a management tool that can be used to assign work for the users in a dynamic environment.  
-
                         </p>
                     </div>
                     <h3>Technical Details</h3>
@@ -118,7 +123,6 @@
                         </p>
                     </div>
                     <h3>Developers</h3>
-
                     <div id='about'>
                         <p>Samuel Jaantila
                         <p>Jere Raassina
@@ -129,8 +133,8 @@
             </div> 
         </section>
 
+        <!-- Sign Up -->
 
-        <!-- Download Section -->
         <section id="download" class="content-section text-center">
             <div class="download-section">
                 <div class="container">
@@ -143,16 +147,13 @@
             </div>
         </section>
 
-
-
         <!-- Footer -->
+
         <footer>
             <div class="container text-center">
                 <p>Copyright &copy; Bits Please 2017</p>
             </div>
         </footer>
-
-
 
     </body>
 
